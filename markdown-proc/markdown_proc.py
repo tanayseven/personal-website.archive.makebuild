@@ -25,7 +25,7 @@ class MarkdownLineProc(object):
     line = ''
 
     @classmethod
-    def _process_markdown_token(cls):
+    def _process_markdown_token(cls) -> None:
         token_length_2 = cls.line[cls.char_index] + cls.line[cls.char_index + 1]
         token_length_3 = token_length_2 + cls.line[cls.char_index + 2]
         if token_length_3 in cls.LINE_FORMATTING:
@@ -36,7 +36,7 @@ class MarkdownLineProc(object):
             cls._process_markdown_token_length_1()
 
     @classmethod
-    def _process_markdown_token_length_3(cls):
+    def _process_markdown_token_length_3(cls) -> None:
         i = cls.char_index
         token = cls.line[i] + cls.line[i + 1] + cls.line[i + 2]
         if cls.symbol_stack[-1] == token.strip():
@@ -48,7 +48,7 @@ class MarkdownLineProc(object):
         i += 3
 
     @classmethod
-    def _process_markdown_token_length_2(cls):
+    def _process_markdown_token_length_2(cls) -> None:
         i = cls.char_index
         token = cls.line[i] + cls.line[i + 1]
         if cls.symbol_stack[-1] == token.strip():
@@ -60,7 +60,7 @@ class MarkdownLineProc(object):
         i += 2
 
     @classmethod
-    def _process_markdown_token_length_1(cls):
+    def _process_markdown_token_length_1(cls) -> None:
         cls.resultant_line += cls.line[cls.char_index]
         cls.char_index += 1
 
