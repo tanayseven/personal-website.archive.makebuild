@@ -8,11 +8,13 @@ class MarkdownProc(object):
     LINE_FORMATTING = {
         ' *': ' <span class="italic-text">',
         ' _': ' <span class="italic-text">',
+        ' `': ' <code>',
         ' **': ' <span class="bold-text">',
         ' ~~': ' <span class="striked-text">',
 
         '* ': '</span> ',
         '_ ': '</span> ',
+        '` ': '</code> ',
         '** ': '</span> ',
         '~~ ': '</span> ',
     }
@@ -23,7 +25,7 @@ class MarkdownProc(object):
         resultant_line = ''
         char_index = 0
         line = ' ' + line + '  '
-        while char_index < len(line)-1:
+        while char_index < len(line)-2:
             if line[char_index] + line[char_index+1] + line[char_index+2] in MarkdownProc.LINE_FORMATTING:
                 if symbol_stack[-1] == (line[char_index] + line[char_index+1] + line[char_index+2]).strip():
                     symbol_stack.pop(-1)

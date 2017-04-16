@@ -76,3 +76,21 @@ class TestWordFormatting(object):
         output_html = MarkdownProc.parse_line(input_word)
         expected_html = 'multiple <span class="striked-text">bold</span> markings <span class="striked-text">throughout the line</span>'
         assert_that(output_html, is_(expected_html))
+
+    def test_input_word_with_grave_is_marked_as_code(self):
+        input_word = 'some `code` in a line'
+        output_html = MarkdownProc.parse_line(input_word)
+        expected_html = 'some <code>code</code> in a line'
+        assert_that(output_html, is_(expected_html))
+
+    def test_input_a_set_of_words_with_grave_is_marked_as_code(self):
+        input_word = 'a set of words `that are code` with spaces'
+        output_html = MarkdownProc.parse_line(input_word)
+        expected_html = 'a set of words <code>that are code</code> with spaces'
+        assert_that(output_html, is_(expected_html))
+
+    def test_input_a_set_of_words_with_grave_tilde_is_marked_as_code(self):
+        input_word = 'multiple `code` markings `throughout the line`'
+        output_html = MarkdownProc.parse_line(input_word)
+        expected_html = 'multiple <code>code</code> markings <code>throughout the line</code>'
+        assert_that(output_html, is_(expected_html))
