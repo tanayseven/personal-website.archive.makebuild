@@ -4,7 +4,7 @@ export SHELL:=/bin/bash
 
 NODE:=$(or $(shell which node), /usr/bin/node)
 NPM:=$(or $(shell which npm), /usr/bin/npm)
-MD:=$(or $(shell which markdown), /usr/local/bin/markdown)
+MD:=$(or $(shell which showdown), /usr/local/bin/showdown)
 
 POSTS_SRC:=$(wildcard posts/*md)
 OBJ_HTML:=$(patsubst posts/%.md, www/blog/%.html, $(POSTS_SRC))
@@ -14,7 +14,7 @@ build: $(OBJ_HTML) | checktools
 
 www/blog/%.html:posts/%.md
 	mkdir -p $(dir $@)
-	$(MD) $^ > $@
+	$(MD) makehtml -i $^ -o $@
 
 .PHONY: clean
 clean:
@@ -30,5 +30,5 @@ $(NPM):
 	sudo apt-get install npm
 
 $(MD): # TODO fix this
-	sudo npm install -g markdown-to-html
+	sudo npm install -g showdown@1.6.4
 
