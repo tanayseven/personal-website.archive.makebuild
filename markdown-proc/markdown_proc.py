@@ -3,7 +3,7 @@
 from typing import List, Tuple
 
 
-class MarkdownProc(object):
+class MarkdownLineProc(object):
 
     LINE_FORMATTING = {
         ' *': ' <span class="italic-text">',
@@ -26,21 +26,21 @@ class MarkdownProc(object):
         char_index = 0
         line = ' ' + line + '  '
         while char_index < len(line)-2:
-            if line[char_index] + line[char_index+1] + line[char_index+2] in MarkdownProc.LINE_FORMATTING:
+            if line[char_index] + line[char_index+1] + line[char_index+2] in MarkdownLineProc.LINE_FORMATTING:
                 if symbol_stack[-1] == (line[char_index] + line[char_index+1] + line[char_index+2]).strip():
                     symbol_stack.pop(-1)
-                    resultant_line += MarkdownProc.LINE_FORMATTING[line[char_index] + line[char_index+1] + line[char_index+2]]
+                    resultant_line += MarkdownLineProc.LINE_FORMATTING[line[char_index] + line[char_index+1] + line[char_index+2]]
                 else:
                     symbol_stack.append((line[char_index] + line[char_index+1] + line[char_index+2]).strip())
-                    resultant_line += MarkdownProc.LINE_FORMATTING[line[char_index] + line[char_index+1] + line[char_index+2]]
+                    resultant_line += MarkdownLineProc.LINE_FORMATTING[line[char_index] + line[char_index+1] + line[char_index+2]]
                 char_index += 3
-            elif line[char_index] + line[char_index+1]  in MarkdownProc.LINE_FORMATTING:
+            elif line[char_index] + line[char_index+1]  in MarkdownLineProc.LINE_FORMATTING:
                 if symbol_stack[-1] == (line[char_index] + line[char_index+1]).strip():
                     symbol_stack.pop(-1)
-                    resultant_line += MarkdownProc.LINE_FORMATTING[line[char_index] + line[char_index+1]]
+                    resultant_line += MarkdownLineProc.LINE_FORMATTING[line[char_index] + line[char_index+1]]
                 else:
                     symbol_stack.append((line[char_index] + line[char_index+1]).strip())
-                    resultant_line += MarkdownProc.LINE_FORMATTING[line[char_index] + line[char_index+1]]
+                    resultant_line += MarkdownLineProc.LINE_FORMATTING[line[char_index] + line[char_index+1]]
                 char_index += 2
             else:
                 resultant_line += line[char_index]
