@@ -45,7 +45,7 @@ class MarkdownLineProc(object):
         else:
             cls.symbol_stack.append(token.strip())
             cls.resultant_line += cls.LINE_FORMATTING[token]
-        i += 3
+        cls.char_index += 3
 
     @classmethod
     def _process_markdown_token_length_2(cls) -> None:
@@ -57,7 +57,7 @@ class MarkdownLineProc(object):
         else:
             cls.symbol_stack.append(token.strip())
             cls.resultant_line += cls.LINE_FORMATTING[token]
-        i += 2
+        cls.char_index += 2
 
     @classmethod
     def _process_markdown_token_length_1(cls) -> None:
