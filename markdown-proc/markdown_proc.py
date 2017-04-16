@@ -19,38 +19,65 @@ class MarkdownLineProc(object):
         '~~ ': '</span> ',
     }
 
-    @staticmethod
-    def parse_line(line: str) -> str:
-        symbol_stack = ['bottom']
-        resultant_line = ''
-        char_index = 0
-        line = ' ' + line + '  '
-        while char_index < len(line)-2:
-            if line[char_index] + line[char_index+1] + line[char_index+2] in MarkdownLineProc.LINE_FORMATTING:
-                if symbol_stack[-1] == (line[char_index] + line[char_index+1] + line[char_index+2]).strip():
-                    symbol_stack.pop(-1)
-                    resultant_line += MarkdownLineProc.LINE_FORMATTING[line[char_index] + line[char_index+1] + line[char_index+2]]
-                else:
-                    symbol_stack.append((line[char_index] + line[char_index+1] + line[char_index+2]).strip())
-                    resultant_line += MarkdownLineProc.LINE_FORMATTING[line[char_index] + line[char_index+1] + line[char_index+2]]
-                char_index += 3
-            elif line[char_index] + line[char_index+1]  in MarkdownLineProc.LINE_FORMATTING:
-                if symbol_stack[-1] == (line[char_index] + line[char_index+1]).strip():
-                    symbol_stack.pop(-1)
-                    resultant_line += MarkdownLineProc.LINE_FORMATTING[line[char_index] + line[char_index+1]]
-                else:
-                    symbol_stack.append((line[char_index] + line[char_index+1]).strip())
-                    resultant_line += MarkdownLineProc.LINE_FORMATTING[line[char_index] + line[char_index+1]]
-                char_index += 2
-            else:
-                resultant_line += line[char_index]
-                char_index += 1
-        return resultant_line.strip()
+    symbol_stack = ['bottom']
+    resultant_line = ''
+    char_index = 0
+    line = ''
+
+    @classmethod
+    def _process_markdown_token(cls):
+        token_length_2 = cls.line[cls.char_index] + cls.line[cls.char_index + 1]
+        token_length_3 = token_length_2 + cls.line[cls.char_index + 2]
+        if token_length_3 in cls.LINE_FORMATTING:
+            cls._process_markdown_token_length_3()
+        elif token_length_2 in cls.LINE_FORMATTING:
+            cls._process_markdown_token_length_2()
+        else:
+            cls._process_markdown_token_length_1()
+
+    @classmethod
+    def _process_markdown_token_length_3(cls):
+        i = cls.char_index
+        token = cls.line[i] + cls.line[i + 1] + cls.line[i + 2]
+        if cls.symbol_stack[-1] == token.strip():
+            cls.symbol_stack.pop(-1)
+            cls.resultant_line += cls.LINE_FORMATTING[token]
+        else:
+            cls.symbol_stack.append(token.strip())
+            cls.resultant_line += cls.LINE_FORMATTING[token]
+        i += 3
+
+    @classmethod
+    def _process_markdown_token_length_2(cls):
+        i = cls.char_index
+        token = cls.line[i] + cls.line[i + 1]
+        if cls.symbol_stack[-1] == token.strip():
+            cls.symbol_stack.pop(-1)
+            cls.resultant_line += cls.LINE_FORMATTING[token]
+        else:
+            cls.symbol_stack.append(token.strip())
+            cls.resultant_line += cls.LINE_FORMATTING[token]
+        i += 2
+
+    @classmethod
+    def _process_markdown_token_length_1(cls):
+        cls.resultant_line += cls.line[cls.char_index]
+        cls.char_index += 1
+
+    @classmethod
+    def parse_line(cls, line: str) -> str:
+        cls.symbol_stack = ['bottom']
+        cls.resultant_line = ''
+        cls.char_index = 0
+        cls.line = ' ' + line + '  '
+        while cls.char_index < len(cls.line)-2:
+            cls._process_markdown_token()
+        return cls.resultant_line.strip()
 
 
-def ouput_html_for_input_file() -> str:
+def output_html_for_input_file() -> str:
     return ''
 
 
 if __name__ == '__main__':
-    print(ouput_html_for_input_file())
+    print(output_html_for_input_file())

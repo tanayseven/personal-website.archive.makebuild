@@ -1,4 +1,3 @@
-import pytest
 from hamcrest import *
 
 from markdown_proc import MarkdownLineProc
