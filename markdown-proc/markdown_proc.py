@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from typing import List
+
 
 class MarkdownLineProc(object):
 
@@ -73,9 +75,37 @@ class MarkdownLineProc(object):
 
 
 class MarkdownDocumentProc(object):
+
+    LINE_FORMAT = {
+        '#': ('<h1>', '</h1>')
+    }
+
+    @classmethod
+    def _extract_formatter_symbol(cls, line: str) -> str:
+        return line.strip().split(' ')[0]
+
+    @classmethod
+    def _extract_line_to_be_formatted(cls, line: str) -> str:
+        return ' '.join(line.strip().split(' ')[1:])
+
+    @classmethod
+    def _apply_line_formatting(cls, formatter_symbol, line_to_be_formatted):
+        formatted_line = cls.LINE_FORMAT[formatter_symbol][0] + \
+                         MarkdownLineProc.parse_line(line_to_be_formatted) + \
+                         cls.LINE_FORMAT[formatter_symbol][1]
+        return formatted_line
+
     @classmethod
     def parse_doc(cls, document: str) -> str:
-        pass
+        document_lines = document.split('\n')
+        lines = []
+        for line in document_lines:
+            formatter_symbol = cls._extract_formatter_symbol(line)
+            if formatter_symbol in cls.LINE_FORMAT:
+                line_to_be_formatted = cls._extract_line_to_be_formatted(line)
+                formatted_line = cls._apply_line_formatting(formatter_symbol, line_to_be_formatted)
+                lines.append(formatted_line)
+        return '\n' + '\n'.join(lines) + '\n'
 
 
 def output_html_for_input_file() -> str:

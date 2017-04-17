@@ -1,6 +1,6 @@
 from hamcrest import *
 
-from markdown_proc import MarkdownLineProc
+from markdown_proc import MarkdownLineProc, MarkdownDocumentProc
 
 class TestLineFormatting(object):
 
@@ -100,9 +100,17 @@ class TestLineFormatting(object):
         expected_html = 'this set of words <code>have grave <span class="striked-text">and tilde</span> in</code> one line'
         assert_that(output_html, is_(expected_html))
 
-    def test_input_a_set_of_words_with_nested_underscore_and_bold(self):
+    def test_input_a_set_of_words_with_nested_underscore_and_bold(self) -> None:
         input_word = 'this set of words _have bold **and italic** in_ one line'
         output_html = MarkdownLineProc.parse_line(input_word)
         expected_html = 'this set of words <span class="italic-text">have bold <span class="bold-text">and italic</span> in</span> one line'
         assert_that(output_html, is_(expected_html))
 
+class TestDocumentFormatting(object):
+    def test_input_document_with_single_hash_for_heading_text(self) -> None:
+        input_document = """
+        # This is an h1 heading
+        """
+        output_html = MarkdownDocumentProc.parse_doc(input_document)
+        expected_html = """\n<h1>This is an h1 heading</h1>\n"""
+        assert_that(output_html, is_(expected_html))
