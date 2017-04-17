@@ -2,7 +2,7 @@ from hamcrest import *
 
 from markdown_proc import MarkdownLineProc
 
-class TestWordFormatting(object):
+class TestLineFormatting(object):
 
     def test_input_word_with_asterisk_is_marked_as_italic(self) -> None:
         input_word = '*a_single*word*with_no_spaces*'
@@ -88,8 +88,21 @@ class TestWordFormatting(object):
         expected_html = 'a set of words <code>that are code</code> with spaces'
         assert_that(output_html, is_(expected_html))
 
-    def test_input_a_set_of_words_with_grave_tilde_is_marked_as_code(self) -> None:
+    def test_input_a_set_of_words_with_multiple_grave_is_marked_as_code(self) -> None:
         input_word = 'multiple `code` markings `throughout the line`'
         output_html = MarkdownLineProc.parse_line(input_word)
         expected_html = 'multiple <code>code</code> markings <code>throughout the line</code>'
         assert_that(output_html, is_(expected_html))
+
+    def test_input_a_set_of_words_with_nested_grave_and_tilde(self) -> None:
+        input_word = 'this set of words `have grave ~~and tilde~~ in` one line'
+        output_html = MarkdownLineProc.parse_line(input_word)
+        expected_html = 'this set of words <code>have grave <span class="striked-text">and tilde</span> in</code> one line'
+        assert_that(output_html, is_(expected_html))
+
+    def test_input_a_set_of_words_with_nested_underscore_and_bold(self):
+        input_word = 'this set of words _have bold **and italic** in_ one line'
+        output_html = MarkdownLineProc.parse_line(input_word)
+        expected_html = 'this set of words <span class="italic-text">have bold <span class="bold-text">and italic</span> in</span> one line'
+        assert_that(output_html, is_(expected_html))
+

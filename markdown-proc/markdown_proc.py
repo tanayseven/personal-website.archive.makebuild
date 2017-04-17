@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-from typing import List, Tuple
-
-
 class MarkdownLineProc(object):
 
     LINE_FORMATTING = {
@@ -73,6 +70,12 @@ class MarkdownLineProc(object):
         while cls.char_index < len(cls.line)-2:
             cls._process_markdown_token()
         return cls.resultant_line.strip()
+
+
+class MarkdownDocumentProc(object):
+    @classmethod
+    def parse_doc(cls, document: str) -> str:
+        pass
 
 
 def output_html_for_input_file() -> str:
