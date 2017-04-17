@@ -4,6 +4,12 @@ from markdown_proc import MarkdownLineProc, MarkdownDocumentProc
 
 class TestLineFormatting(object):
 
+    def test_input_sentence_which_has_no_formatting_should_be_returned_as_it_is(self) -> None:
+        input_word = 'some sentence with no formatting'
+        output_html = MarkdownLineProc.parse_line(input_word)
+        expected_html = input_word
+        assert_that(output_html, is_(expected_html))
+
     def test_input_word_with_asterisk_is_marked_as_italic(self) -> None:
         input_word = '*a_single*word*with_no_spaces*'
         output_html = MarkdownLineProc.parse_line(input_word)
