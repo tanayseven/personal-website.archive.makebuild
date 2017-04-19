@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import re
 from typing import List
 
 
@@ -85,6 +86,12 @@ class MarkdownDocumentProc(object):
         '######': ('<h6>', '</h6>'),
     }
 
+    MULTI_LINE_FORMAT = {
+        re.compile('=+'): ('<h1>', '</h1>'),
+    }
+
+    current_multiline_formatter = None
+
     @classmethod
     def _extract_formatter_symbol(cls, line: str) -> str:
         return line.strip().split(' ')[0]
@@ -101,16 +108,40 @@ class MarkdownDocumentProc(object):
         return formatted_line
 
     @classmethod
+    def _apply_paragraph_to_be_formatted(cls, line: str) -> str:
+        return '<p>' + line + '</p>' if len(line) > 0 else ''
+
+    @classmethod
+    def _is_multiline_formatter_symbol(cls, formatter_symbol):
+        return any(multiline_re.match(formatter_symbol) for multiline_re in cls.MULTI_LINE_FORMAT.keys())
+
+    @classmethod
     def parse_doc(cls, document: str) -> str:
         document_lines = document.split('\n')
-        lines = []
+        resultant_lines = []
+        current_block = []
         for line in document_lines:
             formatter_symbol = cls._extract_formatter_symbol(line)
-            if formatter_symbol in cls.LINE_FORMAT:
+            if cls._is_multiline_formatter_symbol(formatter_symbol):
+                pass
+                # TODO check if it exists in multi-line thihngy
+                    # TODO the == should be detected only when the current block size is one
+                    # TODO same as the above for ---
+                    # TODO Any number of lines can be there for *, -, +
+                    # TODO Any number of lines can be there for 1. 2. 3. or i. ii. iii.
+                    # TODO Store in stack the indentation levels
+            elif formatter_symbol in cls.LINE_FORMAT:
                 line_to_be_formatted = cls._extract_line_to_be_formatted(line)
                 formatted_line = cls._apply_line_formatting(formatter_symbol, line_to_be_formatted)
-                lines.append(formatted_line)
-        return '\n' + '\n'.join(lines) + '\n'
+                previous_paragraph = cls._apply_paragraph_to_be_formatted(' '.join(current_block))
+                resultant_lines.append(MarkdownLineProc.parse_line(previous_paragraph))
+                current_block = ''
+                resultant_lines.append(formatted_line)
+            else:
+                # TODO append to the current_block
+                pass
+        resultant_lines = [line for line in resultant_lines if line != '']
+        return '\n'.join(resultant_lines)
 
 
 def output_html_for_input_file() -> str:

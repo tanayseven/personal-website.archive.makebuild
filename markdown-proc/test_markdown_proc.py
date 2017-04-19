@@ -1,3 +1,4 @@
+import pytest
 from hamcrest import *
 
 from markdown_proc import MarkdownLineProc, MarkdownDocumentProc
@@ -118,7 +119,7 @@ class TestDocumentFormatting(object):
         # This is an h1 heading
         """
         output_html = MarkdownDocumentProc.parse_doc(input_document)
-        expected_html = """\n<h1>This is an h1 heading</h1>\n"""
+        expected_html = """<h1>This is an h1 heading</h1>"""
         assert_that(output_html, is_(expected_html))
 
     def test_input_document_with_two_hash_for_heading_text(self) -> None:
@@ -126,7 +127,7 @@ class TestDocumentFormatting(object):
         ## This is an h2 heading
         """
         output_html = MarkdownDocumentProc.parse_doc(input_document)
-        expected_html = """\n<h2>This is an h2 heading</h2>\n"""
+        expected_html = """<h2>This is an h2 heading</h2>"""
         assert_that(output_html, is_(expected_html))
 
     def test_input_document_with_three_hash_for_heading_text(self) -> None:
@@ -134,7 +135,7 @@ class TestDocumentFormatting(object):
         ### This is an h3 heading
         """
         output_html = MarkdownDocumentProc.parse_doc(input_document)
-        expected_html = """\n<h3>This is an h3 heading</h3>\n"""
+        expected_html = """<h3>This is an h3 heading</h3>"""
         assert_that(output_html, is_(expected_html))
 
     def test_input_document_with_four_hash_for_heading_text(self) -> None:
@@ -142,7 +143,7 @@ class TestDocumentFormatting(object):
         #### This is an h4 heading
         """
         output_html = MarkdownDocumentProc.parse_doc(input_document)
-        expected_html = """\n<h4>This is an h4 heading</h4>\n"""
+        expected_html = """<h4>This is an h4 heading</h4>"""
         assert_that(output_html, is_(expected_html))
 
     def test_input_document_with_five_hash_for_heading_text(self) -> None:
@@ -150,7 +151,7 @@ class TestDocumentFormatting(object):
         ##### This is an h5 heading
         """
         output_html = MarkdownDocumentProc.parse_doc(input_document)
-        expected_html = """\n<h5>This is an h5 heading</h5>\n"""
+        expected_html = """<h5>This is an h5 heading</h5>"""
         assert_that(output_html, is_(expected_html))
 
     def test_input_document_with_six_hash_for_heading_text(self) -> None:
@@ -158,5 +159,24 @@ class TestDocumentFormatting(object):
         ###### This is an h6 heading
         """
         output_html = MarkdownDocumentProc.parse_doc(input_document)
-        expected_html = """\n<h6>This is an h6 heading</h6>\n"""
+        expected_html = """<h6>This is an h6 heading</h6>"""
+        assert_that(output_html, is_(expected_html))
+
+    def test_input_document_with_multiple_heading_lines(self) -> None:
+        input_document = """
+        ###### This is an h6 heading
+        ## This is a h2 heading
+        """
+        output_html = MarkdownDocumentProc.parse_doc(input_document)
+        expected_html = """<h6>This is an h6 heading</h6>\n<h2>This is a h2 heading</h2>"""
+        assert_that(output_html, is_(expected_html))
+
+    @pytest.mark.skip(reason="This implementation is currently in progress")
+    def test_input_document_with_equals_symbol_for_heading_line(self) -> None:
+        input_document = """
+        This is h1 heading
+        ==================
+        """
+        output_html = MarkdownDocumentProc.parse_doc(input_document)
+        expected_html = """<h1>This is h1 heading</h1>"""
         assert_that(output_html, is_(expected_html))
