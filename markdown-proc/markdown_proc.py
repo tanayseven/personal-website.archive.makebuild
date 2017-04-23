@@ -112,7 +112,7 @@ class MarkdownDocumentProc(object):
         return '<p>' + line + '</p>' if len(line) > 0 else ''
 
     @classmethod
-    def _is_multiline_formatter_symbol(cls, formatter_symbol):
+    def _is_multiline_formatter_symbol(cls, formatter_symbol: str) -> bool:
         return any(multiline_re.match(formatter_symbol) for multiline_re in cls.MULTI_LINE_FORMAT.keys())
 
     @classmethod
@@ -123,7 +123,8 @@ class MarkdownDocumentProc(object):
         for line in document_lines:
             formatter_symbol = cls._extract_formatter_symbol(line)
             if cls._is_multiline_formatter_symbol(formatter_symbol):
-                pass
+                if len(current_block) == 1:
+                    resultant_lines.append(cls._apply_line_formatting(formatter_symbol, current_block[0]))
                 # TODO check if it exists in multi-line thihngy
                     # TODO the == should be detected only when the current block size is one
                     # TODO same as the above for ---
