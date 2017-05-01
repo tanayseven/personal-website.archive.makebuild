@@ -6,11 +6,11 @@ from typing import List
 class MarkdownLineProc(object):
 
     LINE_FORMATTING = {
-        ' *': ' <span class="italic-text">',
-        ' _': ' <span class="italic-text">',
-        ' `': ' <code>',
-        ' **': ' <span class="bold-text">',
-        ' ~~': ' <span class="striked-text">',
+        ' *': ' <span class="single-asterisk">',
+        ' _': ' <span class="single-under">',
+        ' `': ' <code class="single-grave">',
+        ' **': ' <span class="double-asterisk">',
+        ' ~~': ' <span class="double-tilde">',
 
         '* ': '</span> ',
         '_ ': '</span> ',
@@ -108,6 +108,13 @@ class MarkdownDocumentProc(object):
         return formatted_line
 
     @classmethod
+    def _apply_multi_line_formatting(cls, formatter_symbol, line_to_be_formatted):
+        formatted_line = cls.LINE_FORMAT[formatter_symbol][0] + \
+                         MarkdownLineProc.parse_line(line_to_be_formatted) + \
+                         cls.LINE_FORMAT[formatter_symbol][1]
+        return formatted_line
+
+    @classmethod
     def _apply_paragraph_to_be_formatted(cls, line: str) -> str:
         return '<p>' + line + '</p>' if len(line) > 0 else ''
 
@@ -121,10 +128,14 @@ class MarkdownDocumentProc(object):
         resultant_lines = []
         current_block = []
         for line in document_lines:
+            if line == '':
+                continue
             formatter_symbol = cls._extract_formatter_symbol(line)
             if cls._is_multiline_formatter_symbol(formatter_symbol):
-                if len(current_block) == 1:
+                print(current_block)
+                if len(current_block) >= 1:
                     resultant_lines.append(cls._apply_line_formatting(formatter_symbol, current_block[0]))
+                    current_block = []
                 # TODO check if it exists in multi-line thihngy
                     # TODO the == should be detected only when the current block size is one
                     # TODO same as the above for ---
@@ -136,11 +147,10 @@ class MarkdownDocumentProc(object):
                 formatted_line = cls._apply_line_formatting(formatter_symbol, line_to_be_formatted)
                 previous_paragraph = cls._apply_paragraph_to_be_formatted(' '.join(current_block))
                 resultant_lines.append(MarkdownLineProc.parse_line(previous_paragraph))
-                current_block = ''
                 resultant_lines.append(formatted_line)
+                current_block = []
             else:
-                # TODO append to the current_block
-                pass
+                current_block.append(MarkdownLineProc.parse_line(line))
         resultant_lines = [line for line in resultant_lines if line != '']
         return '\n'.join(resultant_lines)
 
