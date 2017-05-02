@@ -106,6 +106,7 @@ class MarkdownDocumentProc(object):
         cls.document_lines = document.split('\n')
         cls.resultant_lines = []
         cls.previous_indent = 0
+        cls.previous_paragraph = ''
         cls.current_indent = 0
         cls.current_block = []
 
@@ -118,14 +119,14 @@ class MarkdownDocumentProc(object):
         return ' '.join(line.strip().split(' ')[1:])
 
     @classmethod
-    def _apply_line_formatting(cls, formatter_symbol, line_to_be_formatted):
+    def _apply_one_line_formatting(cls, formatter_symbol: str, line_to_be_formatted: str):
         formatted_line = cls.ONE_LINE_FORMAT[formatter_symbol][0] + \
                          MarkdownLineProc.parse_line(line_to_be_formatted) + \
                          cls.ONE_LINE_FORMAT[formatter_symbol][1]
         return formatted_line
 
     @classmethod
-    def _apply_multi_line_formatting(cls, formatter_symbol, line_to_be_formatted):
+    def _apply_multi_line_formatting(cls, formatter_symbol: str, line_to_be_formatted: str):
         formatted_line = cls.ONE_LINE_FORMAT[formatter_symbol][0] + \
                          MarkdownLineProc.parse_line(line_to_be_formatted) + \
                          cls.ONE_LINE_FORMAT[formatter_symbol][1]
@@ -136,9 +137,9 @@ class MarkdownDocumentProc(object):
         return '<p>' + line + '</p>' if len(line) > 0 else ''
 
     @classmethod
-    def _apply_one_line_format(cls, line):
+    def _apply_one_line_format(cls, line: str):
         cls.line_to_be_formatted = cls._extract_line_to_be_formatted(line)
-        cls.formatted_line = cls._apply_line_formatting(cls.formatter_symbol, cls.line_to_be_formatted)
+        cls.formatted_line = cls._apply_one_line_formatting(cls.formatter_symbol, cls.line_to_be_formatted)
         cls.previous_paragraph = cls._apply_paragraph_to_be_formatted(' '.join(cls.current_block))
         cls._append_to_result()
 
@@ -147,13 +148,12 @@ class MarkdownDocumentProc(object):
         cls.resultant_lines.append(MarkdownLineProc.parse_line(cls.previous_paragraph))
         cls.resultant_lines.append(cls.formatted_line)
         cls.current_block = []
+        cls.previous_paragraph = ''
 
     @classmethod
     def parse_doc(cls, document: str) -> str:
         cls._initialize_fields(document)
         for line in cls.document_lines:
-            if line == '':
-                continue
             cls.formatter_symbol, cls.current_indent = cls._extract_formatter_symbol(line)
             if cls.formatter_symbol in cls.ONE_LINE_FORMAT:
                 cls._apply_one_line_format(line)
