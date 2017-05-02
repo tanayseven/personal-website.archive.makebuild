@@ -131,7 +131,7 @@ class TestLineFormatting(object):
         assert_that(output_html, is_(expected_html))
 
 
-line_tag = MarkdownDocumentProc.LINE_FORMAT
+line_tag = MarkdownDocumentProc.ONE_LINE_FORMAT
 
 
 class TestDocumentFormatting(object):
