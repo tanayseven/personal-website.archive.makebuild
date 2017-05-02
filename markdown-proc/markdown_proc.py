@@ -86,15 +86,21 @@ class MarkdownDocumentProc(object):
         '######': ('<h6>', '</h6>'),
     }
 
-    MULTI_LINE_FORMAT = {
-        re.compile('=+'): ('<h1>', '</h1>'),
+    TWO_LINE_FORMAT = {
+        '--': ('REGEXP', '<h1>', '</h1>'),
+        '==': ('REGEXP', '<h2>', '</h2>'),
     }
 
     current_multiline_formatter = None
+    document_lines = []
+    resultant_lines = []
+    previous_indent = 0
+    current_indent = 0
+    current_block = []
 
     @classmethod
-    def _extract_formatter_symbol(cls, line: str) -> str:
-        return line.strip().split(' ')[0]
+    def _extract_formatter_symbol(cls, line: str) -> (str, int):
+        return line.strip().split(' ')[0], len(line) - len(line.lstrip(' '))
 
     @classmethod
     def _extract_line_to_be_formatted(cls, line: str) -> str:
@@ -119,39 +125,26 @@ class MarkdownDocumentProc(object):
         return '<p>' + line + '</p>' if len(line) > 0 else ''
 
     @classmethod
-    def _is_multiline_formatter_symbol(cls, formatter_symbol: str) -> bool:
-        return any(multiline_re.match(formatter_symbol) for multiline_re in cls.MULTI_LINE_FORMAT.keys())
-
-    @classmethod
     def parse_doc(cls, document: str) -> str:
-        document_lines = document.split('\n')
-        resultant_lines = []
-        current_block = []
-        for line in document_lines:
+        cls.document_lines = document.split('\n')
+        cls.resultant_lines = []
+        cls.previous_indent = 0
+        cls.current_indent = 0
+        cls.current_block = []
+        for line in cls.document_lines:
             if line == '':
                 continue
-            formatter_symbol = cls._extract_formatter_symbol(line)
-            if cls._is_multiline_formatter_symbol(formatter_symbol):
-                print(current_block)
-                if len(current_block) >= 1:
-                    resultant_lines.append(cls._apply_line_formatting(formatter_symbol, current_block[0]))
-                    current_block = []
-                # TODO check if it exists in multi-line thihngy
-                    # TODO the == should be detected only when the current block size is one
-                    # TODO same as the above for ---
-                    # TODO Any number of lines can be there for *, -, +
-                    # TODO Any number of lines can be there for 1. 2. 3. or i. ii. iii.
-                    # TODO Store in stack the indentation levels
-            elif formatter_symbol in cls.LINE_FORMAT:
-                line_to_be_formatted = cls._extract_line_to_be_formatted(line)
-                formatted_line = cls._apply_line_formatting(formatter_symbol, line_to_be_formatted)
-                previous_paragraph = cls._apply_paragraph_to_be_formatted(' '.join(current_block))
-                resultant_lines.append(MarkdownLineProc.parse_line(previous_paragraph))
-                resultant_lines.append(formatted_line)
-                current_block = []
+            cls.formatter_symbol, cls.current_indent = cls._extract_formatter_symbol(line)
+            if cls.formatter_symbol in cls.LINE_FORMAT:
+                cls.line_to_be_formatted = cls._extract_line_to_be_formatted(line)
+                cls.formatted_line = cls._apply_line_formatting(cls.formatter_symbol, cls.line_to_be_formatted)
+                cls.previous_paragraph = cls._apply_paragraph_to_be_formatted(' '.join(cls.current_block))
+                cls.resultant_lines.append(MarkdownLineProc.parse_line(cls.previous_paragraph))
+                cls.resultant_lines.append(cls.formatted_line)
+                cls.current_block = []
             else:
-                current_block.append(MarkdownLineProc.parse_line(line))
-        resultant_lines = [line for line in resultant_lines if line != '']
+                cls.current_block.append(MarkdownLineProc.parse_line(line))
+        resultant_lines = [line for line in cls.resultant_lines if line != '']
         return '\n'.join(resultant_lines)
 
 
