@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-import re
-from typing import List
 
 
 class MarkdownLineProc(object):
@@ -87,8 +85,12 @@ class MarkdownDocumentProc(object):
     }
 
     TWO_LINE_FORMAT = {
-        '--': ('REGEXP', '<h1>', '</h1>'),
-        '==': ('REGEXP', '<h2>', '</h2>'),
+        '=': ('<h1>', '</h1>'),
+        '-': ('<h2>', '</h2>'),
+    }
+
+    MULTI_LINE_FORMAT = {
+
     }
 
     current_multiline_formatter = None
@@ -102,8 +104,8 @@ class MarkdownDocumentProc(object):
     current_block = []
 
     @classmethod
-    def _initialize_fields(cls, document):
-        cls.document_lines = document.split('\n')
+    def _initialize_fields(cls, document: str):
+        cls.document_lines = document.strip('\n').split('\n')
         cls.resultant_lines = []
         cls.previous_indent = 0
         cls.previous_paragraph = ''
@@ -119,29 +121,45 @@ class MarkdownDocumentProc(object):
         return ' '.join(line.strip().split(' ')[1:])
 
     @classmethod
-    def _apply_one_line_formatting(cls, formatter_symbol: str, line_to_be_formatted: str):
-        formatted_line = cls.ONE_LINE_FORMAT[formatter_symbol][0] + \
+    def _line_format(cls, formatter_symbol: str, line_to_be_formatted: str, formatter: dict):
+        formatted_line = formatter[formatter_symbol][0] + \
                          MarkdownLineProc.parse_line(line_to_be_formatted) + \
-                         cls.ONE_LINE_FORMAT[formatter_symbol][1]
+                         formatter[formatter_symbol][1]
         return formatted_line
 
     @classmethod
-    def _apply_multi_line_formatting(cls, formatter_symbol: str, line_to_be_formatted: str):
-        formatted_line = cls.ONE_LINE_FORMAT[formatter_symbol][0] + \
-                         MarkdownLineProc.parse_line(line_to_be_formatted) + \
-                         cls.ONE_LINE_FORMAT[formatter_symbol][1]
-        return formatted_line
-
-    @classmethod
-    def _apply_paragraph_to_be_formatted(cls, line: str) -> str:
+    def _apply_paragraph(cls, line: str) -> str:
         return '<p>' + line + '</p>' if len(line) > 0 else ''
 
     @classmethod
     def _apply_one_line_format(cls, line: str):
         cls.line_to_be_formatted = cls._extract_line_to_be_formatted(line)
-        cls.formatted_line = cls._apply_one_line_formatting(cls.formatter_symbol, cls.line_to_be_formatted)
-        cls.previous_paragraph = cls._apply_paragraph_to_be_formatted(' '.join(cls.current_block))
+        cls.formatted_line = cls._line_format(cls.formatter_symbol, cls.line_to_be_formatted, cls.ONE_LINE_FORMAT)
+        cls.previous_paragraph = cls._apply_paragraph(' '.join(cls.current_block))
         cls._append_to_result()
+
+    @classmethod
+    def _all_in_line_are(cls, line: str, formatter_symbol: str) -> bool:
+        matching_symbols = []
+        for char in line:
+            matching_symbols.append(char == formatter_symbol)
+        return all(matching_symbols)
+
+    @classmethod
+    def _apply_two_line_format(cls, line: str):
+        if cls.current_block:
+            line_to_format = cls.current_block[0]
+            valid_symbol = cls._all_in_line_are(line.strip(), cls.formatter_symbol[0])
+            if len(cls.current_block) == 1 and valid_symbol:
+                cls.resultant_lines.append(cls._line_format(cls.formatter_symbol[0], line_to_format, cls.TWO_LINE_FORMAT))
+            else:
+                cls.resultant_lines.append(cls._apply_paragraph(line_to_format))
+            cls.current_block.pop()
+
+    @classmethod
+    def _apply_multi_line_format(cls, line_to_be_formatted: str):
+        # TODO do something here
+        pass
 
     @classmethod
     def _append_to_result(cls):
@@ -155,10 +173,18 @@ class MarkdownDocumentProc(object):
         cls._initialize_fields(document)
         for line in cls.document_lines:
             cls.formatter_symbol, cls.current_indent = cls._extract_formatter_symbol(line)
-            if cls.formatter_symbol in cls.ONE_LINE_FORMAT:
-                cls._apply_one_line_format(line)
-            else:
-                cls.current_block.append(MarkdownLineProc.parse_line(line))
+            if line == '':
+                all_lines = ' '.join(cls.current_block)
+                cls.resultant_lines.append(cls._apply_paragraph(all_lines))
+            elif cls.formatter_symbol:
+                if cls.formatter_symbol in cls.ONE_LINE_FORMAT.keys():
+                    cls._apply_one_line_format(line)
+                elif cls.formatter_symbol[0] in cls.TWO_LINE_FORMAT.keys():
+                    cls._apply_two_line_format(line)
+                elif cls.formatter_symbol[0] in cls.MULTI_LINE_FORMAT.keys():
+                    cls._apply_multi_line_format(line)
+                else:
+                    cls.current_block.append(MarkdownLineProc.parse_line(line))
         resultant_lines = [line for line in cls.resultant_lines if line != '']
         return '\n'.join(resultant_lines)
 

@@ -197,7 +197,6 @@ class TestDocumentFormatting(object):
         )
         assert_that(output_html, is_(expected_html))
 
-    @pytest.mark.skip(reason="This implementation is currently in progress")
     def test_input_document_with_equals_symbol_for_heading_line(self) -> None:
         input_document = """
         This is h1 heading
