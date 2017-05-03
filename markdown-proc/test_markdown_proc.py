@@ -205,3 +205,12 @@ class TestDocumentFormatting(object):
         output_html = MarkdownDocumentProc.parse_doc(input_document)
         expected_html = """<h1>This is h1 heading</h1>"""
         assert_that(output_html, is_(expected_html))
+
+    def test_input_document_with_hyphen_symbol_for_heading2_line(self) -> None:
+        input_document = """
+        This is h2 heading
+        ------------------
+        """
+        output_html = MarkdownDocumentProc.parse_doc(input_document)
+        expected_html = """<h2>This is h2 heading</h2>"""
+        assert_that(output_html, is_(expected_html))
