@@ -90,7 +90,10 @@ class MarkdownDocumentProc(object):
     }
 
     MULTI_LINE_FORMAT = {
-
+        '*': ('<ul>', '</ul>', '<li>', '</li>'),
+        '+': ('<ul>', '</ul>', '<li>', '</li>'),
+        '-': ('<ul>', '</ul>', '<li>', '</li>'),
+        '>': ('<blockquote>', '</blockquote>', '', ''),
     }
 
     current_multiline_formatter = None
@@ -158,7 +161,7 @@ class MarkdownDocumentProc(object):
 
     @classmethod
     def _apply_multi_line_format(cls, line_to_be_formatted: str):
-        # TODO do something here
+
         pass
 
     @classmethod
