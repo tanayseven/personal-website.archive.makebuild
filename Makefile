@@ -8,25 +8,28 @@ MD:=$(or $(shell which mdtrans), /usr/local/bin/mdtrans)
 
 POSTS_SRC:=$(wildcard posts/*md)
 OBJ_HTML:=$(patsubst posts/%.md, www/blog/%.html, $(POSTS_SRC))
-RESULTANT_HTML:=$(dirname $(./blog_path www/blog/%.html))
+RESULTANT_HTML:=$(patsubst www/blog/%.html, $(./blog_path www/blog/%.html), $(OBJ_HTML))
 
 .PHONY: all
-all: clean build
+all: build
 
 .PHONY: build
-build: checktools www/blog $(OBJ_HTML) $(RESULT_HTML)
+build: $(OBJ_HTML) $(RESULTANT_HTML)
 
-www/blog/%.html: posts/%.md
-	$(MD) makehtml -i $^ > $@
-	#$(mkdir -p $(dirname $(./blog_path.py $@)))
-	#$(echo $(./blog_path $@))
-	#$(mkdir -p $(dirname $(./blog_path $@)))
+www/blog/%.html: posts/%.md www/blog
+	$(MD) $^ > $@
 
 www/blog:
 	mkdir -p www/blog
 
+$(./blog_path www/blog/%.html): www/blog/%.html
+	mkdir -p $(dirname $(./blog_path.py $@))
+	mv $^ $@
+
+.PHONY: todirectory(%)
 todirectory(%): www/blog/%.html
-	mkdir -p $(dir $(./blog_path.py $^))
+	mkdir -p $(dirname $(./blog_path.py $^))
+	mv $^ $(./blog_path.py S^)
 
 .PHONY: clean
 clean:
