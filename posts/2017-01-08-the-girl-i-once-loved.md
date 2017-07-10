@@ -4,6 +4,7 @@ title: The Girl I Once Loved
 categories: [life, love]
 tags: [life, about me, love, relationship]
 fullview: false
+description: A story about someone I once loved, where the text written for this blog just came flowing out in a way just like emotions come flowing out
 comments: true
 ---
 

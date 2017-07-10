@@ -4,6 +4,7 @@ title: At Nelkinda Coderetreat
 categories: [events]
 tags: [event, coding, programming, test driven deveopment, behaviour driven development]
 fullview: false
+description: A review and my feeling about a coding event called as Coderetreat which was held at Nelkinda Software Craft Pvt Ltd. Also, this post describes how the whole event went and how good it was and what someone can possibly learn from a Coderetreat.
 comments: true
 ---
 Completely unexpected of what is there, I registered for [Coderetreat that’s held at Nelkinda](http://nelkinda.com/events/2016-07-16-4th-Nelkinda-Coderetreat/) which was on 16th of July 2016. Facilitated by [Siddhesh Nikude](https://twitter.com/SiddheshNikude) and [Shweta Sadawarte](https://twitter.com/ShwetaSadawarte) it was a long but a really nice event. More than anything else I got to learn a lot from that event and I will write some of my experience here.

@@ -4,6 +4,7 @@ title: Hello World!
 categories: [introduction]
 tags: [introduction, about me, initial post]
 fullview: false
+description: My first post on this blog. It is called hello world because when learning a programming language, it is usually the first program that is written
 comments: true
 ---
 

@@ -4,6 +4,7 @@ title: Finally an android app
 categories: [projects]
 tags: [android, android app, personal project, java, app]
 fullview: false
+description: An android app that I had written which acts like a SMS receiving and recording sever and acts as an SMS gateway
 comments: true
 ---
 
