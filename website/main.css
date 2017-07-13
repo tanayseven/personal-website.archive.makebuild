@@ -74,8 +74,8 @@ h3 {
     overflow: visible;
     left: 0;
     right: 0;
-    /*position: fixed;*/
-    background-color: rgba(99, 99, 99, 0.38);
+    position: fixed;
+    background-color: rgba(32, 43, 204, 0.78);
 }
 
 #main-content {
@@ -86,6 +86,42 @@ h3 {
     align-content: center;
 }
 
+a.nav-button {
+    color: #565656;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 15px;
+    text-decoration: none;
+}
+
+a.nav-button.active {
+    color: #ffffff;
+}
+
+a.nav-button:hover {
+    color: #ffffff;
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+
+#main-content #social-media-links a:link {
+    color: #565656;
+}
+
+#main-content #social-media-links a:visited {
+    color: #565656;
+}
+
+#main-content #social-media-links a:hover {
+    color: #ffffff;
+    transition: 1s;
+    -webkit-transition: 1s
+}
+
+#main-content #social-media-links a:active {
+    color: #ffffff;
+}
+
 @media only screen and (min-width: 1024px) {
     #heading {
         text-align: center;
@@ -93,7 +129,7 @@ h3 {
         margin-right: 100px;
         margin-left: 100px;
         margin-top: 3px;
-        width: 80%;
+        /*width: 100%;*/
     }
 
     #main-menu {
@@ -101,13 +137,24 @@ h3 {
     }
 
     #main-content {
-        /*padding-top: 100px;*/
+        padding-top: 100px;
         padding-left: 100px;
         padding-right: 100px;
     }
 
     #main-content p {
         font-size: 25px;
+        margin-top: 30px;
+    }
+
+    #main-content #social-media-links {
+        text-align: center;
+    }
+
+    #main-content #social-media-links i {
+        font-size: 100px;
+        margin-left: 40px;
+        margin-right: 40px;
     }
 }
 
@@ -127,7 +174,7 @@ h3 {
     #main-content {
         padding-top: 100px;
         padding-left: 100px;
-        padding-right: 50px;
+        padding-right: 100px;
     }
 }
 
@@ -145,29 +192,6 @@ h3 {
 
 @media only screen and (max-width: 320px) {
 
-}
-
-div.blog-post {
-    text-align: left;
-    margin-top: 20px;
-}
-
-a.nav-button {
-    color: #565656;
-    text-transform: uppercase;
-    font-size: 20px;
-    padding: 15px;
-    text-decoration: none;
-}
-
-a.nav-button.active {
-    color: #ffffff;
-}
-
-a.nav-button:hover {
-    color: #ffffff;
-    transition: 1s;
-    -webkit-transition: 1s;
 }
 
 #home {
