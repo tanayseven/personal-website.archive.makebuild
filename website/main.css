@@ -104,6 +104,10 @@ a.nav-button:hover {
     -webkit-transition: 1s;
 }
 
+#main-content #social-media-links {
+    text-align: center;
+}
+
 #main-content #social-media-links a:link {
     color: #565656;
 }
@@ -129,7 +133,6 @@ a.nav-button:hover {
         margin-right: 100px;
         margin-left: 100px;
         margin-top: 3px;
-        /*width: 100%;*/
     }
 
     #main-menu {
@@ -164,7 +167,6 @@ a.nav-button:hover {
         padding-left: 100px;
         padding-right: 100px;
         padding-top: 3px;
-        width: 80%;
     }
 
     #main-menu {
@@ -196,4 +198,17 @@ a.nav-button:hover {
 
 #home {
     text-decoration: underline;
+}
+
+.footer {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    width: 100%;
+}
+
+.footer p {
+    text-align: center;
+    font-size: 12px;
 }
