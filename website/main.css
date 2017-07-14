@@ -48,12 +48,48 @@ table {
 }
 
 /*
+    Color scheme
+ */
+
+.coralFont {
+    color: #E14658;
+}
+
+.navyFont {
+    color: #22252C;
+}
+
+.mountainFont {
+    color: #3F3250;
+}
+
+.scrubFont {
+    color: #C0B3A0;
+}
+
+.coralBack {
+    background-color: #E14658;
+}
+
+.navyBack {
+    background-color: #22252C;
+}
+
+.mountainBack {
+    background-color: #3F3250;
+}
+
+.scrubBack {
+    background-color: #C0B3A0;
+}
+
+
+
+/*
     New css to actually format the text
 */
 
 body {
-    background-color: #212121;
-    color: #C5C5C5;
     font-family: Roboto, serif;
 }
 
@@ -75,7 +111,6 @@ h3 {
     left: 0;
     right: 0;
     position: fixed;
-    background-color: rgba(32, 43, 204, 0.78);
 }
 
 #main-content {
@@ -87,7 +122,6 @@ h3 {
 }
 
 a.nav-button {
-    color: #565656;
     text-transform: uppercase;
     font-size: 20px;
     padding: 15px;
@@ -108,21 +142,21 @@ a.nav-button:hover {
     text-align: center;
 }
 
-#main-content #social-media-links a:link {
+a:link {
     color: #565656;
 }
 
-#main-content #social-media-links a:visited {
+a:visited {
     color: #565656;
 }
 
-#main-content #social-media-links a:hover {
+a:hover {
     color: #ffffff;
     transition: 1s;
     -webkit-transition: 1s
 }
 
-#main-content #social-media-links a:active {
+a:active {
     color: #ffffff;
 }
 
@@ -181,19 +215,27 @@ a.nav-button:hover {
 }
 
 @media only screen and (max-width: 480px) {
+    .footer {
 
+    }
 }
 
 @media only screen and (max-width: 768px) {
+    .footer {
 
+    }
 }
 
 @media only screen and (max-width: 480px) {
+    .footer {
 
+    }
 }
 
 @media only screen and (max-width: 320px) {
+    .footer {
 
+    }
 }
 
 #home {
@@ -204,6 +246,7 @@ a.nav-button:hover {
     bottom: 0;
     left: 0;
     right: 0;
+    padding-bottom: 3px;
     position: fixed;
     width: 100%;
 }
