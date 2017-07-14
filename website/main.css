@@ -146,6 +146,28 @@ a:active.darkFont {
     color: #3F3250;
 }
 
+a:link.lightFont {
+    color: #4f4a42;
+}
+
+a:visited.lightFont {
+    color: #4f4a42;
+}
+
+a:hover.lightFont {
+    color: #FFFFFF;
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+
+a:active.lightFont {
+    color: #4f4a42;
+}
+
+a.active.lightFont {
+    color: #FFFFFF;
+}
+
 #main-content #social-media-links {
     text-align: center;
 }
