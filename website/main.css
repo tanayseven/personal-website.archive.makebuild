@@ -128,36 +128,26 @@ a.nav-button {
     text-decoration: none;
 }
 
-a.nav-button.active {
-    color: #ffffff;
+a:link.darkFont {
+    color: #3F3250;
 }
 
-a.nav-button:hover {
-    color: #ffffff;
+a:visited.darkFont {
+    color: #3F3250;
+}
+
+a:hover.darkFont {
+    color: #000000;
     transition: 1s;
     -webkit-transition: 1s;
 }
 
+a:active.darkFont {
+    color: #3F3250;
+}
+
 #main-content #social-media-links {
     text-align: center;
-}
-
-a:link {
-    color: #565656;
-}
-
-a:visited {
-    color: #565656;
-}
-
-a:hover {
-    color: #ffffff;
-    transition: 1s;
-    -webkit-transition: 1s
-}
-
-a:active {
-    color: #ffffff;
 }
 
 @media only screen and (min-width: 1024px) {
