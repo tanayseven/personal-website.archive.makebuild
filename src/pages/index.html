@@ -1,5 +1,7 @@
 {% extends "base.html" %}
-{#  <link rel="stylesheet" href="{{ css_file_path }}">#}
+{% block above_the_fold %}
+    <link rel="stylesheet" href="{{ css_file_path }}">
+{% endblock %}
   {% block main_content %}
       <div id="social-media-links">
           <a class="darkFont" target="_blank" href="https://facebook.com/tanayseven"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -16,5 +18,4 @@
   {% endblock %}
 {% block deferred %}
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="{{ css_file_path }}">
 {% endblock %}

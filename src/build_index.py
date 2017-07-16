@@ -1,7 +1,5 @@
 from jinja2 import Environment, FileSystemLoader
 
-# with open('src/pages/index.html') as f:
-#     template_str = f.read()
 with open('css.txt') as f:
     css_file_path = f.read()
 css_file_path = '/'.join(css_file_path.split('/')[1:])

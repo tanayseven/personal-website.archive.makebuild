@@ -17,6 +17,7 @@ mkdir -p "$BLOG_PATH" "$FONTS_PATH"
 # Build all the static files into one single file
 python ./src/combine_static.py ./src/static/ css "$OUTPUT_PATH$RES"
 cp ./src/static/fonts/* "$FONTS_PATH"
+cp ./src/.htaccess "$OUTPUT_PATH"
 
 # Build the home page which is the index.html page
 INDEX='index.html'
