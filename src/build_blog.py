@@ -11,9 +11,7 @@ html_file_name = '/'.join(sys.argv[1].split('/')[-2:])
 
 def write_tags(tags):
     with open('tags.txt', 'a') as f:
-        fcntl.lockf(f.fileno(), fcntl.LOCK_EX)
         f.write(html_file_name + ',' + ','.join(tags) + '\n')
-        fcntl.lockf(f.fileno(), fcntl.F_UNLCK)
     return ''
 
 
