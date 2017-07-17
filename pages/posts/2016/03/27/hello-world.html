@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Home - Tanay PrabhuDesai</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+
+<body class="scrubBack navyFont">
+    <div id="heading" class="navyBack scrubFont">
+        <h1>Tanay PrabhuDesai</h1>
+        <nav id="main-menu">
+            <a class="nav-button 
+                active
+            
+             lightFont" href="#home">Home</a>
+            <a class="nav-button  lightFont" href="#blog">Blog</a>
+            <a class="nav-button  lightFont" href="#resume">Résumé</a>
+            <a class="nav-button  lightFont" href="#about">About Me</a>
+        </nav>
+    </div>
+    <div id="main-content">
+    <p><b>Hello World!</b> The title of this post in the honour of the first program that is written while learning
+        programming. This is my first post on the blog, and hence I'm calling it **Hello World!** post. I'm mainly
+        passionate about technology and coding is my passion. I'm right now a student studying M.Tech at Manipal
+        Institute of Technology, Manipal. The main reason of writing this blog is to share with the world what I think,
+        and the new things that I learn. I also like learning about some cool science-related concepts esp. w.r.t.
+        Physics. I'm also a noob Guitarist and a hobby swimmer. Other things that I like are eating and trying out
+        different cuisines.</p>
+
+    <p>This blog will be dedicated to writing a lot of things, mainly about different things I learn while coding and some
+        tips and techniques you won't easily find on the internet. I will also write about various experiences that I have
+        while being here at Manipal, and also when I go to discover different and new places. There will be many articles
+        that will be more like chain articles, which will be written in tutorial form which will tell how things are to be
+        done (usually related to computer science). Another main reason behind writing this blog is to satisfy my thirst
+        for writing. I'm not really great at writing, but I love to write a lot. And who says that you need really good
+        grammar and vocabulary to write? I'll just write and put my own content here.</p>
+
+    <p>I won't go ahead boring you with my talk and go in for my next post about something that will be more interesting
+        to read.</p>
+</div>
+    <div class="footer">
+        <p>&copy; 2017 Tanay PrabhuDesai</p>
+        <p>All the content on this site is licensed under Creative Commons 4.0 BY-SA and the code is licensed under MIT License unless explicitly stated</p>
+    </div>
+    <noscript id="deferred">
+        
+    </noscript>
+    <script>
+        let loadDeferredStyles = function() {
+            let addStylesNode = document.getElementById("deferred");
+            let replacement = document.createElement("div");
+            replacement.innerHTML = addStylesNode.textContent;
+            document.body.appendChild(replacement);
+            addStylesNode.parentElement.removeChild(addStylesNode);
+        };
+        let raf = requestAnimationFrame || mozRequestAnimationFrame ||
+            webkitRequestAnimationFrame || msRequestAnimationFrame;
+        if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+        else window.addEventListener('load', loadDeferredStyles);
+    </script>
+</body>
+
+</html>
