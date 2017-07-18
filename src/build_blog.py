@@ -1,4 +1,3 @@
-import fcntl
 from jinja2 import Environment, FileSystemLoader
 import sys
 

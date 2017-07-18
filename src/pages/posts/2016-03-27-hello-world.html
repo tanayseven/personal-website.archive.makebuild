@@ -5,7 +5,6 @@
 {#description: My first post on this blog. It is called hello world because when learning a programming language, it is usually the first program that is written#}
 {#comments: true#}
 
-{{ write_tags(['introduction', 'about me', 'initial post']) }}
 
 {% block main_content %}
     <p><b>Hello World!</b> The title of this post in the honour of the first program that is written while learning
@@ -26,4 +25,7 @@
 
     <p>I won't go ahead boring you with my talk and go in for my next post about something that will be more interesting
         to read.</p>
+{% endblock %}
+{% block meta_vars %}
+    {% set tags = write_tags(['introduction', 'about me', 'initial post']) %}
 {% endblock %}
