@@ -25,6 +25,7 @@ python src/build_index.py >"$OUTPUT_PATH$INDEX"
 
 # Build all the pages from the blog here
 for filename in src/pages/posts/*.html; do
-    ./blog-build.sh "$filename"
+    ./blog-build.sh "$filename" &
 done
 wait
+python ./src/generate_blog_page.py > $BLOG_PATH"index.html"
