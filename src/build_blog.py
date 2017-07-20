@@ -7,7 +7,7 @@ sys.path.append('.')
 from src.blog_path import generate_path
 
 jinja_file_name = '/'.join(sys.argv[1].split('/')[-2:])
-html_file_name = generate_path('/'.join(sys.argv[1].split('/')[-2:]), '/res/', '0')
+html_file_name = generate_path('/'.join(sys.argv[1].split('/')[-1:]), '/blog/', '0')
 
 
 def write_tags(tags):
