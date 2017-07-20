@@ -14,7 +14,7 @@ def main():
             content += f.read()
     content_hash = hashlib.sha1(content.encode('utf-8')).hexdigest()
     destination_path = content_hash[:12] + '.' + sys.argv[2]
-    with open(sys.argv[3] + destination_path, 'w') as f:
+    with open(sys.argv[3] + sys.argv[4] + destination_path, 'w') as f:
         f.write(content)
     with open('./' + sys.argv[2] + '.txt', 'w') as f:
         f.write('/' + sys.argv[4] + destination_path)

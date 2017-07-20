@@ -4,9 +4,9 @@ import sys
 
 sys.path.append('.')
 
-from src.utils.file_utils import get_all_sub_files
+from src.blog_path import generate_path
 
-html_file_name = '/'.join(sys.argv[1].split('/')[-2:])
+html_file_name = generate_path('/'.join(sys.argv[1].split('/')[-2:]), '/www/', '0')
 
 
 def write_tags(tags):
