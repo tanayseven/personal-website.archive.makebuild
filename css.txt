@@ -1,1 +1,1 @@
-www/res/2a1486a295a9.css
+/res/2a1486a295a9.css

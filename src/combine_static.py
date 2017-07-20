@@ -1,5 +1,6 @@
 import hashlib
 import sys
+
 sys.path.append('.')
 
 from src.utils.file_utils import get_all_sub_files
@@ -12,11 +13,12 @@ def main():
         with open(input_file) as f:
             content += f.read()
     content_hash = hashlib.sha1(content.encode('utf-8')).hexdigest()
-    destination_path = sys.argv[3] + content_hash[:12] + '.' + sys.argv[2]
-    with open(destination_path, 'w') as f:
+    destination_path = content_hash[:12] + '.' + sys.argv[2]
+    with open(sys.argv[3] + destination_path, 'w') as f:
         f.write(content)
-    with open('./'+sys.argv[2]+'.txt', 'w') as f:
-        f.write(destination_path)
+    with open('./' + sys.argv[2] + '.txt', 'w') as f:
+        f.write('/' + sys.argv[4] + destination_path)
+
 
 if __name__ == '__main__':
     main()

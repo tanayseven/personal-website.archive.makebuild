@@ -15,14 +15,13 @@ export FONTS_PATH="$OUTPUT_PATH$FONTS"
 mkdir -p "$BLOG_PATH" "$FONTS_PATH"
 
 # Build all the static files into one single file
-python ./src/combine_static.py ./src/static/ css "$OUTPUT_PATH$RES"
+python ./src/combine_static.py ./src/static/ css "$OUTPUT_PATH" "$RES"
 cp ./src/static/fonts/* "$FONTS_PATH"
 cp ./src/.htaccess "$OUTPUT_PATH"
 
 # Build the home page which is the index.html page
 INDEX='index.html'
 python src/build_index.py >"$OUTPUT_PATH$INDEX"
-
 # Build all the pages from the blog here
 for filename in src/pages/posts/*.html; do
     ./blog-build.sh "$filename" &
