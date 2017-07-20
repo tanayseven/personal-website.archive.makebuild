@@ -28,7 +28,8 @@ with open('css.txt') as f:
 template = Environment(loader=FileSystemLoader('src/pages/')).get_template('blog.html')
 print(template.render(
     css_file_path=css_file_path,
-    nav_button='home',
+    nav_button='blog',
+    title='Blog',
     titles=titles,
     description=desc,
     tags=tags,

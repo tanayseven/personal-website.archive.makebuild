@@ -5,3 +5,4 @@ www/
 *.iml
 *.idea/
 www/*
+*.csv

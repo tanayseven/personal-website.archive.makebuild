@@ -39,7 +39,7 @@ template = Environment(loader=FileSystemLoader('src/pages/')).get_template(jinja
 
 print(template.render(
     css_file_path=css_file_path,
-    nav_button='home',
+    nav_button='blog',
     write_title=write_title,
     write_tags=write_tags,
     write_description=write_description,

@@ -10,6 +10,8 @@ FONTS='fonts/'
 export BLOG_PATH="$OUTPUT_PATH$BLOG"
 export RES_PATH="$OUTPUT_PATH$RES"
 export FONTS_PATH="$OUTPUT_PATH$FONTS"
+export RESUME_PATH=$OUTPUT_PATH"/resume"
+export ABOUT_PATH=$OUTPUT_PATH"/about"
 
 # Create the output directories
 mkdir -p "$BLOG_PATH" "$FONTS_PATH" "$RES_PATH"
@@ -22,6 +24,8 @@ cp ./src/.htaccess "$OUTPUT_PATH"
 # Build the home page which is the index.html page
 INDEX='index.html'
 python src/build_index.py >"$OUTPUT_PATH$INDEX"
+python src/build_resume.py >"$RESUME_PATH"
+python src/build_about.py >"$ABOUT_PATH"
 # Build all the pages from the blog
 for filename in src/pages/posts/*.html; do
     ./blog-build.sh "$filename" &
