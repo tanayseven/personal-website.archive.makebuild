@@ -7,6 +7,10 @@
 {#description: A review and my feeling about a coding event called as Coderetreat which was held at Nelkinda Software Craft Pvt Ltd. Also, this post describes how the whole event went and how good it was and what someone can possibly learn from a Coderetreat.#}
 {#comments: true#}
 {#---#}
+{% block above_the_fold %}
+    <link rel="stylesheet" href="{{ css_file_path }}">
+{% endblock %}
+{% block main_content %}
 <p>Completely unexpected of what is there, I registered for
     <a href="http://nelkinda.com/events/2016-07-16-4th-Nelkinda-Coderetreat">Coderetreat that’s held at Nelkinda</a>
     which was on 16th of July 2016. Facilitated by <a href="https://twitter.com/SiddheshNikude">Siddhesh Nikude</a> and
@@ -64,7 +68,7 @@
     refactored all the code till we finished off the whole problem. The code on tic-tac-toe is really messy in spite of
     using multiple techniques and hence I’ve decided to rewrite the code in the right way and then post it here or
     maybe write another blog on that and put the link here.</p>
-
+{% endblock %}
 {% block meta_vars %}
     {% set tags = write_tags(
         ['event', 'coding', 'programming', 'test driven deveopment', 'behaviour driven development']

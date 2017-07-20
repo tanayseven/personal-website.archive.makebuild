@@ -6,7 +6,8 @@ sys.path.append('.')
 
 from src.blog_path import generate_path
 
-html_file_name = generate_path('/'.join(sys.argv[1].split('/')[-2:]), '/www/', '0')
+jinja_file_name = '/'.join(sys.argv[1].split('/')[-2:])
+html_file_name = generate_path('/'.join(sys.argv[1].split('/')[-2:]), '/res/', '0')
 
 
 def write_tags(tags):
@@ -33,7 +34,8 @@ def write_title(title):
 with open('css.txt') as f:
     css_file_path = f.read()
 css_file_path = '/'.join(css_file_path.split('/')[1:])
-template = Environment(loader=FileSystemLoader('src/pages/')).get_template(html_file_name)
+print(jinja_file_name)
+template = Environment(loader=FileSystemLoader('src/pages/')).get_template(jinja_file_name)
 
 print(template.render(
     css_file_path=css_file_path,

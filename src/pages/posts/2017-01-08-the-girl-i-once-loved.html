@@ -7,7 +7,10 @@
 {#description: A story about someone I once loved, where the text written for this blog just came flowing out in a way just like emotions come flowing out#}
 {#comments: true#}
 {#---#}
-
+{% block above_the_fold %}
+    <link rel="stylesheet" href="{{ css_file_path }}">
+{% endblock %}
+{% block main_content %}
 <p>When I first started writing this blog, I thought it would be completely technical. But, all of a sudden I started
     to have flashes of my old memories and thought of writing it down through a post here. This is a post about the
     girl who I was once in love with and she had made a place in my heart. When she left my heart that place that she
@@ -78,7 +81,7 @@
     credit goes to this girl who was once there in my life. I probably would not be what I'm if it wasn't for her.
     I am now much stronger, much confident and much successful. Even though we don't talk anymore, I will always have
     her in my memory, the girl I once loved.</p>
-
+{% endblock %}
 {% block meta_vars %}
     {% set tags = write_tags(['life', 'about me', 'love', 'relationship']) %}
     {% set desc = write_description('A story about someone I once loved, where the text written for this blog just came flowing out in a way just like emotions come flowing out') %}
