@@ -34,7 +34,6 @@ def write_title(title):
 with open('css.txt') as f:
     css_file_path = f.read()
 css_file_path = '/' + '/'.join(css_file_path.split('/')[1:])
-print(jinja_file_name)
 template = Environment(loader=FileSystemLoader('src/pages/')).get_template(jinja_file_name)
 
 print(template.render(
