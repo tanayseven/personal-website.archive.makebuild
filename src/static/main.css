@@ -12,39 +12,45 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;
+    display: block;
 }
+
 body {
-	line-height: 1;
+    line-height: 1;
 }
+
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
+
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+    content: '';
+    content: none;
 }
+
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 /*
@@ -83,14 +89,14 @@ table {
     background-color: #C0B3A0;
 }
 
-
-
 /*
     New css to actually format the text
 */
 
 body {
     font-family: Roboto, serif;
+    position: relative;
+    margin: 0;
 }
 
 h1 {
@@ -101,6 +107,12 @@ h3 {
     font-size: 35px;
 }
 
+#container {
+    top: 0;
+    bottom: 0;
+    height: 100%;
+}
+
 #main-menu {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -108,6 +120,7 @@ h3 {
 
 #heading {
     overflow: visible;
+    top: 0;
     left: 0;
     right: 0;
     position: fixed;
@@ -115,6 +128,7 @@ h3 {
 
 #main-content {
     text-align: justify;
+    margin-bottom: 30px;
 }
 
 #social-media-links {
@@ -178,7 +192,6 @@ a.active.lightFont {
         padding: 0;
         margin-right: 100px;
         margin-left: 100px;
-        margin-top: 3px;
     }
 
     #main-menu {
@@ -212,7 +225,6 @@ a.active.lightFont {
         text-align: center;
         padding-left: 100px;
         padding-right: 100px;
-        padding-top: 3px;
     }
 
     #main-menu {
@@ -255,15 +267,12 @@ a.active.lightFont {
 }
 
 .footer {
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    padding-bottom: 3px;
-    position: fixed;
+    padding: 1rem;
     width: 100%;
-}
-
-.footer p {
     text-align: center;
     font-size: 12px;
 }
