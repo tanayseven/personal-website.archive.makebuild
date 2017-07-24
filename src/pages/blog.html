@@ -8,7 +8,11 @@
     <ul>
     {%  for page_path in titles %}
         <li>
-            <a href="{{ page_path }}">{{ titles[page_path] }}</a>
+            <a class="blog-title" href="{{ page_path }}">{{ titles[page_path] }}</a>
+            <p class="blog-description">{{ description[page_path] }}</p>
+            <br>
+            <br>
+            <br>
         </li>
     {% endfor %}
     </ul>
