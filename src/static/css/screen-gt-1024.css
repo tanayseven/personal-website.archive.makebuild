@@ -1,0 +1,40 @@
+@media only screen and (min-width: 1024px) {
+    #heading {
+        text-align: center;
+        padding: 0;
+        margin-right: 100px;
+        margin-left: 100px;
+    }
+
+    #main-menu {
+        text-align: center;
+    }
+
+    #main-content {
+        padding-top: 100px;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    #main-content p {
+        font-size: 25px;
+        margin-top: 30px;
+    }
+
+    #main-content #social-media-links {
+        text-align: center;
+    }
+
+    #main-content #social-media-links i {
+        font-size: 100px;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    #main-content .blog-title {
+
+    }
+
+    #main-content .blog-description {
+
+    }
+}

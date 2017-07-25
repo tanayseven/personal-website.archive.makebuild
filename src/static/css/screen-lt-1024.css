@@ -1,0 +1,24 @@
+@media only screen and (max-width: 1024px) {
+    #heading {
+        text-align: center;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    #main-menu {
+        text-align: center;
+    }
+
+    #main-content {
+        padding-top: 100px;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+    #main-content .blog-title {
+
+    }
+
+    #main-content .blog-description {
+
+    }
+}
