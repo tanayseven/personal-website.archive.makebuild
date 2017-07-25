@@ -64,42 +64,6 @@ table {
 }
 
 /*
-    Color scheme
- */
-
-.coralFont {
-    color: #E14658;
-}
-
-.navyFont {
-    color: #22252C;
-}
-
-.mountainFont {
-    color: #3F3250;
-}
-
-.scrubFont {
-    color: #C0B3A0;
-}
-
-.coralBack {
-    background-color: #E14658;
-}
-
-.navyBack {
-    background-color: #22252C;
-}
-
-.mountainBack {
-    background-color: #3F3250;
-}
-
-.scrubBack {
-    background-color: #C0B3A0;
-}
-
-/*
     New css to actually format the text
 */
 
