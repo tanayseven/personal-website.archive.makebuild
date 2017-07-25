@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -36,6 +36,7 @@ body {
     min-height: 100%;
     width: 100%;
     font-family: Roboto, serif;
+    overflow-x: hidden;
 }
 
 html {
@@ -125,7 +126,8 @@ h3 {
 
 #main-content {
     text-align: justify;
-    margin-bottom: 30px;
+    padding-bottom: 60px;
+    overflow: hidden;
 }
 
 #social-media-links {
