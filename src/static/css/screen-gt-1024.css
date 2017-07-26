@@ -19,8 +19,9 @@
 
     #main-content {
         padding-top: 100px;
-        /*margin-bottom: -50px;*/
         padding-bottom: 50px;
+        margin-left: 100px;
+        margin-right: 100px;
     }
 
     #main-content p {
