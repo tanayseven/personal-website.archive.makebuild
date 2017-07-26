@@ -2,7 +2,7 @@
 
     #heading {
         text-align: center;
-        /*height: 90px;*/
+        height: 90px;
     }
 
     #heading h1 {
@@ -18,8 +18,9 @@
     }
 
     #main-content {
-        margin-top: 100px;
-        min-height: 100%;
+        padding-top: 100px;
+        margin-bottom: -50px;
+        padding-bottom: 50px;
     }
 
     #main-content p {
@@ -46,12 +47,13 @@
     }
 
     .wrapper {
-        margin-bottom: calc(-30px - 100px - 30px);
+        min-height: 100%;
+        margin-bottom: -70px;
     }
 
     footer, .push {
         text-align: center;
-        height: 30px;
-        line-height: 5px;
+        height: 50px;
+        line-height: 3px;
     }
 }
