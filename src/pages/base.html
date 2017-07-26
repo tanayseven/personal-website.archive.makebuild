@@ -9,6 +9,7 @@
 </head>
 
 <body class="scrubBack navyFont">
+<div class="wrapper">
     <div id="heading" class="navyBack scrubFont">
         <h1>Tanay PrabhuDesai</h1>
         <nav id="main-menu">
@@ -21,29 +22,31 @@
     <div id="main-content">
         {% block main_content %}{% endblock %}
     </div>
-    <div class="footer">
-        <p>&copy; 2017 Tanay PrabhuDesai</p>
-        <p>All the content on this site is licensed under Creative Commons 4.0 BY-SA and the code is licensed under MIT
-            License unless explicitly stated</p>
-    </div>
-    <noscript id="deferred">
-        {% block deferred %}{% endblock %}
-    </noscript>
-    <script>
-        let loadDeferredStyles = function () {
-            let addStylesNode = document.getElementById("deferred");
-            let replacement = document.createElement("div");
-            replacement.innerHTML = addStylesNode.textContent;
-            document.body.appendChild(replacement);
-            addStylesNode.parentElement.removeChild(addStylesNode);
-        };
-        let raf = requestAnimationFrame || mozRequestAnimationFrame ||
-            webkitRequestAnimationFrame || msRequestAnimationFrame;
-        if (raf) raf(function () {
-            window.setTimeout(loadDeferredStyles, 0);
-        });
-        else window.addEventListener('load', loadDeferredStyles);
-    </script>
+    <div class="push"></div>
+</div>
+<footer>
+    <p>&copy; 2017 Tanay PrabhuDesai</p>
+    <p>All the content on this site is licensed under Creative Commons 4.0 BY-SA and the code is licensed under MIT
+        License unless explicitly stated</p>
+</footer>
+<noscript id="deferred">
+    {% block deferred %}{% endblock %}
+</noscript>
+<script>
+    let loadDeferredStyles = function () {
+        let addStylesNode = document.getElementById("deferred");
+        let replacement = document.createElement("div");
+        replacement.innerHTML = addStylesNode.textContent;
+        document.body.appendChild(replacement);
+        addStylesNode.parentElement.removeChild(addStylesNode);
+    };
+    let raf = requestAnimationFrame || mozRequestAnimationFrame ||
+        webkitRequestAnimationFrame || msRequestAnimationFrame;
+    if (raf) raf(function () {
+        window.setTimeout(loadDeferredStyles, 0);
+    });
+    else window.addEventListener('load', loadDeferredStyles);
+</script>
 </body>
 {% block meta_vars %}{% endblock %}
 </html>
