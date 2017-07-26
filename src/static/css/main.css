@@ -22,6 +22,7 @@ html, body {
     margin-top: 0;
     padding-top: 0;
     position: fixed;
+    text-align: center;
 }
 
 #main-content {
@@ -30,6 +31,7 @@ html, body {
 
 #social-media-links {
     align-content: center;
+    text-align: center;
 }
 
 a.nav-button {
@@ -85,10 +87,6 @@ a.active.lightFont {
     text-decoration: underline;
 }
 
-.footer {
-    position: inherit;
-    bottom: 0;
-    left: 0;
-    right: 0;
+.push, footer {
     text-align: center;
 }
