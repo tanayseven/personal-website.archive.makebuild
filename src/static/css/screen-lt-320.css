@@ -1,12 +1,59 @@
 @media only screen and (max-width: 320px) {
-    .footer {
-
+    #heading {
+        height: 90px;
     }
-    #main-content .blog-title {
 
+    #heading h1 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 30px;
+    }
+
+    #main-menu .nav-button {
+        text-align: center;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    #main-content {
+        padding-top: 100px;
+        padding-bottom: 50px;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+
+    #main-content p {
+        font-size: 25px;
+        margin-top: 30px;
+    }
+
+    #main-content #social-media-links i {
+        font-size: 100px;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    #main-content .blog-title {
+        font-size: 20px;
     }
 
     #main-content .blog-description {
+        font-size: 15px;
+    }
 
+    .wrapper {
+        min-height: 100%;
+        margin-bottom: -50px;
+    }
+
+    footer, .push {
+        /*
+        Total height is 34px out of which top and bottom padding is 2px and 15px + 15px are the two lines of text
+        */
+        height: 34px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        font-size: 15px;
+        line-height: 15px;
     }
 }

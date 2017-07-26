@@ -5,15 +5,11 @@
     <link rel="stylesheet" href="{{ css_file_path }}">
 {% endblock %}
 {% block main_content %}
-    <ul>
-    {%  for page_path in titles %}
-        <li>
+        {%  for page_path in titles %}
             <a class="blog-title" href="{{ page_path }}">{{ titles[page_path] }}</a>
             <p class="blog-description">{{ description[page_path] }}</p>
             <br>
-        </li>
-    {% endfor %}
-    </ul>
+        {% endfor %}
 {% endblock %}
 {% block deferred %}
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
