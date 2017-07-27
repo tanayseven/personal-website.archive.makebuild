@@ -31,7 +31,7 @@ python src/build_resume.py >$RESUME_PATH"index.html"
 python src/build_about.py >$ABOUT_PATH"index.html"
 # Build all the pages from the blog
 for filename in src/pages/posts/*.html; do
-    ./blog-build.sh "$filename" &
+    ./blog-build.sh "$filename"
 done
 wait
 python ./src/generate_blog_page.py > $BLOG_PATH"index.html"
