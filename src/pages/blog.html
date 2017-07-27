@@ -6,7 +6,8 @@
 {% endblock %}
 {% block main_content %}
         {%  for page_path in titles %}
-            <a class="blog-title" href="{{ page_path }}">{{ titles[page_path] }}</a>
+            {% set date = page_path.split('/')[2:][:3] %}
+            <p class="blog-date">{{ date[0] }}/{{ date[1] }}/{{ date[2] }} <a class="blog-title" href="{{ page_path }}">{{ titles[page_path] }}</a></p>
             <p class="blog-description">{{ description[page_path] }}</p>
             <br>
         {% endfor %}
