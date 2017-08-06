@@ -1,2 +1,4 @@
 Jinja2==2.9.6
 css-html-js-minify==2.2.2
+radish-bdd==0.6.8
+manage.py==0.2.10
