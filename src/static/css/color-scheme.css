@@ -2,34 +2,18 @@
     Color scheme
  */
 
-.coralFont {
-    color: #E14658;
+.lightFont {
+    color: #FFFFFF;
 }
 
-.navyFont {
-    color: #22252C;
+.mainBackground {
+    background: #F4F4F4;
 }
 
-.mountainFont {
-    color: #3F3250;
+.darkFont {
+    color: #262228;
 }
 
-.scrubFont {
-    color: #C0B3A0;
-}
-
-.coralBack {
-    background-color: #E14658;
-}
-
-.navyBack {
-    background-color: #22252C;
-}
-
-.mountainBack {
-    background-color: #3F3250;
-}
-
-.scrubBack {
-    background-color: #C0B3A0;
+.darkBackground {
+    background: #262228;
 }
