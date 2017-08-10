@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # List of all the global paths needed for the build
-export PAGES_PATH='src/pages/'
-export SCRIPT_PATH='src/'
+export PAGES_PATH='personal_website/pages/'
+export SCRIPT_PATH='personal_website/'
 export OUTPUT_PATH='www/'
 BLOG='blog/'
 RES='res/'
@@ -30,8 +30,8 @@ python src/build_index.py >"$OUTPUT_PATH$INDEX"
 python src/build_resume.py >$RESUME_PATH"index.html"
 python src/build_about.py >$ABOUT_PATH"index.html"
 # Build all the pages from the blog
-for filename in src/pages/posts/*.html; do
+for filename in personal_website/pages/posts/*.html; do
     ./blog-build.sh "$filename"
 done
 wait
-python ./src/generate_blog_page.py > $BLOG_PATH"index.html"
+python ./personal_website/generate_blog_page.py > $BLOG_PATH"index.html"

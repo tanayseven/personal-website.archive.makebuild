@@ -3,11 +3,11 @@ import sys
 
 
 def generate_path(src, destination_prefix, left_path_trim):
-    str_lst = src.split('-')
-    result = str_lst[0] + '/' + str_lst[1] + '/' + str_lst[2] + '/' + '-'.join(str_lst[3:])
-    result = destination_prefix + '/'.join(result.split('/')[int(left_path_trim):])
-    result = '.'.join(result.split('.')[:-1] + ['html'])
-    return result
+    to_be_formatted = destination_prefix.lstrip('/') + src.split(left_path_trim)[1]
+    main_prefix, page_name = '/'.join(to_be_formatted.split('/')[:-1]), to_be_formatted.split('/')[-1]
+    html_page_list = page_name.split('-')
+    result = main_prefix + '/' + '/'.join(html_page_list[:3]) + '/' + '-'.join(html_page_list[3:])
+    return ('/' if destination_prefix.startswith('/') else '/') + result
 
 
 if __name__ == '__main__':
