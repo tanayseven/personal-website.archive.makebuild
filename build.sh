@@ -19,16 +19,16 @@ export IMAGE_PATH="$OUTPUT_PATH$RES$IMAGES"
 mkdir -p "$BLOG_PATH" "$FONTS_PATH" "$RES_PATH" "$RESUME_PATH" "$ABOUT_PATH" "$IMAGE_PATH"
 
 # Build all the static files into one single file
-python ./src/combine_static.py ./src/static/css/ css "$OUTPUT_PATH" "$RES"
-cp ./src/static/fonts/* "$FONTS_PATH"
-cp -r ./src/static/images/* "$IMAGE_PATH"
-cp ./src/.htaccess "$OUTPUT_PATH"
+python ./personal_website/combine_static.py ./src/static/css/ css "$OUTPUT_PATH" "$RES"
+cp ./personal_website/static/fonts/* "$FONTS_PATH"
+cp -r ./personal_website/static/images/* "$IMAGE_PATH"
+cp ./personal_website/.htaccess "$OUTPUT_PATH"
 
 # Build the home page which is the index.html page
 INDEX='index.html'
-python src/build_index.py >"$OUTPUT_PATH$INDEX"
-python src/build_resume.py >$RESUME_PATH"index.html"
-python src/build_about.py >$ABOUT_PATH"index.html"
+python personal_website/build_index.py >"$OUTPUT_PATH$INDEX"
+python personal_website/build_resume.py >$RESUME_PATH"index.html"
+python personal_website/build_about.py >$ABOUT_PATH"index.html"
 # Build all the pages from the blog
 for filename in personal_website/pages/posts/*.html; do
     ./blog-build.sh "$filename"

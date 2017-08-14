@@ -25,7 +25,7 @@ with open('titles.csv', 'r') as f:
 with open('css.txt') as f:
     css_file_path = f.read()
 
-template = Environment(loader=FileSystemLoader('src/pages/')).get_template('blog.html')
+template = Environment(loader=FileSystemLoader('personal_website/pages/')).get_template('blog.html')
 print(template.render(
     css_file_path=css_file_path,
     nav_button='blog',

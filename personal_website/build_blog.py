@@ -4,7 +4,7 @@ import sys
 
 sys.path.append('.')
 
-from src.blog_path import generate_path
+from personal_website.blog_path import generate_path
 
 jinja_file_name = '/'.join(sys.argv[1].split('/')[-2:])
 html_file_name = generate_path('/'.join(sys.argv[1].split('/')[-1:]), '/blog/', '0')
@@ -35,7 +35,7 @@ def write_title(title):
 with open('css.txt') as f:
     css_file_path = f.read()
 css_file_path = '/' + '/'.join(css_file_path.split('/')[1:])
-template = Environment(loader=FileSystemLoader('src/pages/')).get_template(jinja_file_name)
+template = Environment(loader=FileSystemLoader('personal_website/pages/')).get_template(jinja_file_name)
 date_list = html_file_name.split('/')[2:][:3]
 
 print(template.render(

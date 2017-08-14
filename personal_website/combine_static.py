@@ -5,7 +5,7 @@ from css_html_js_minify import css_minify, html_minify, js_minify
 
 sys.path.append('.')
 
-from src.utils.file_utils import get_all_sub_files
+from personal_website.utils.file_utils import get_all_sub_files
 
 minify = {
     'css': css_minify,
