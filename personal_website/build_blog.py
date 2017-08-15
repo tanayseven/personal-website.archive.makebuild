@@ -7,7 +7,7 @@ sys.path.append('.')
 from personal_website.blog_path import generate_path
 
 jinja_file_name = '/'.join(sys.argv[1].split('/')[-2:])
-html_file_name = generate_path('/'.join(sys.argv[1].split('/')[-1:]), '/blog/', '0')
+html_file_name = generate_path(sys.argv[1], '/blog/', 'personal_website/pages/posts/')
 print(html_file_name.split('/')[2:][:3])
 
 
