@@ -60,6 +60,18 @@
         margin-bottom: -50px;
     }
 
+    #main-content .skills-list {
+        width: 100%;
+        margin-bottom:20px;
+        float: left;
+    }
+
+    #main-content .skill-item {
+        font-size: 18px;
+        width: 400px;
+        float: left;
+    }
+
     footer, .push {
         /*
         Total height is 34px out of which top and bottom padding is 2px and 15px + 15px are the two lines of text
