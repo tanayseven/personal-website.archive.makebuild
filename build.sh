@@ -19,7 +19,7 @@ export IMAGE_PATH="$OUTPUT_PATH$RES$IMAGES"
 mkdir -p "$BLOG_PATH" "$FONTS_PATH" "$RES_PATH" "$RESUME_PATH" "$ABOUT_PATH" "$IMAGE_PATH"
 
 # Build all the static files into one single file
-python ./personal_website/combine_static.py ./src/static/css/ css "$OUTPUT_PATH" "$RES"
+python ./personal_website/combine_static.py ./personal_website/static/css/ css "$OUTPUT_PATH" "$RES"
 cp ./personal_website/static/fonts/* "$FONTS_PATH"
 cp -r ./personal_website/static/images/* "$IMAGE_PATH"
 cp ./personal_website/.htaccess "$OUTPUT_PATH"

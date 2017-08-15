@@ -13,6 +13,7 @@ minify = {
     'html': html_minify,
 }
 
+
 def main():
     sub_files = sorted(get_all_sub_files(sys.argv[1], sys.argv[2]))
     content = ''
