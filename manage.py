@@ -1,25 +1,27 @@
 #!/usr/bin/env python3
+import shutil
+from flask_frozen import Freezer
 from manager import Manager
-from multiprocessing import Pool
+
+from personal_website.flask_app import app
 
 manager = Manager()
 
 
-def func(period):
-    from time import sleep
-    sleep(period)
+@manager.command
+def build():
+    freezer = Freezer(app)
+    freezer.freeze()
 
 
 @manager.command
-def build(threads=1):
-    pool = Pool(threads)
-    print("Starting a build with %d threads ..." % threads)
-    pool.map(func, [1, 1, 1, 1, 1])
+def run(port='8000'):
+    app.run(port=int(port))
 
 
 @manager.command
 def clean():
-    pass
+    shutil.rmtree('personal_website/build/')
 
 
 if __name__ == '__main__':
