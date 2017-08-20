@@ -6,3 +6,4 @@ www/
 *.idea/
 www/*
 *.csv
+build/
