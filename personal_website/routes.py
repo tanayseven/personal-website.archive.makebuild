@@ -1,9 +1,12 @@
+from personal_website.build_index import result
+
+
 def attach_routes(app):
 
     @app.route('/')
     @app.route('/home/')
     def home():
-        return 'Hello World'
+        return result
 
     @app.route('/blog/')
     def blog():

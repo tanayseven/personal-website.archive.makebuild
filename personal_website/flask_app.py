@@ -6,7 +6,5 @@ app = Flask(__name__)
 
 attach_routes(app)
 
-extra_files = []
-
 if __name__ == '__main__':
-    app.run(extra_files=extra_files)
+    app.run(debug=True)

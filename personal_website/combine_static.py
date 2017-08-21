@@ -14,6 +14,20 @@ minify = {
 }
 
 
+def create_css(css_files=()):
+    sub_files = sorted(get_all_sub_files(css_files, 'css'))
+    content = ''
+    for input_file in sub_files:
+        with open(input_file) as f:
+            content += f.read()
+    content = minify['css'](content)
+    content_hash = hashlib.sha1(content.encode('utf-8')).hexdigest()
+    destination_path = content_hash[:12] + '.' + 'css'
+    with open(sys.argv[3] + sys.argv[4] + destination_path, 'w') as f:
+        f.write(content)
+    with open('./' + sys.argv[2] + '.txt', 'w') as f:
+        f.write('/' + sys.argv[4] + destination_path)
+
 def main():
     sub_files = sorted(get_all_sub_files(sys.argv[1], sys.argv[2]))
     content = ''
