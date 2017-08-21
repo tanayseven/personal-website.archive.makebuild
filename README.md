@@ -20,3 +20,7 @@ py.test
 # Run all the Radish based BDD acceptance tests
 radish features/
 ```
+
+License
+-------
+The MIT License (MIT)
