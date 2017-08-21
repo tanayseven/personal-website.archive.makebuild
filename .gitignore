@@ -7,3 +7,4 @@ www/
 www/*
 *.csv
 build/
+intermediate_data.db
