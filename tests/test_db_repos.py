@@ -1,8 +1,8 @@
 import pytest
 
 
-def TestMinified:
+class TestMinification:
 
     @pytest.fixture
-    def initialize():
+    def initialize(self):
         pass
