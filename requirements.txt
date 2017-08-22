@@ -1,6 +1,6 @@
 Jinja2==2.9.6
 Frozen-Flask==0.15
 css-html-js-minify==2.2.2
-radish-bdd==0.6.8
+behave==1.2.5
 manage.py==0.2.10
 PyTest==3.2.0
