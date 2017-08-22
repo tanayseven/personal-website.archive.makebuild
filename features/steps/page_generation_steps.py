@@ -3,7 +3,7 @@ from behave import *
 from features.steps.build_operations import file_exists, run_command
 
 
-@given('we run the command "{command}"')
+@when('we run the command "{command}"')
 def run_the_command(context, command):
     """
     :param command: the command that will be executed in the root of the project
