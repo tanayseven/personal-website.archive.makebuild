@@ -13,10 +13,12 @@ def stars(number=5):
     resultant_string = '(' + str(number) + ') ' + ''.join([full_star for _ in range(int(number))])
     resultant_string += half_star if (number - int(number)) > 0 else ''
     return resultant_string
-
-print(template.render(
+result = template.render(
     css_file_path=css_file_path,
     page_title='Résumé',
     nav_button='resume',
     stars=stars,
-))
+)
+
+if __name__ == '__main__':
+    print(result)

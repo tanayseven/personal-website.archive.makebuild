@@ -4,9 +4,10 @@ with open('css.txt') as f:
     css_file_path = f.read()
 css_file_path = '/' + '/'.join(css_file_path.split('/')[1:])
 template = Environment(loader=FileSystemLoader('personal_website/pages/')).get_template('about.html')
-
-print(template.render(
+result = template.render(
     css_file_path=css_file_path,
     page_title='About',
     nav_button='about',
-))
+)
+if __name__ == '__main__':
+    print(result)
