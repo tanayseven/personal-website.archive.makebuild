@@ -17,8 +17,8 @@ pip install -r requirements.txt
 # Run all the unit tests
 py.test
 
-# Run all the Radish based BDD acceptance tests
-radish features/
+# Run all the Behave based BDD Gherkin acceptance tests
+behave
 ```
 
 License

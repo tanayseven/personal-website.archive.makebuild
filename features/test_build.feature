@@ -1,6 +1,6 @@
-Feature: Showing off behave
+Feature: Run the website build functionality
 
-  Scenario: Run a simple test
-    Given we have behave installed
-    When we implement a test
-    Then Behave will test it for us
+  Scenario: Home page is generated
+    Given we run the command "./manage.py build"
+    Then there should be "index.html" in "build/home/"
+    And there should be "index.html" in "build/"
