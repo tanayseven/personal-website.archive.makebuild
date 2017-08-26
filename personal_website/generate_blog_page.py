@@ -26,11 +26,13 @@ with open('css.txt') as f:
     css_file_path = f.read()
 
 template = Environment(loader=FileSystemLoader('personal_website/pages/')).get_template('blog.html')
-print(template.render(
+result = template.render(
     css_file_path=css_file_path,
     nav_button='blog',
     title='Blog',
     titles=titles,
     description=desc,
     tags=tags,
-))
+)
+if __name__ == '__main__':
+    print(result)
