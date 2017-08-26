@@ -50,13 +50,13 @@ def compute_static_files():
 def get_css_file(static_files):
     for file_name in static_files:
         if file_name.endswith(CSS):
-            return file_name
+            return '/' + file_name
 
 
 def get_js_file(static_files):
     for file_name in static_files:
         if file_name.endswith(JS):
-            return file_name
+            return '/' + file_name
 
 
 if __name__ == '__main__':
