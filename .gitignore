@@ -8,3 +8,4 @@ www/*
 *.csv
 build/
 intermediate_data.db
+personal_website/static/*.css
