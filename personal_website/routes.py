@@ -4,14 +4,14 @@ from personal_website.build_resume import result as resume_page
 from personal_website.build_about import result as about_page
 
 
-def attach_routes(app):
+def attach_routes(app, static_files):
     @app.route('/')
     def root():
-        return home_page
+        return home_page(static_files)
 
     @app.route('/home/')
     def home():
-        return home_page
+        return home_page(static_files)
 
     @app.route('/blog/')
     def blog():

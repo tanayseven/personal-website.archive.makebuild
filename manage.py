@@ -10,21 +10,21 @@ from personal_website.flask_app import app
 manager = Manager()
 
 
-def build_static_files():
-    create_initial_database()
-    create_css('./personal_website/static/css/main.css')
+# def build_static_files():
+#     create_initial_database()
+#     create_css('./personal_website/static/css/main.css')
 
 
 @manager.command
 def build():
-    build_static_files()
+    # build_static_files()
     freezer = Freezer(app)
     freezer.freeze()
 
 
 @manager.command
 def run(port='8000'):
-    build_static_files()
+    # build_static_files()
     app.run(port=int(port), debug=True)
 
 

@@ -1,2 +1,0 @@
-class MiniStaticFile:
-    pass
