@@ -13,9 +13,9 @@ def attach_routes(app):
     def home():
         return home_page
 
-    # @app.route('/blog/')
-    # def blog():
-    #     return 'Blog'
+    @app.route('/blog/')
+    def blog():
+        return 'Blog'
 
     @app.route('/resume/')
     def resume():

@@ -10,6 +10,6 @@ Feature: Run the website build functionality
     Examples: main pages
         | page name  | path           | title                        |
         | Home       | build/home/    | Home - Tanay PrabhuDesai     |
-       #| Blog       | build/blog/    | Blog - Tanay PrabhuDesai     |
+        | Blog       | build/blog/    | Blog - Tanay PrabhuDesai     |
         | Resume     | build/resume/  | Resume - Tanay PrabhuDesai   |
         | About      | build/about/   | About - Tanay PrabhuDesai    |

@@ -31,8 +31,7 @@ def create_table_minified():
 
 @database_call
 def insert_dummy_into_minified():
-    cursor = conn.cursor()
-    cursor.execute("INSERT INTO  minified VALUES "
+    conn.execute("INSERT INTO  minified VALUES "
                  "(0, '', '', '')")
 
 
@@ -49,7 +48,6 @@ class MinifiedRepo:
     @staticmethod
     @database_call
     def get_max_id():
-        cursor = conn.cursor()
-        return cursor.execute(
+        return conn.execute(
             'SELECT MAX(id) FROM minified;'
         ).fetchone()[0] + 1
