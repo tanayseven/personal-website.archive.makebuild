@@ -24,5 +24,24 @@ def the_page_should_have_the_title(context, path, page_name, title):
     :param: page_name: Name of the page of which the title should be checked
     :param: title: The exact string title to match to
     """
-    print()
     assert soup_for_html(path + page_name).title.string == title
+
+
+@step('the page at path "{path}" with page "{page_name}" should have at least one css link')
+def step_impl(context, path, page_name):
+    """
+    :type context: behave.runner.Context
+    :type path: str
+    :type page_name: str
+    :param path: Name path at which the page is located
+    :param: page_name: Name of the page of which the title should be checked
+    """
+    links = soup_for_html(path + page_name).find_all('link')
+    print(links)
+    for link in links:
+        if link.get('href').endswith('css'):
+            assert link.get('rel')[0] == 'stylesheet'
+            assert link.get('type') == 'text/css'
+            break
+    else:
+        assert False

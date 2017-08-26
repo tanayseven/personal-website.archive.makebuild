@@ -3,6 +3,8 @@ import csv
 from jinja2.environment import Environment
 from jinja2.loaders import FileSystemLoader
 
+from personal_website.combine_static import get_css_file
+
 desc = {}
 tags = {}
 titles = {}
@@ -30,7 +32,7 @@ template = Environment(loader=FileSystemLoader('personal_website/pages/')).get_t
 
 def result(static_files):
     return template.render(
-        css_file_path=css_file_path,
+        css_file_path=get_css_file(static_files),
         nav_button='blog',
         title='Blog',
         titles=titles,
