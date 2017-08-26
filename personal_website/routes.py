@@ -1,7 +1,7 @@
-from personal_website.build_index import result as home_page
-from personal_website.generate_blog_page import result as blog_page
-from personal_website.build_resume import result as resume_page
 from personal_website.build_about import result as about_page
+from personal_website.build_index import result as home_page
+from personal_website.build_resume import result as resume_page
+from personal_website.generate_blog_page import result as blog_page
 
 
 def attach_routes(app, static_files):

@@ -1,5 +1,4 @@
 import hashlib
-import sqlite3
 import sys
 
 from css_html_js_minify import css_minify, html_minify, js_minify

@@ -1,6 +1,7 @@
 import fcntl
-from jinja2 import Environment, FileSystemLoader
 import sys
+
+from jinja2 import Environment, FileSystemLoader
 
 sys.path.append('.')
 
