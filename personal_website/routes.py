@@ -3,8 +3,8 @@ from personal_website.generate_blog_page import result as blog_page
 from personal_website.build_resume import result as resume_page
 from personal_website.build_about import result as about_page
 
-def attach_routes(app):
 
+def attach_routes(app):
     @app.route('/')
     def root():
         return home_page
