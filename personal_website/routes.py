@@ -19,8 +19,8 @@ def attach_routes(app, static_files):
 
     @app.route('/resume/')
     def resume():
-        return resume_page
+        return resume_page(static_files)
 
     @app.route('/about/')
     def about():
-        return about_page
+        return about_page(static_files)
