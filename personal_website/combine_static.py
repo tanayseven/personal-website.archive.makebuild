@@ -4,7 +4,7 @@ import sys
 
 from css_html_js_minify import css_minify, html_minify, js_minify
 
-from personal_website.constants import CSS, JS, HTML, STATIC_PATH
+from personal_website.constants import CSS, JS, HTML, STATIC_PATH, SOURCE_ROOT
 from personal_website.utils.file_utils import get_all_sub_files
 
 minify = {
@@ -15,18 +15,17 @@ minify = {
 
 
 def create_css():
-    sub_files = sorted(get_all_sub_files(STATIC_PATH + CSS, CSS))
+    sub_files = sorted(get_all_sub_files(SOURCE_ROOT + STATIC_PATH + CSS, CSS))
     content = ''
     for input_file in sub_files:
         with open(input_file) as f:
             content += f.read()
     content = minify['css'](content)
     content_hash = hashlib.sha1(content.encode('utf-8')).hexdigest()
-    destination_path = STATIC_PATH + content_hash[:12] + '.' + 'css'
-    print(destination_path)
+    destination_path = SOURCE_ROOT + STATIC_PATH + content_hash[:12] + '.' + CSS
     with open(destination_path, 'w') as f:
         f.write(content)
-    return destination_path
+    return STATIC_PATH + content_hash[:12] + '.' + 'css'
 
 
 def main():
