@@ -1,3 +1,5 @@
+from flask import send_from_directory
+
 from personal_website.build_about import result as about_page
 from personal_website.build_index import result as home_page
 from personal_website.build_resume import result as resume_page
@@ -5,6 +7,10 @@ from personal_website.generate_blog_page import result as blog_page
 
 
 def attach_routes(app, static_files):
+    @app.route('/fonts/<path:path>')
+    def send_fonts(path):
+        return send_from_directory('static/fonts/', path)
+
     @app.route('/')
     def root():
         return home_page(static_files)
