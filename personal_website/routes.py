@@ -8,7 +8,7 @@ from personal_website.generate_blog_page import result as blog_page
 
 def attach_routes(app, static_files):
     @app.route('/fonts/<path:path>')
-    def send_fonts(path):
+    def fonts(path):
         return send_from_directory('static/fonts/', path)
 
     @app.route('/')
