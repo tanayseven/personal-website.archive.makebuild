@@ -25,13 +25,14 @@ def build():
 
 
 @manager.command
-def run(port='8000'):
-    freezer.serve(port=int(port), debug=True)
+def run(host='0.0.0.0', port='8000'):
+    print("Running a server on " + host + ":" + port)
+    freezer.serve(host=host, port=int(port), debug=True)
 
 
 @manager.command
 def clean():
-    shutil.rmtree('personal_website/build/')
+    os.system("rm -rf personal_website/build/*")
 
 
 @manager.command
