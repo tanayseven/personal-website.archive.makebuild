@@ -38,7 +38,8 @@ def clean():
 
 @manager.command
 def test():
-    pass
+    build()
+    os.system("py.test; behave")
 
 
 if __name__ == '__main__':

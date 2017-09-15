@@ -23,6 +23,10 @@ def attach_routes(app, static_files):
     def blog():
         return blog_page(static_files)
 
+    # @app.route('/blog/<year>/<month>/<day>/<name>.html')
+    # def blog_post(year, month, day, name):
+    #     pass
+
     @app.route('/resume/')
     def resume():
         return resume_page(static_files)
