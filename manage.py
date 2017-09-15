@@ -28,7 +28,7 @@ def build():
 def serve(host='0.0.0.0', port='8000'):
     build()
     print("Running a server on " + host + ":" + port)
-    freezer.serve(port=int(port), debug=True)
+    freezer.serve(host=host, port=int(port), debug=True)
 
 
 @manager.command
