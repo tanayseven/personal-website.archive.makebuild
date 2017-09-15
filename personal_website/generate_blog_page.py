@@ -24,9 +24,6 @@ with open('titles.csv', 'r') as f:
     for row in reader:
         titles[row[0]] = ','.join(row[1:])
 
-with open('css.txt') as f:
-    css_file_path = f.read()
-
 template = Environment(loader=FileSystemLoader('personal_website/pages/')).get_template('blog.html')
 
 
