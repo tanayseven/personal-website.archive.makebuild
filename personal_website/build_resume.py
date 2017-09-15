@@ -17,9 +17,9 @@ def stars(number=5):
     return resultant_string
 
 
-def result(static_files):
+def result(static_files, css_file):
     return template.render(
-        css_file_path=get_css_file(static_files),
+        css_file_path=css_file,
         page_title='Résumé',
         nav_button='resume',
         stars=stars,

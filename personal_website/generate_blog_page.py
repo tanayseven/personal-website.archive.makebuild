@@ -30,9 +30,9 @@ with open('css.txt') as f:
 template = Environment(loader=FileSystemLoader('personal_website/pages/')).get_template('blog.html')
 
 
-def result(static_files):
+def result(static_files, css_file=''):
     return template.render(
-        css_file_path=get_css_file(static_files),
+        css_file_path=css_file,
         nav_button='blog',
         title='Blog',
         titles=titles,

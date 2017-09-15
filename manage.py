@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import os
-import shutil
 
 from flask_frozen import Freezer
 from manager import Manager
@@ -17,6 +16,13 @@ def fonts():
     fonts_ = next(os.walk(path))[2]
     for font in fonts_:
         yield {'path': font}
+
+# @freezer.register_generator
+# def css():
+#     path = os.path.join(app.root_path, 'static/css') + '/'
+#     css_ = next(os.walk(path))[2]
+#     for file in css_:
+#         yield {'path': file}
 
 
 @manager.command

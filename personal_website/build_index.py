@@ -8,11 +8,11 @@ css_file_path = '/' + '/'.join(css_file_path.split('/')[1:])
 template = Environment(loader=FileSystemLoader('personal_website/pages/')).get_template('index.html')
 
 
-def result(static_files=None):
+def result(static_files=None, css_file=''):
     if static_files is None:
         static_files = [css_file_path]
     return template.render(
-        css_file_path=get_css_file(static_files),
+        css_file_path=css_file,
         page_title='Home',
         nav_button='home',
     )
