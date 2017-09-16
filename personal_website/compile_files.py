@@ -18,8 +18,6 @@ def combine_static(app, src_directory_path, file_extension) -> str:
     content_hash = hashlib.sha1(content.encode('utf-8')).hexdigest()[:8]
     dest_directory_path = '/'.join(src_directory_path.rsplit('/')[:-2])
     dest_directory_path = (dest_directory_path if dest_directory_path.endswith('/') else dest_directory_path + '/')
-    print(dest_directory_path)
     with open(SOURCE_ROOT + dest_directory_path + content_hash + '.' + file_extension, 'w') as f:
         f.write(content)
-    print(dest_directory_path, src_directory_path)
     return '/' + dest_directory_path + content_hash + '.' + file_extension
