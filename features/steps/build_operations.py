@@ -1,8 +1,7 @@
 import os
-from itertools import chain
+from glob import glob
 
 from bs4 import BeautifulSoup
-from glob import glob
 
 from constants import OUTPUT_PATH, BLOG_PATH
 
@@ -17,8 +16,9 @@ def run_command(command):
     os.system(command)
 
 
-def soup_for_html(file_path):
-    with open(PATH_ROOT + file_path) as file:
+def soup_for_html(file_path, attach_path_root=True):
+    path_root = PATH_ROOT if attach_path_root else ''
+    with open(path_root + file_path) as file:
         file_contents = file.read()
         soup = BeautifulSoup(file_contents, 'html.parser')
     return soup

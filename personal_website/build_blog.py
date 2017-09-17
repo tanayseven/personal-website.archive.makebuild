@@ -39,11 +39,16 @@ css_file_path = '/' + '/'.join(css_file_path.split('/')[1:])
 template = Environment(loader=FileSystemLoader('personal_website/pages/')).get_template(jinja_file_name)
 date_list = html_file_name.split('/')[2:][:3]
 
-print(template.render(
-    css_file_path=css_file_path,
-    nav_button='blog',
-    write_title=write_title,
-    write_tags=write_tags,
-    write_description=write_description,
-    date_list=date_list,
-))
+
+def result():
+    return template.render(
+        css_file_path=css_file_path,
+        nav_button='blog',
+        write_title=write_title,
+        write_tags=write_tags,
+        write_description=write_description,
+        date_list=date_list,
+    )
+
+
+print(result)

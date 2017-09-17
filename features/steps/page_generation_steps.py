@@ -63,4 +63,7 @@ def there_should_be_title_for_every_generated_page(context):
     """
     :type context: behave.runner.Context
     """
-    pass
+    output_files = blog_output_files()
+    for file_ in output_files:
+        print(file_)
+        assert soup_for_html(file_, attach_path_root=False).title.string != ''
