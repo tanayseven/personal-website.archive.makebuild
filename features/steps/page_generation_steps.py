@@ -1,7 +1,6 @@
 from behave import *
-from constants import *
 
-from features.steps.build_operations import file_exists, soup_for_html, all_files_in_dir
+from features.steps.build_operations import file_exists, soup_for_html, blog_output_files, blog_source_files
 
 
 @then('there should be "{file_name}" in "{dir_name}"')
@@ -38,7 +37,6 @@ def page_at_path_should_have_one_css_link(context, path, page_name):
     :param: page_name: Name of the page of which the title should be checked
     """
     links = soup_for_html(path + page_name).find_all('link')
-    print(links)
     for link in links:
         if link.get('href').endswith('css'):
             assert link.get('rel')[0] == 'stylesheet'
@@ -53,10 +51,10 @@ def every_page_should_have_corresponding_html_generated(context):
     """
     :type context: behave.runner.Context
     """
-    source_files = all_files_in_dir(BLOG_PATH, 'html')
-    output_files = all_files_in_dir(OUTPUT_PATH, 'html')
-    total_source_files = len([name for name in source_files if name.endswith('html')])
-    total_output_files = len([name for name in output_files if not name.endswith('index.html')])
+    source_files = blog_source_files()
+    output_files = blog_output_files()
+    total_source_files = len(source_files)
+    total_output_files = len(output_files)
     assert total_output_files == total_source_files != 0
 
 

@@ -4,6 +4,8 @@ from itertools import chain
 from bs4 import BeautifulSoup
 from glob import glob
 
+from constants import OUTPUT_PATH, BLOG_PATH
+
 PATH_ROOT = 'personal_website/'
 
 
@@ -24,3 +26,13 @@ def soup_for_html(file_path):
 
 def all_files_in_dir(path, file_extension):
     return [y for x in os.walk(path) for y in glob(os.path.join(x[0], '*.' + file_extension))]
+
+
+def blog_output_files():
+    return [name for name in all_files_in_dir(OUTPUT_PATH, 'html') if not name.endswith('index.html')]
+
+
+def blog_source_files():
+    return [name for name in all_files_in_dir(BLOG_PATH, 'html') if name.endswith('html')]
+
+
