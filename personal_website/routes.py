@@ -26,9 +26,9 @@ def attach_routes(app, static_files):
     def blog():
         return blog_page(static_files, css_file)
 
-    # @app.route('/blog/<year>/<month>/<day>/<name>.html')
-    # def blog_post(year, month, day, name):
-    #     pass
+    @app.route('/blog/<year>/<month>/<day>/<name>.html')
+    def blog_post(year, month, day, name):
+        return send_from_directory('pages/posts/', year + '-' + month + '-' + day + '-' + name + '.html')
 
     @app.route('/resume/')
     def resume():

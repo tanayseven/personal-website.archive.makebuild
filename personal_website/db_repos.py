@@ -2,7 +2,7 @@ import os
 import sqlite3
 from functools import wraps
 
-from personal_website.constants import DATABASE_NAME
+from constants import DATABASE_NAME
 
 conn = None
 

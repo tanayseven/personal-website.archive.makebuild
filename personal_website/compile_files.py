@@ -3,7 +3,7 @@ import os
 
 import css_html_js_minify
 
-from personal_website.constants import SOURCE_ROOT
+from constants import SOURCE_ROOT
 
 
 def combine_static(app, src_directory_path, file_extension) -> str:

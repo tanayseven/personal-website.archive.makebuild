@@ -12,3 +12,8 @@ Feature: Run the website build functionality
         | Blog       | build/blog/    | Blog - Tanay PrabhuDesai     |
         | Resume     | build/resume/  | Resume - Tanay PrabhuDesai   |
         | About      | build/about/   | About - Tanay PrabhuDesai    |
+
+  Scenario: All the blog pages should be generated
+    Given for every page should have a corresponding HTML generated
+    Then there should be title in evey generated page
+

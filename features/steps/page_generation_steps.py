@@ -1,6 +1,7 @@
 from behave import *
+from constants import *
 
-from features.steps.build_operations import file_exists, soup_for_html
+from features.steps.build_operations import file_exists, soup_for_html, all_files_in_dir
 
 
 @then('there should be "{file_name}" in "{dir_name}"')
@@ -28,7 +29,7 @@ def the_page_should_have_the_title(context, path, page_name, title):
 
 
 @step('the page at path "{path}" with page "{page_name}" should have at least one css link')
-def step_impl(context, path, page_name):
+def page_at_path_should_have_one_css_link(context, path, page_name):
     """
     :type context: behave.runner.Context
     :type path: str
@@ -45,3 +46,23 @@ def step_impl(context, path, page_name):
             break
     else:
         assert False
+
+
+@given("for every page should have a corresponding HTML generated")
+def every_page_should_have_corresponding_html_generated(context):
+    """
+    :type context: behave.runner.Context
+    """
+    source_files = all_files_in_dir(BLOG_PATH, 'html')
+    output_files = all_files_in_dir(OUTPUT_PATH, 'html')
+    total_source_files = len([name for name in source_files if name.endswith('html')])
+    total_output_files = len([name for name in output_files if not name.endswith('index.html')])
+    assert total_output_files == total_source_files != 0
+
+
+@then("there should be title in evey generated page")
+def there_should_be_title_for_every_generated_page(context):
+    """
+    :type context: behave.runner.Context
+    """
+    pass

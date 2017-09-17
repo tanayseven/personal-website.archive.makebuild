@@ -3,7 +3,7 @@ import sys
 
 from css_html_js_minify import css_minify, html_minify, js_minify
 
-from personal_website.constants import CSS, JS, HTML, STATIC_PATH, SOURCE_ROOT
+from constants import CSS, JS, HTML, STATIC_PATH, SOURCE_ROOT
 from personal_website.utils.file_utils import get_all_sub_files
 
 minify = {
