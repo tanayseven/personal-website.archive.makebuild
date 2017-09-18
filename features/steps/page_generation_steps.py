@@ -1,5 +1,6 @@
 from behave import *
 
+from constants import OUTPUT_PATH
 from features.steps.build_operations import file_exists, soup_for_html, blog_output_files, blog_source_files
 
 
@@ -55,6 +56,7 @@ def every_page_should_have_corresponding_html_generated(context):
     output_files = blog_output_files()
     total_source_files = len(source_files)
     total_output_files = len(output_files)
+    setattr(context, 'total_blog_posts', total_output_files)
     assert total_output_files == total_source_files != 0
 
 
@@ -67,3 +69,18 @@ def there_should_be_title_for_every_generated_page(context):
     for file_ in output_files:
         print(file_)
         assert soup_for_html(file_, attach_path_root=False).title.string != ''
+
+
+@step('"blog/index.html" should have all the blog posts listed')
+def blog_index_should_have_all_the_blog_posts_listed(context):
+    """
+    :type context: behave.runner.Context
+    """
+    total_blog_posts = getattr(context, 'total_blog_posts')
+    p_date = soup_for_html(OUTPUT_PATH + 'index.html', attach_path_root=False).find_all('p', {'class': 'blog-date'})
+    assert len(p_date) == total_blog_posts
+    p_description = soup_for_html(OUTPUT_PATH + 'index.html', attach_path_root=False).find_all('p',
+                                                                                               {'class': 'blog-date'})
+    assert len(p_description) == total_blog_posts
+    a_elements = soup_for_html(OUTPUT_PATH + 'index.html', attach_path_root=False).find_all('a', {'class': 'blog-title'})
+    assert len(a_elements) == total_blog_posts

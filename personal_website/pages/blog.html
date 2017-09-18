@@ -4,10 +4,10 @@
     <link rel="stylesheet" href="{{ css_file_path }}" type="text/css">
 {% endblock %}
 {% block main_content %}
-        {%  for page_path in titles %}
-            {% set date = page_path.split('/')[2:][:3] %}
-            <p class="blog-date">{{ date[0] }}/{{ date[1] }}/{{ date[2] }} <a class="blog-title" href="{{ page_path }}">{{ titles[page_path] }}</a></p>
-            <p class="blog-description">{{ description[page_path] }}</p>
+        {%  for post in posts %}
+            {% set date = post.date.split('-') %}
+            <p class="blog-date">{{ date[0] }}/{{ date[1] }}/{{ date[2] }} <a class="blog-title" href="{{ post.dest_url }}">{{ post.blog_title }}</a></p>
+            <p class="blog-description">{{ post.blog_description }}</p>
             <br>
         {% endfor %}
 {% endblock %}

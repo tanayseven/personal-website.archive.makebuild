@@ -1,4 +1,12 @@
 {% extends "base.html" %}
+{% block meta_vars %}
+    {% set tags = ['introduction', 'about me', 'initial post'] %}
+    {% set desc = 'My first post on this blog. It is called hello world because when learning a programming language, it is usually the first program that is written' %}
+    {% set title = 'Hello World!' %}
+    {% if save_data %}
+        {% set _ = save_data(title, desc) %}
+    {% endif %}
+{% endblock %}
 {% block title %}Hello World!{% endblock %}
 {#categories: [introduction]#}
 {#fullview: false#}
@@ -26,9 +34,4 @@
 
     <p>I won't go ahead boring you with my talk and go in for my next post about something that will be more interesting
         to read.</p>
-{% endblock %}
-{% block meta_vars %}
-    {% set tags = write_tags(['introduction', 'about me', 'initial post']) %}
-    {% set desc = write_description('My first post on this blog. It is called hello world because when learning a programming language, it is usually the first program that is written') %}
-    {% set title = write_title('Hello World!') %}
 {% endblock %}

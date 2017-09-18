@@ -16,4 +16,5 @@ Feature: Run the website build functionality
   Scenario: All the blog pages should be generated
     Given for every page should have a corresponding HTML generated
     Then there should be title in evey generated page
+    And "blog/index.html" should have all the blog posts listed
 

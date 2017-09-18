@@ -25,5 +25,5 @@ def result(jinja_file_name=jinja_file_name, css_file_path=''):
         date_list=give_blank_string,
     )
 
-
-print(result)
+if __name__ == '__main__':
+    print(result)

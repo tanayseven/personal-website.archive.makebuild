@@ -1,4 +1,15 @@
 {% extends "base.html" %}
+{% block meta_vars %}
+    {% set tags = [
+        'event', 'coding', 'programming', 'test driven deveopment', 'behaviour driven development'
+       ]
+    %}
+    {% set desc = 'A review and my feeling about a coding event called as Coderetreat which was held at Nelkinda Software Craft Pvt Ltd. Also, this post describes how the whole event went and how good it was and what someone can possibly learn from a Coderetreat.' %}
+    {% set title = 'At Nelkinda Coderetreat' %}
+    {% if save_data %}
+        {% set _ = save_data(title, desc) %}
+    {% endif %}
+{% endblock %}
 {#layout: post#}
 {% block title %}At Nelkinda Coderetreat{% endblock %}
 {#categories: [events]#}
@@ -68,11 +79,4 @@
     refactored all the code till we finished off the whole problem. The code on tic-tac-toe is really messy in spite of
     using multiple techniques and hence I’ve decided to rewrite the code in the right way and then post it here or
     maybe write another blog on that and put the link here.</p>
-{% endblock %}
-{% block meta_vars %}
-    {% set tags = write_tags(
-        ['event', 'coding', 'programming', 'test driven deveopment', 'behaviour driven development']
-    ) %}
-    {% set desc = write_description('A review and my feeling about a coding event called as Coderetreat which was held at Nelkinda Software Craft Pvt Ltd. Also, this post describes how the whole event went and how good it was and what someone can possibly learn from a Coderetreat.') %}
-    {% set title = write_title('At Nelkinda Coderetreat') %}
 {% endblock %}

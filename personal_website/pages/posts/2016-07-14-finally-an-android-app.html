@@ -1,4 +1,12 @@
 {% extends "base.html" %}
+{% block meta_vars %}
+    {% set tags = ['android', 'android app', 'personal project', 'java', 'app'] %}
+    {% set desc = 'An android app that I had written which acts like a SMS receiving and recording sever and acts as an SMS gateway' %}
+    {% set title = 'Finally an android app' %}
+    {% if save_data %}
+        {% set _ = save_data(title, desc) %}
+    {% endif %}
+{% endblock %}
 {#layout: post#}
 {% block title %}Finally an android app{% endblock %}
 {#categories: [projects]#}
@@ -106,9 +114,4 @@
 <h4>Now that you have seen how the app works, you can download the app by clicking
     <a href="https://drive.google.com/open?id=0B8ZGvtCVIoJgNlZPMnU3WHVXcFk">here</a>.
     Also, do test it on your own and report any bugs to me. You are also free to suggest any features to me if you want.</h4>
-{% endblock %}
-{% block meta_vars %}
-    {% set tags = write_tags(['android', 'android app', 'personal project', 'java', 'app']) %}
-    {% set desc = write_description('An android app that I had written which acts like a SMS receiving and recording sever and acts as an SMS gateway') %}
-    {% set title = write_title('Finally an android app') %}
 {% endblock %}
