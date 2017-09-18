@@ -5,9 +5,7 @@ from personal_website.build_index import result as home_page
 from personal_website.build_resume import result as resume_page
 from personal_website.compile_files import combine_static
 from personal_website.generate_blog_page import result as blog_page
-
-
-#from personal_website.build_blog import result as blog_post
+from personal_website.build_blog import result as blog_post_generate
 
 
 def attach_routes(app, static_files):
@@ -31,7 +29,12 @@ def attach_routes(app, static_files):
 
     @app.route('/blog/<year>/<month>/<day>/<name>.html')
     def blog_post(year, month, day, name):
-        return send_from_directory('pages/posts/', year + '-' + month + '-' + day + '-' + name + '.html')
+        print(css_file)
+        return blog_post_generate(
+            jinja_file_name=('posts/' + year + '-' + month + '-' + day + '-' + name + '.html'),
+            css_file_path=css_file
+        )
+
 
     @app.route('/resume/')
     def resume():
