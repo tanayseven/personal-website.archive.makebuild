@@ -11,14 +11,20 @@ Instructions:
 # Install all the requirements (recommended to use an isolated Python 3.5 virtualenv)
 pip install -r requirements.txt
 
+# Serve the website on a static server
+./manage serve
+
 # Build the project into static pages
 ./manage build
 
 # Run all the unit tests
 py.test
 
-# Run all the Behave based BDD Gherkin acceptance tests
+# Run all the Behave based BDD Gherkin smoke tests
 behave
+
+# Run all the test for the project
+./manage test
 ```
 
 License
