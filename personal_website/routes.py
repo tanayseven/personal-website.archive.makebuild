@@ -5,6 +5,8 @@ from personal_website.build_index import result as home_page
 from personal_website.build_resume import result as resume_page
 from personal_website.compile_files import combine_static
 from personal_website.generate_blog_page import result as blog_page
+
+
 #from personal_website.build_blog import result as blog_post
 
 

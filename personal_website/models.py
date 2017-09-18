@@ -4,7 +4,8 @@ db = SQLAlchemy(uri='sqlite:///:memory:')
 
 
 class BlogPostModel(db.Model):
-    id = db.Column(db.Integer, primary_key=True, )
+    __tablename__ = 'blog_post'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     src_url = db.Column(db.String(128), unique=True)
     dest_url = db.Column(db.String(128), unique=True)
     blog_title = db.Column(db.String(64))

@@ -58,7 +58,7 @@ class BlogPostRepo:
     query = db.query(BlogPostModel)
 
     def get_all_posts_sorted(self):
-        all_posts = self.query.getall()
+        all_posts = self.query.all()
         return sorted(all_posts, key=lambda elem: elem.date)
 
     def save_post(self, src_url, dest_url, blog_title, blog_desc, date):
