@@ -1,8 +1,3 @@
-import os
-import sqlite3
-from functools import wraps
-
-from constants import DATABASE_NAME
 from personal_website.models import db, BlogPostModel
 
 

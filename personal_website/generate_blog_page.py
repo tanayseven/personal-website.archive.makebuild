@@ -3,8 +3,6 @@ import csv
 from jinja2.environment import Environment
 from jinja2.loaders import FileSystemLoader
 
-from personal_website.combine_static import get_css_file
-
 desc = {}
 tags = {}
 titles = {}

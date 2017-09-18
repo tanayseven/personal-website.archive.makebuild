@@ -29,12 +29,10 @@ def attach_routes(app, static_files):
 
     @app.route('/blog/<year>/<month>/<day>/<name>.html')
     def blog_post(year, month, day, name):
-        print(css_file)
         return blog_post_generate(
             jinja_file_name=('posts/' + year + '-' + month + '-' + day + '-' + name + '.html'),
             css_file_path=css_file
         )
-
 
     @app.route('/resume/')
     def resume():
