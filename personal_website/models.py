@@ -1,6 +1,11 @@
+import os
+
 from sqlalchemy_wrapper import SQLAlchemy
 
-db = SQLAlchemy(uri='sqlite:///intermediate_data.db')
+from constants import DATABASE_NAME
+
+os.system('rm -f ' + DATABASE_NAME)
+db = SQLAlchemy(uri='sqlite:///' + DATABASE_NAME)
 
 
 class BlogPostModel(db.Model):
