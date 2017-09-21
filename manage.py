@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 import os
+from glob import glob
 
+from flask import url_for
 from flask_frozen import Freezer
 from manager import Manager
 
-from constants import BLOG_PATH
-from personal_website.blog_path import split_path
+from constants import BLOG_PATH, IMAGE_PATH
+from personal_website.blog_path import split_path, trim_left_path
 from personal_website.flask_app import app
 
 manager = Manager()
@@ -32,6 +34,15 @@ def blog_post():
             'day': path[2],
             'name': path[3][:-5],
         }
+
+
+@freezer.register_generator
+def images():
+    image_dir_ = glob(IMAGE_PATH + '*')
+    for image_dir in image_dir_:
+        files = next(os.walk(image_dir))[2]
+        for image_file in files:
+            yield {'path': trim_left_path(image_dir + '/' + image_file, IMAGE_PATH)}
 
 
 @manager.command

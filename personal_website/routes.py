@@ -41,6 +41,10 @@ def attach_routes(app, static_files):
     def fonts(path):
         return send_from_directory('static/fonts/', path)
 
+    @app.route('/res/images/<path:path>')
+    def images(path):
+        return send_from_directory('static/images/', path)
+
     @app.route('/')
     def root():
         return home_page(static_files, css_file)
