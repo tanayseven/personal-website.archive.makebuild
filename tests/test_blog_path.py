@@ -1,4 +1,4 @@
-from personal_website.blog_path import generate_path, split_path
+from personal_website.utils.blog_path import generate_path, split_path
 
 
 def test_generate_path_should_generate_correct_path():

@@ -2,8 +2,8 @@ import os
 from glob import glob
 
 from constants import BLOG_PATH, IMAGE_PATH
-from personal_website.blog_path import split_path, trim_left_path
 from personal_website.flask_app import app
+from personal_website.utils.blog_path import split_path, trim_left_path
 
 
 def freeze_endpoints(freezer):
