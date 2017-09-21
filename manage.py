@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+from getpass import getpass
 
 from flask_frozen import Freezer
 from manager import Manager
@@ -34,6 +35,17 @@ def test():
     clean()
     build()
     os.system("py.test; behave")
+
+
+@manager.command
+def deploy(ip_address, user_name):
+    """does an rsync to deploy to the <user>@<ip_address>:~/website"""
+    password = getpass('Enter your password: ')
+    os.system('sshpass -p "{password}" rsync -arvP personal_website/build/ {user_name}@{ip_address}:~/website'.format(
+        user_name=user_name,
+        ip_address=ip_address,
+        password=password,
+    ))
 
 
 if __name__ == '__main__':

@@ -9,9 +9,9 @@ sys.path.append('.')
 jinja_file_name = '/'.join(sys.argv[1].split('/')[-2:])
 
 
-with open('css.txt') as f:
-    css_file_path = f.read()
-css_file_path = '/' + '/'.join(css_file_path.split('/')[1:])
+# with open('css.txt') as f:
+#     css_file_path = f.read()
+# css_file_path = '/' + '/'.join(css_file_path.split('/')[1:])
 
 
 def result(jinja_file_name=jinja_file_name, css_file_path=''):

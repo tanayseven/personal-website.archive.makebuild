@@ -7,6 +7,7 @@ This is my personal website which I use to post my own content (usually blogs)
 
 Instructions:
 -------------
+Make sure you have `sshpass` and `rsync` installed
 ```bash
 # Install all the requirements (recommended to use an isolated Python 3.5 virtualenv)
 pip install -r requirements.txt
@@ -25,6 +26,9 @@ behave
 
 # Run all the test for the project
 ./manage test
+
+# Deploy the project to a server
+./manage deploy <xx.xx.xx.xx> <user>
 ```
 
 License
