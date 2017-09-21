@@ -15,11 +15,13 @@ freeze_endpoints(freezer)
 
 @manager.command
 def build():
+    """build the project and saves the output in the build directory"""
     freezer.freeze()
 
 
 @manager.command
 def serve(host='0.0.0.0', port='8000'):
+    """performs a build and hosts a server that runs locally on your system"""
     build()
     print("Running a server on " + host + ":" + port)
     freezer.serve(host=host, port=int(port), debug=True)
@@ -27,11 +29,13 @@ def serve(host='0.0.0.0', port='8000'):
 
 @manager.command
 def clean():
+    """removes all the files that are created by the `build` command"""
     os.system("rm -rf personal_website/build/*")
 
 
 @manager.command
 def test():
+    """runs the complete test suite which includes the unit tests and the smoke tests"""
     clean()
     build()
     os.system("py.test; behave")
