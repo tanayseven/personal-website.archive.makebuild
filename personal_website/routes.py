@@ -1,17 +1,16 @@
 from flask import send_from_directory
 from jinja2 import Environment, FileSystemLoader
+from personal_website.render_pages.build_about import result as about_page
+from personal_website.render_pages.build_blog import result as blog_post_generate
+from personal_website.render_pages.build_index import result as home_page
+from personal_website.render_pages.generate_blog_page import result as blog_page
 
 from constants import BLOG_PATH, BUILD_BLOG_PATH
 from features.steps.build_operations import all_files_in_dir
 from personal_website.blog_path import split_path
-from personal_website.build_about import result as about_page
-from personal_website.build_blog import result as blog_post_generate
-from personal_website.build_index import result as home_page
-from personal_website.build_resume import result as resume_page
 from personal_website.compile_files import combine_static
 from personal_website.db_repos import BlogPostRepo
-from personal_website.generate_blog_page import result as blog_page
-from personal_website.models import db, BlogPostModel
+from personal_website.render_pages.build_resume import result as resume_page
 
 
 def add_to_database_with_date(date, src_url, dest_url):
