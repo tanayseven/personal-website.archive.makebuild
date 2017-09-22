@@ -6,9 +6,6 @@ from personal_website.render_pages.build_blog import result as blog_post_generat
 from personal_website.render_pages.build_index import result as home_page
 from personal_website.render_pages.build_resume import result as resume_page
 from personal_website.render_pages.generate_blog_page import result as blog_page
-from personal_website.render_pages.main_pages_render import save_blog_entries_to_db
-
-save_blog_entries_to_db()
 
 
 def attach_routes(app):
