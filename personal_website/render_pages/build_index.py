@@ -9,7 +9,3 @@ def result(css_file=''):
         page_title='Home',
         nav_button='home',
     )
-
-
-if __name__ == '__main__':
-    print(result)

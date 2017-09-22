@@ -12,7 +12,3 @@ def result(jinja_file_name=jinja_file_name, css_file_path=''):
         nav_button='blog',
         show_comments=True,
     )
-
-
-if __name__ == '__main__':
-    print(result)

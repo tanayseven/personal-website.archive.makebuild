@@ -18,7 +18,3 @@ def result(css_file):
         nav_button='resume',
         stars=stars,
     )
-
-
-if __name__ == '__main__':
-    print(result)

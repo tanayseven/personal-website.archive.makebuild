@@ -18,7 +18,3 @@ def result(css_file=''):
         posts=fetch_all_posts(),
         title='Blog',
     )
-
-
-if __name__ == '__main__':
-    print(result)
