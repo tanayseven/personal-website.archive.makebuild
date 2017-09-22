@@ -1,11 +1,5 @@
-from jinja2.environment import Environment
-from jinja2.loaders import FileSystemLoader
-
 from personal_website.database.repos import BlogPostRepo
-
-desc = {}
-tags = {}
-titles = {}
+from personal_website.render_pages.main_pages_render import get_template
 
 
 def fetch_all_posts():
@@ -14,7 +8,7 @@ def fetch_all_posts():
     return posts
 
 
-template = Environment(loader=FileSystemLoader('personal_website/pages/')).get_template('blog.html')
+template = get_template('blog.html')
 
 
 def result(static_files, css_file=''):
@@ -23,9 +17,6 @@ def result(static_files, css_file=''):
         nav_button='blog',
         posts=fetch_all_posts(),
         title='Blog',
-        titles=titles,
-        description=desc,
-        tags=tags,
     )
 
 

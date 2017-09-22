@@ -1,7 +1,8 @@
-# coding=utf-8
 from jinja2 import Environment, FileSystemLoader
 
-template = Environment(loader=FileSystemLoader('personal_website/pages/')).get_template('resume.html')
+from personal_website.render_pages.main_pages_render import get_template
+
+template = get_template('resume.html')
 
 
 def stars(number=5):

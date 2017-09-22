@@ -1,6 +1,6 @@
-from jinja2 import Environment, FileSystemLoader
+from personal_website.render_pages.main_pages_render import get_template
 
-template = Environment(loader=FileSystemLoader('personal_website/pages/')).get_template('index.html')
+template = get_template('index.html')
 
 
 def result(static_files=None, css_file=''):
