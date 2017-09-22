@@ -1,9 +1,9 @@
 import os
-from glob import glob
 
 from constants import BLOG_PATH, IMAGE_PATH
 from personal_website.flask_app import app
-from personal_website.utils.blog_path import split_path, trim_left_path
+from personal_website.utils.blog_path import split_path
+from personal_website.utils.file_utils import generate_all_image_path
 
 
 def freeze_endpoints(freezer):
@@ -29,8 +29,6 @@ def freeze_endpoints(freezer):
 
     @freezer.register_generator
     def images():
-        image_dir_ = glob(IMAGE_PATH + '*')
-        for image_dir in image_dir_:
-            files = next(os.walk(image_dir))[2]
-            for image_file in files:
-                yield {'path': trim_left_path(image_dir + '/' + image_file, IMAGE_PATH)}
+        image_paths = [image_path for image_path in generate_all_image_path(IMAGE_PATH)]
+        for image_path in image_paths:
+            yield {'path': image_path}
