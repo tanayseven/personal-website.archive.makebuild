@@ -3,8 +3,8 @@ from jinja2 import Environment, FileSystemLoader
 
 from constants import BLOG_PATH, BUILD_BLOG_PATH
 from features.steps.build_operations import all_files_in_dir
-from personal_website.compile_files import combine_static
-from personal_website.repos import BlogPostRepo
+from personal_website.database.repos import BlogPostRepo
+from personal_website.process_static.compile_files import combine_static
 from personal_website.render_pages.build_about import result as about_page
 from personal_website.render_pages.build_blog import result as blog_post_generate
 from personal_website.render_pages.build_index import result as home_page

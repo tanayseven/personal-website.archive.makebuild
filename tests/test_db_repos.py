@@ -1,7 +1,7 @@
 import pytest
-
 from personal_website.repos import create_initial_database, wipe_database, BlogPostRepo
-from personal_website.models import BlogPostModel, db
+
+from personal_website.database.models import BlogPostModel, db
 
 
 class TestDatabaseRepos:

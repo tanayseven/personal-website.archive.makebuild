@@ -1,6 +1,6 @@
 from sqlalchemy.exc import IntegrityError
 
-from personal_website.models import db, BlogPostModel
+from personal_website.database.models import db, BlogPostModel
 
 
 def create_initial_database():

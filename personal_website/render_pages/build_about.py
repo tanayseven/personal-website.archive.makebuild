@@ -1,7 +1,5 @@
 from jinja2 import Environment, FileSystemLoader
 
-from personal_website.combine_static import get_css_file
-
 template = Environment(loader=FileSystemLoader('personal_website/pages/')).get_template('about.html')
 
 

@@ -1,6 +1,6 @@
 from flask import Flask
 
-from personal_website.combine_static import compute_static_files
+from personal_website.process_static.combine_static import compute_static_files
 from personal_website.routes import attach_routes
 
 app = Flask(__name__)

@@ -1,7 +1,7 @@
 from jinja2.environment import Environment
 from jinja2.loaders import FileSystemLoader
 
-from personal_website.repos import BlogPostRepo
+from personal_website.database.repos import BlogPostRepo
 
 desc = {}
 tags = {}
