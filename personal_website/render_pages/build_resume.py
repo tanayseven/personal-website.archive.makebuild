@@ -1,5 +1,3 @@
-from jinja2 import Environment, FileSystemLoader
-
 from personal_website.render_pages.main_pages_render import get_template
 
 template = get_template('resume.html')
@@ -13,7 +11,7 @@ def stars(number=5):
     return resultant_string
 
 
-def result(static_files, css_file):
+def result(css_file):
     return template.render(
         css_file_path=css_file,
         page_title='Résumé',

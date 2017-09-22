@@ -11,7 +11,7 @@ def fetch_all_posts():
 template = get_template('blog.html')
 
 
-def result(static_files, css_file=''):
+def result(css_file=''):
     return template.render(
         css_file_path=css_file,
         nav_button='blog',
