@@ -9,7 +9,3 @@ SOURCE_ROOT = 'personal_website/'
 BLOG_PATH = 'personal_website/pages/posts/'
 OUTPUT_PATH = 'personal_website/build/blog/'
 BUILD_BLOG_PATH = 'blog/'
-
-
-def give_blank_string(*args, **kwargs) -> str:
-    return ''
