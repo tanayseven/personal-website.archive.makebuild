@@ -5,7 +5,6 @@ from personal_website.routes import attach_routes
 
 app = Flask(__name__)
 
-static_files = compute_static_files()
 attach_routes(app)
 
 if __name__ == '__main__':
