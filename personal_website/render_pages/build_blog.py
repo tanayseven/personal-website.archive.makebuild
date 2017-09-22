@@ -23,6 +23,7 @@ def result(jinja_file_name=jinja_file_name, css_file_path=''):
         write_tags=give_blank_string,
         write_description=give_blank_string,
         date_list=give_blank_string,
+        show_comments=True,
     )
 
 if __name__ == '__main__':

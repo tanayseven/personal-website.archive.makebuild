@@ -22,13 +22,13 @@
     </div>
     <div id="main-content">
         {% block main_content %}{% endblock %}
+        {% if show_comments %}
+            <div id="disqus_thread"></div>
+        {% endif %}
     </div>
     <div class="push"></div>
 </div>
-<footer class="darkBackground lightFont">
-    &copy; 2017 Tanay PrabhuDesai<br>All the content on this site is licensed under Creative Commons 4.0 BY-SA and the code is licensed under MIT
-        License unless explicitly stated
-</footer>
+<footer class="darkBackground lightFont">&copy; 2017 Tanay PrabhuDesai<br>All the content on this site is licensed under Creative Commons 4.0 BY-SA and the code is licensed under MIT License unless explicitly stated</footer>
 <noscript id="deferred">
     {% block deferred %}{% endblock %}
 </noscript>
@@ -47,6 +47,11 @@
     });
     else window.addEventListener('load', loadDeferredStyles);
 </script>
+{% if show_comments %}
+    <script>var disqus_config=function(){this.page.url=window.location.href;this.page.identifier=window.location.pathname};!function(){var t=document,e=t.createElement("script");e.src="https://tanayseven.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}();</script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
+{% endif %}
 </body>
 {% block meta_vars %}{% endblock %}
 </html>
