@@ -23,7 +23,8 @@ class BlogPostRepo:
 
     def save_post(self, src_url, dest_url, blog_title, blog_description, date):
         try:
-            blog_post = BlogPostModel(src_url=src_url, dest_url=dest_url, blog_title=blog_title, blog_description=blog_description,
+            blog_post = BlogPostModel(src_url=src_url, dest_url=dest_url, blog_title=blog_title,
+                                      blog_description=blog_description,
                                       date=date)
             db.add(blog_post)
             db.commit()
