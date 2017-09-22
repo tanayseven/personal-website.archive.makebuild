@@ -1,6 +1,5 @@
 from flask import send_from_directory
 
-from personal_website.process_static.compile_files import combine_static
 from personal_website.render_pages.build_about import result as about_page
 from personal_website.render_pages.build_blog import result as blog_post_generate
 from personal_website.render_pages.build_index import result as home_page
@@ -8,8 +7,7 @@ from personal_website.render_pages.build_resume import result as resume_page
 from personal_website.render_pages.generate_blog_page import result as blog_page
 
 
-def attach_routes(app):
-    css_file = combine_static(app, 'static/css', 'css')
+def attach_routes(app, css_file):
 
     @app.route('/fonts/<path:path>')
     def fonts(path):
