@@ -23,8 +23,8 @@
     #main-content {
         padding-top: 100px;
         padding-bottom: 50px;
-        margin-left: 100px;
-        margin-right: 100px;
+        max-width: 700px;
+        margin: 0 auto;
     }
 
     #main-content p {
