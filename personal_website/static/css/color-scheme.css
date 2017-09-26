@@ -1,0 +1,55 @@
+/*
+    Color scheme
+ */
+
+.lightFont {
+    color: #FFFFFF;
+}
+
+.mainBackground {
+    background: #F4F4F4;
+}
+
+.darkFont {
+    color: #262228;
+}
+
+.darkBackground {
+    background: #4a827b;
+}
+
+a:link.darkFont {
+    color: #4a827b;
+}
+
+a:visited.darkFont {
+    color: #4a827b;
+}
+
+a:hover.darkFont {
+    color: #9e9e9e;
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+
+a:active.darkFont {
+    color: #9e9e9e;
+}
+
+a:link.lightFont {
+    color: #9e9e9e;
+}
+
+a:visited.lightFont {
+    color: #9e9e9e;
+}
+
+a:hover.lightFont {
+    color: #FFFFFF;
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+
+a.active.lightFont {
+    color: #FFFFFF;
+}
