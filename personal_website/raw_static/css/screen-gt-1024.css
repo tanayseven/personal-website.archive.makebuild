@@ -28,7 +28,9 @@
     }
 
     #main-content p {
-        font-size: 25px;
+        font-size: 21px;
+        line-height: 1.58;
+        font-style: normal;
         margin-top: 30px;
     }
 
