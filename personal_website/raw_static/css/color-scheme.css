@@ -15,15 +15,15 @@
 }
 
 .darkBackground {
-    background: #4a827b;
+    background: #24292e;
 }
 
 a:link.darkFont {
-    color: #4a827b;
+    color: #24292e;
 }
 
 a:visited.darkFont {
-    color: #4a827b;
+    color: #24292e;
 }
 
 a:hover.darkFont {
