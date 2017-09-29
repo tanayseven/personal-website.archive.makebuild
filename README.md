@@ -5,6 +5,8 @@ Tanay's personal website
 
 [![Website](https://img.shields.io/website-up-down-green-red/https/tanayseven.com.svg?label=hosted_on_server)](https://tanayseven.com)
 
+[![License](https://img.shields.io/github/license/tanayseven/personal_website.svg)](LICENSE.txt)
+
 This is my personal website which I use to post my own content (usually blogs)
 
 Instructions:
