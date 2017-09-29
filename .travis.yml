@@ -14,7 +14,6 @@ before_script:
   - ./cc-test-reporter before-build
 
 script:
-  - bundle exec rspec
   - coverage run --source=personal_website -m manage test; coverage report
 
 after_script:
