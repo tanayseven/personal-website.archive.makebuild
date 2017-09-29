@@ -2,10 +2,9 @@ Tanay's personal website
 ========================
 
 ![build-status](https://travis-ci.org/tanayseven/personal_website.svg?branch=master)
-
 [![Website](https://img.shields.io/website-up-down-green-red/https/tanayseven.com.svg?label=hosted_on_server)](https://tanayseven.com)
-
 [![License](https://img.shields.io/github/license/tanayseven/personal_website.svg)](LICENSE.txt)
+[![Code Climate](https://img.shields.io/codeclimate/coverage/github/tanayseven/personal_website.svg)](https://codeclimate.com/github/tanayseven/personal_website)
 
 This is my personal website which I use to post my own content (usually blogs)
 
@@ -30,6 +29,9 @@ behave
 
 # Run all the test for the project
 ./manage test
+
+# Run coverage with report for the project
+coverage run --source=personal_website -m manage test; coverage report
 
 # Deploy the project to a server
 ./manage deploy <xx.xx.xx.xx> <user>
