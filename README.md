@@ -3,6 +3,8 @@ Tanay's personal website
 
 ![build-status](https://travis-ci.org/tanayseven/personal_website.svg?branch=master)
 
+[![Website](https://img.shields.io/website-up-down-green-red/https/tanayseven.com.svg?label=personal_website)]()
+
 This is my personal website which I use to post my own content (usually blogs)
 
 Instructions:
