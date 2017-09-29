@@ -14,7 +14,7 @@ before_script:
   - ./cc-test-reporter before-build
 
 script:
-  - coverage run --source=personal_website -m manage test; coverage report
+  - coverage run --source=personal_website -m manage test; coverage report; coverage xml
 
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - ./cc-test-reporter after-build -t coverage.py -r $CODECLIMATE_REPO_TOKEN
