@@ -32,3 +32,10 @@ def freeze_endpoints(freezer):
         image_paths = [image_path for image_path in generate_all_image_path(IMAGE_PATH)]
         for image_path in image_paths:
             yield {'path': image_path}
+
+    @freezer.register_generator
+    def presentation():
+        path = os.path.join(app.root_path, 'static/presentations') + '/'
+        presentations = next(os.walk(path))[2]
+        for presentation_ in presentations:
+            yield {'path': presentation_}

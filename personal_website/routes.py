@@ -40,6 +40,10 @@ def attach_routes(app, css_file):
     def resume():
         return resume_page(css_file)
 
+    @app.route('/presentation/<path:path>')
+    def presentation(path):
+        return send_from_directory('static/presentations/', path)
+
     @app.route('/about/')
     def about():
         return about_page(css_file)
