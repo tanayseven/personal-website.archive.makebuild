@@ -5,7 +5,7 @@ from getpass import getpass
 from flask_frozen import Freezer
 from manager import Manager
 
-from personal_website.endpoint_generator import freeze_endpoints
+from personal_website.endpoint_freezer import freeze_endpoints
 from personal_website.flask_app import app
 
 manager = Manager()
