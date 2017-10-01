@@ -9,6 +9,7 @@ www/*
 build/
 intermediate_data.db
 personal_website/static/images/*
+personal_website/static/css/*
 .coverage
 coverage.xml
 cc-test-reporter
