@@ -6,8 +6,11 @@ from flask_frozen import Freezer
 from manager import Manager
 
 from personal_website.endpoint_freezer import freeze_endpoints
-from personal_website.flask_app import app
+from personal_website.flask_app import app, process_static
+from personal_website.routes import attach_routes
 
+css_file = process_static()
+attach_routes(app, css_file)
 manager = Manager()
 freezer = Freezer(app)
 freeze_endpoints(freezer)
