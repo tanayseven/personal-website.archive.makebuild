@@ -21,11 +21,6 @@ html, body {
     text-align: justify;
 }
 
-#social-media-links {
-    align-content: center;
-    text-align: center;
-}
-
 #main-content #social-media-links {
     text-align: center;
 }
@@ -48,4 +43,18 @@ html, body {
     font-size: 100px;
     margin-left: 40px;
     margin-right: 40px;
+}
+
+@media screen and (max-width: 760px) {
+   #main-content {
+       padding-left: 30px;
+       padding-right: 30px;
+   }
+}
+
+@media screen and (max-width: 480px) {
+    #main-content {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
