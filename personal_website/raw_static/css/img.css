@@ -1,0 +1,12 @@
+img.profile {
+    width: 400px;
+}
+
+img.center {
+    margin: 0 auto;
+    display: block;
+}
+
+img.round {
+    border-radius: 50%;
+}

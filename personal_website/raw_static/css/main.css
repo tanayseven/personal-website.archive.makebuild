@@ -14,16 +14,7 @@ html, body {
 
 .wrapper {
     min-height: 100%;
-}
-
-#heading {
-    top: 0;
-    left: 0;
-    right: 0;
-    margin-top: 0;
-    padding-top: 0;
-    position: fixed;
-    text-align: center;
+    margin-bottom: -50px;
 }
 
 #main-content {
@@ -35,29 +26,26 @@ html, body {
     text-align: center;
 }
 
-a.nav-button {
-    text-transform: uppercase;
-    text-decoration: none;
-}
-
-
 #main-content #social-media-links {
     text-align: center;
 }
 
-#home {
-    text-decoration: underline;
-}
-
-.push, footer {
-    text-align: center;
-}
-
-img.center {
+#main-content {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    max-width: 700px;
     margin: 0 auto;
-    display: block;
 }
 
-img.round {
-    border-radius: 50%;
+#main-content p {
+    font-size: 21px;
+    line-height: 1.58;
+    font-style: normal;
+    margin-top: 30px;
+}
+
+#main-content #social-media-links i {
+    font-size: 100px;
+    margin-left: 40px;
+    margin-right: 40px;
 }
