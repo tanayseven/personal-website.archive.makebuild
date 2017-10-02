@@ -15,13 +15,24 @@
     font-size: 30px;
 }
 
+#main-menu {
+    width: 100%;
+    padding-bottom: 30px;
+}
+
 #main-menu .nav-button {
-    text-align: center;
-    padding-left: 30px;
-    padding-right: 30px;
+    /*text-align: center;*/
 }
 
 a.nav-button {
     text-transform: uppercase;
     text-decoration: none;
+    height: 30px;
+}
+
+
+@media screen and (max-width: 480px) {
+    #heading {
+        height: 130px;
+    }
 }
