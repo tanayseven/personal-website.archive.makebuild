@@ -46,9 +46,9 @@ def test():
 
 @manager.command
 def deploy(ip_address, user_name):
-    """does an rsync to deploy to the <user>@<ip_address>:~/website"""
+    """does an rsync to deploy to the <user>@<ip_address>:~/tanayseven.com"""
     password = getpass('Enter your password: ')
-    os.system('sshpass -p "{password}" rsync -arvP personal_website/build/ {user_name}@{ip_address}:~/website'.format(
+    os.system('sshpass -p "{password}" rsync -arvP personal_website/build/ {user_name}@{ip_address}:~/tanayseven.com'.format(
         user_name=user_name,
         ip_address=ip_address,
         password=password,
