@@ -1,8 +1,7 @@
 import React from "react"
 
 export default () => {
-    return
-    ( 
+    return ( 
         <div>
           <div id="social-media-links">
               <a class="darkFont" target="_blank" href="https://www.linkedin.com/in/tanay-prabhudesai-1029b073/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>

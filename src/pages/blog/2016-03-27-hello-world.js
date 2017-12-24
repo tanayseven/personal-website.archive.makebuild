@@ -3,7 +3,6 @@ export const data = {
     tags: ['introduction', 'about me', 'initial post'] ,
     desc: 'My first post on this blog. It is called hello world because when learning a programming language, it is usually the first program that is written' ,
     title: 'Hello World!' ,
-    categories: [introduction],
     description: 'My first post on this blog. It is called hello world because when learning a programming language, it is usually the first program that is written'
 }
 export default () => {

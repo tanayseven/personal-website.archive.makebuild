@@ -2,8 +2,7 @@ import React from "react"
 export const data = {
     tags: ['android', 'android app', 'personal project', 'java', 'app'] ,
     desc: 'An android app that I had written which acts like a SMS receiving and recording sever and acts as an SMS gateway' ,
-    title: 'Finally an android app' ,
-    categories: [projects],
+    title: 'Finally an android app',
     description: 'An android app that I had written which acts like a SMS receiving and recording sever and acts as an SMS gateway'
 }
 export default () => {
