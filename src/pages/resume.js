@@ -5,26 +5,26 @@ export default () => {
       <div>
         <div class="skills-list resume-section">
             <h2>Skills (Non technology specific)</h2>
-            <div class="skill-item">Test Driven Software Development {{ stars(6.5) }}</div>
-            <div class="skill-item">Web based software development {{ stars(6) }}</div>
-            <div class="skill-item">Follow scrum in software development {{ stars(5) }}</div>
-            <div class="skill-item">Learning a new language/technology {{ stars(6) }}</div>
-            <div class="skill-item">Structured Programming {{ stars(7) }}</div>
-            <div class="skill-item">Object Oriented Programming {{ stars(6) }}</div>
-            <div class="skill-item">Functional Programming {{ stars(5) }}</div>
+            <div class="skill-item">Test Driven Software Development (6.5)</div>
+            <div class="skill-item">Web based software development (6) </div>
+            <div class="skill-item">Follow scrum in software development (5)</div>
+            <div class="skill-item">Learning a new language/technology stars(6)</div>
+            <div class="skill-item">Structured Programming (7)</div>
+            <div class="skill-item">Object Oriented Programming (6)</div>
+            <div class="skill-item">Functional Programming stars(5)</div>
         </div>
         <div class="skills-list resume-section">
             <h2>Skills (Language/Technology)</h2>
-            <div class="skill-item">Python {{ stars(7) }}</div>
-            <div class="skill-item">Flask - Python {{ stars(6) }}</div>
-            <div class="skill-item">Django - Python {{ stars(3) }}</div>
-            <div class="skill-item">Docker {{ stars(3) }}</div>
-            <div class="skill-item">Java {{ stars(5) }}</div>
-            <div class="skill-item">Native Android {{ stars(5) }}</div>
-            <div class="skill-item">JavaScript {{ stars(5) }}</div>
-            <div class="skill-item">Clojure {{ stars(4) }}</div>
-            <div class="skill-item">HTML/CSS {{ stars(6) }}</div>
-            <div class="skill-item">SQL {{ stars(5) }}</div>
+            <div class="skill-item">Python (7)</div>
+            <div class="skill-item">Flask - Python (6)</div>
+            <div class="skill-item">Django - Python (3)</div>
+            <div class="skill-item">Docker (3)</div>
+            <div class="skill-item">Java (5)</div>
+            <div class="skill-item">Native Android (5)</div>
+            <div class="skill-item">JavaScript (5)</div>
+            <div class="skill-item">Clojure (4)</div>
+            <div class="skill-item">HTML/CSS (6)</div>
+            <div class="skill-item">SQL (5)</div>
         </div>
         <div class="skills-list resume-section"></div>
         <div class="resume-section">
@@ -39,7 +39,7 @@ export default () => {
             </div>
             <div class="resume-sub-section">
                 <h3>Software Craftsman at Nelkinda Software Craft</h3>
-                <p>September 2016 to 2017*</p>
+                <p>September 2016 to 2017</p>
                 <ul>
                     <li>Working on project that include Flask - Python and Native Android - Java development</li>
                     <li>Daily use of practices like scrum and TDD in the software development process</li>
