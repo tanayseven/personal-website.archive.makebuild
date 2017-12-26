@@ -1,10 +1,11 @@
 import React from "react"
-import NavBar from "../components/nav-bar";
+import Page from "../components/page";
 
 export default () => {
     return (
-        <div>
-            <NavBar />
+        <Page
+        content={
+          <div>
             <h1>Hi, I'm Tanay PrabhuDesai</h1>
             <img class="center profile round" src="/res/images/profile/tanay-profile.jpg" />
             <p>I love writing code and it gives me intense pleasure while doing so. Therefore, I’m going to give a brief history
@@ -37,6 +38,7 @@ export default () => {
                 mood. I'm right now learning to play the guitar. Even though I'm from a very scientific background, I
                 appreciate art a lot. There is something from the universe that is embedded in the art that makes it look so
                 natural and beautiful.</p>
-        </div>
+          </div>
+        } />
     )
 }

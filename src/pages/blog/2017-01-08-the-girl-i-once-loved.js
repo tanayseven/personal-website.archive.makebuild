@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+import Page from "../../components/page";
 export const data = {
     tags: ['life', 'about me', 'love', 'relationship'],
     desc: 'A review and my feeling about a coding event called as Coderetreat which was held at Nelkinda Software Craft Pvt Ltd. Also, this post describes how the whole event went and how good it was and what someone can possibly learn from a Coderetreat.',
@@ -8,6 +9,8 @@ export const data = {
 
 export default () => {
     return (
+        <Page
+        content={
         <div>
             <p>When I first started writing this blog, I thought it would be completely technical. But, all of a sudden I started
                 to have flashes of my old memories and thought of writing it down through a post here. This is a post about the
@@ -80,5 +83,6 @@ export default () => {
                 I am now much stronger, much confident and much successful. Even though we don't talk anymore, I will always have
                 her in my memory, the girl I once loved.</p>
         </div>
+        } />
     )
 }
