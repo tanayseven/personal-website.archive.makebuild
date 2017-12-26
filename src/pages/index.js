@@ -1,8 +1,9 @@
-import React from "react"
-
+import React from "react";
+import NavBar from "../components/nav-bar";
 export default () => {
-    return ( 
+    return (
         <div>
+          <NavBar />
           <div id="social-media-links">
               <a class="darkFont" target="_blank" href="https://www.linkedin.com/in/tanay-prabhudesai-1029b073/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
               <a class="darkFont" target="_blank" href="https://plus.google.com/+TanayPrabhuDesai"><i class="fa fa-google" aria-hidden="true"></i></a>

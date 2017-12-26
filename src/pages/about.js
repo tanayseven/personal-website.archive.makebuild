@@ -1,8 +1,10 @@
 import React from "react"
+import NavBar from "../components/nav-bar";
 
 export default () => {
     return (
         <div>
+            <NavBar />
             <h1>Hi, I'm Tanay PrabhuDesai</h1>
             <img class="center profile round" src="/res/images/profile/tanay-profile.jpg" />
             <p>I love writing code and it gives me intense pleasure while doing so. Therefore, I’m going to give a brief history

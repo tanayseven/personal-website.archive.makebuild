@@ -1,8 +1,10 @@
-import React from "react"
+import React from "react";
+import NavBar from "../components/nav-bar";
 
 export default () => {
     return (
       <div>
+        <NavBar />
         <div class="skills-list resume-section">
             <h2>Skills (Non technology specific)</h2>
             <div class="skill-item">Test Driven Software Development (6.5)</div>
