@@ -8,8 +8,7 @@ export const data = {
 }
 export default () => {
     return (
-        <Page
-        content={
+        <Page>
             <div>
             <h2>About the idea</h2>
             
@@ -107,6 +106,6 @@ export default () => {
                 <a href="https://drive.google.com/open?id=0B8ZGvtCVIoJgNlZPMnU3WHVXcFk">here</a>.
                 Also, do test it on your own and report any bugs to me. You are also free to suggest any features to me if you want.</h4>
             </div>
-        } />
+        </Page>
     )
 }

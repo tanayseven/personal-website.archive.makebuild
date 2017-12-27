@@ -2,8 +2,7 @@ import React from "react";
 import Page from "../components/page";
 export default () => {
     return (
-          <Page
-            content={
+          <Page>
                 <div>
                     <div id="social-media-links">
                         <a class="darkFont" target="_blank" href="https://www.linkedin.com/in/tanay-prabhudesai-1029b073/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
@@ -15,6 +14,6 @@ export default () => {
                     <p>I'm a software engineer based in Pune, India.</p>
                     <p>This website is generated using <a href="https://github.com/tanayseven/personal_website/">Frozen Flask</a></p>
                 </div>
-            } />
+         </Page>
     )
 }

@@ -9,7 +9,7 @@ export default class Page extends React.Component {
             <MuiThemeProvider>
             <div>
                 <NavBar />
-                <div>{ this.props.content }</div>
+                <div>{ this.props.children }</div>
             </div>
             </MuiThemeProvider>
         );

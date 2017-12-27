@@ -18,11 +18,10 @@ blogList.forEach(function(element) {
 
 export default () => {
     return (
-        <Page
-            content={
-                <div>
-                    <p>{ blog }</p>
-                </div>
-            } />
+        <Page>
+          <div>
+              <p>{ blog }</p>
+          </div>
+        </Page>
     )   
 }

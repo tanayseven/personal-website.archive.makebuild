@@ -9,8 +9,7 @@ export const data = {
 
 export default () => {
     return (
-        <Page
-        content={
+        <Page>
         <div>
             <p>When I first started writing this blog, I thought it would be completely technical. But, all of a sudden I started
                 to have flashes of my old memories and thought of writing it down through a post here. This is a post about the
@@ -83,6 +82,6 @@ export default () => {
                 I am now much stronger, much confident and much successful. Even though we don't talk anymore, I will always have
                 her in my memory, the girl I once loved.</p>
         </div>
-        } />
+        </Page>
     )
 }

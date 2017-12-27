@@ -9,8 +9,7 @@ export const data = {
 
 export default () => {
     return (
-        <Page
-        content={
+        <Page>
            <div>
                <p>Completely unexpected of what is there, I registered for
                    <a href="http://nelkinda.com/events/2016-07-16-4th-Nelkinda-Coderetreat">Coderetreat that’s held at Nelkinda</a>
@@ -70,6 +69,6 @@ export default () => {
                    using multiple techniques and hence I’ve decided to rewrite the code in the right way and then post it here or
                    maybe write another blog on that and put the link here.</p>
            </div>
-        } />
+        </Page>
     )
 }

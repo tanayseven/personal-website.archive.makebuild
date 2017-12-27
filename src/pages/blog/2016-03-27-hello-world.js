@@ -8,8 +8,7 @@ export const data = {
 }
 export default () => {
     return (
-        <Page
-        content={
+        <Page>
             <div>
               <p><b>Hello World!</b> The title of this post in the honour of the first program that is written while learning
                   programming. This is my first post on the blog, and hence I'm calling it <b>Hello World!</b> post. I'm mainly
@@ -30,6 +29,6 @@ export default () => {
               <p>I won't go ahead boring you with my talk and go in for my next post about something that will be more interesting
                   to read.</p>
             </div>
-        } />
+        </Page>
     )
 }

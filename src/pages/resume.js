@@ -3,8 +3,7 @@ import Page from "../components/page";
 
 export default () => {
     return (
-      <Page
-      content={
+      <Page>
         <div>
           <div class="skills-list resume-section">
               <h2>Skills (Non technology specific)</h2>
@@ -80,6 +79,6 @@ export default () => {
               </div>
           </div>
         </div>
-      }/>
+      </Page>
     )
 }

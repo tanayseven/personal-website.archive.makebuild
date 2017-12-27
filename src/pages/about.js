@@ -3,8 +3,7 @@ import Page from "../components/page";
 
 export default () => {
     return (
-        <Page
-        content={
+        <Page>
           <div>
             <h1>Hi, I'm Tanay PrabhuDesai</h1>
             <img class="center profile round" src="/res/images/profile/tanay-profile.jpg" />
@@ -39,6 +38,6 @@ export default () => {
                 appreciate art a lot. There is something from the universe that is embedded in the art that makes it look so
                 natural and beautiful.</p>
           </div>
-        } />
+        </Page>
     )
 }
