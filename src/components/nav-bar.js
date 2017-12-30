@@ -1,29 +1,13 @@
 import React from "react";
+
+import Paper from 'material-ui/Paper';
 import Tabs, { Tab } from "material-ui/Tabs";
-import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import AppBar from 'material-ui/AppBar';
-import Typography from 'material-ui/Typography';
 
 function TabContainer(props) {
     return (
-        <Typography component="div" style={{ padding: 8 * 3 }}>
-        {props.children}
-        </Typography>
+        <div>{props.children}</div>
     );
 }
-
-TabContainer.propTypes = {
-    children: PropTypes.node.isRequired,
-};
-
-const styles = theme => ({
-    root: {
-        flexGrow: 1,
-        marginTop: theme.spacing.unit * 3,
-        backgroundColor: theme.palette.background.paper,
-    },
-});
 
 class NavBar extends React.Component {
     state = {
@@ -39,8 +23,7 @@ class NavBar extends React.Component {
       const { value } = this.state;
   
       return (
-        <div className={classes.root}>
-          <AppBar position="static">
+          <Paper>
             <Tabs value={value} onChange={this.handleChange}>
               <Tab disabled label="Tanay PrabhuDesai" />
               <Tab label="Home" href="/" />
@@ -48,16 +31,9 @@ class NavBar extends React.Component {
               <Tab label="Résumé" href="/resume/" />
               <Tab label="About Me" href="/about/" />
             </Tabs>
-          </AppBar>
-          {value === 0 && <TabContainer>Item One</TabContainer>}
-          {value === 1 && <TabContainer>Item Two</TabContainer>}
-          {value === 2 && <TabContainer>Item Three</TabContainer>}
-        </div>
+          </Paper>
       );
     }
   }
-NavBar.propTypes = {
-    classes: PropTypes.object.isRequired,
-  };
 
-  export default withStyles(styles)(NavBar);    
+  export default NavBar;    
