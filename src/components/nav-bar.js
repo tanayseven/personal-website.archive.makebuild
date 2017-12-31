@@ -9,6 +9,11 @@ function TabContainer(props) {
     );
 }
 
+const navBar = {
+  display: 'table',
+  margin: 'auto'
+}
+
 class NavBar extends React.Component {
     state = {
       value: 0,
@@ -24,13 +29,15 @@ class NavBar extends React.Component {
   
       return (
           <Paper>
-            <Tabs value={value} onChange={this.handleChange}>
+            <span>
+            <Tabs value={value} onChange={this.handleChange} style={navBar}>
               <Tab disabled label="Tanay PrabhuDesai" />
               <Tab label="Home" href="/" />
               <Tab label="Blog" href="/blog/" />
               <Tab label="Résumé" href="/resume/" />
               <Tab label="About Me" href="/about/" />
             </Tabs>
+            </span>
           </Paper>
       );
     }
