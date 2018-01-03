@@ -1,42 +1,19 @@
-Tanay's personal website
-========================
+# React-Static - Custom Routing Example
 
-![build-status](https://travis-ci.org/tanayseven/personal_website.svg?branch=master)
-[![Website](https://img.shields.io/website-up-down-green-red/https/tanayseven.com.svg?label=hosted_on_server)](https://tanayseven.com)
-[![License](https://img.shields.io/github/license/tanayseven/personal_website.svg)](LICENSE.txt)
-[![Code Climate](https://img.shields.io/codeclimate/coverage/github/tanayseven/personal_website.svg)](https://codeclimate.com/github/tanayseven/personal_website)
+This example includes:
 
-This is my personal website which I use to post my own content (usually blogs)
+- CSS imports
+- Image imports
+- File imports
+- Custom routing
 
-Instructions:
--------------
-Make sure you have `sshpass` and `rsync` installed
-```bash
-# Install all the requirements (recommended to use an isolated Python 3.5 virtualenv)
-pip install -r requirements.txt
+To get started, run `react-static create` and use the `custom-routing` template.
 
-# Serve the website on a static server
-./manage serve
+## Automatic component routing vs custom routing
 
-# Build the project into static pages
-./manage build
+In automatic component routing, you setup your routes in getRoutes of static.config.js, where you specify the path and the appropriate component for that path:  
+`{path: 'foo', component: 'src/components/MyFoo'}` This is the easiest way to specify routes.
 
-# Run all the unit tests
-py.test
+In custom component routing, you also setup your routes in getRoutes of the static.config.js, but you don't specify the component! `{path: 'foo'}` Instead, you specify the routes in the components `<Route path='/foo' component={MyFoo} \>`. It's important to note that you can use one method or the other, but not both.
 
-# Run all the Behave based BDD Gherkin smoke tests
-behave
-
-# Run all the test for the project
-./manage test
-
-# Run coverage with report for the project
-coverage run --source=personal_website -m manage test; coverage report
-
-# Deploy the project to a server
-./manage deploy <xx.xx.xx.xx> <user>
-```
-
-License
--------
-The MIT License (MIT)
+**Note:** automatic routes will be generated even if a given route is not allowed in your custom routing logic. The consequences of a mismatch between _custom_ and _automatic_ routing can be important: you can create the illusion that a route is `not found` on the client (`react-router` not matching a given URL), while a corresponding `index.html` and `routeData.json` were made **available** on the server at build-time. Appending `/routeData.json` to any given URL can help you realize if there is a unwanted mismatch: if `/posts/27/` returns `404` while browsing, so should `/posts/27/routeData.json`.
