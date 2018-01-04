@@ -13,7 +13,7 @@ function moduleDataFor(moduleName) {
 
 var posts = [];
 blogList.forEach(function(element) {
-  posts.push(<a href={ element }><p>{ moduleDataFor(element).title }</p></a>);
+  posts.push(moduleDataFor(element));
 }, this);
 
 export default {
@@ -34,7 +34,7 @@ export default {
           posts,
         }),
         children: posts.map(post => ({
-          path: `/post/${post.id}`,
+          path: `/post/${post.date.year}/${post.date.month}/${post.date.day}`,
           getProps: () => ({
             post,
           }),

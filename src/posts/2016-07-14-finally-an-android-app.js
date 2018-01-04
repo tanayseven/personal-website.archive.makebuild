@@ -1,6 +1,7 @@
 import React from "react"
 export const data = {
     tags: ['android', 'android app', 'personal project', 'java', 'app'] ,
+    date: {year: '2016', month: '07', day: '14'},
     desc: 'An android app that I had written which acts like a SMS receiving and recording sever and acts as an SMS gateway' ,
     title: 'Finally an android app',
     description: 'An android app that I had written which acts like a SMS receiving and recording sever and acts as an SMS gateway'

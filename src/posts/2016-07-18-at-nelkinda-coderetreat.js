@@ -1,12 +1,13 @@
 import React from "react";
-export const data = {
+export var data = {
     tags: ['event', 'coding', 'programming', 'test driven deveopment', 'behaviour driven development'],
+    date: {year: '2016', month: '07', day: '18'},
     desc: 'A review and my feeling about a coding event called as Coderetreat which was held at Nelkinda Software Craft Pvt Ltd. Also, this post describes how the whole event went and how good it was and what someone can possibly learn from a Coderetreat.',
     title: 'At Nelkinda Coderetreat',
     description: 'A review and my feeling about a coding event called as Coderetreat which was held at Nelkinda Software Craft Pvt Ltd. Also, this post describes how the whole event went and how good it was and what someone can possibly learn from a Coderetreat.'
 }
 
-export default () => {
+data.body = () => {
     return (
            <div>
                <p>Completely unexpected of what is there, I registered for

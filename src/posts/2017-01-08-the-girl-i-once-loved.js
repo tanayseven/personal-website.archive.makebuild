@@ -1,6 +1,7 @@
 import React from "react";
 export const data = {
     tags: ['life', 'about me', 'love', 'relationship'],
+    date: {year: '2016', month: '03', day: '27'},
     desc: 'A review and my feeling about a coding event called as Coderetreat which was held at Nelkinda Software Craft Pvt Ltd. Also, this post describes how the whole event went and how good it was and what someone can possibly learn from a Coderetreat.',
     title: 'The Girl I Once Loved',
     description: 'A review and my feeling about a coding event called as Coderetreat which was held at Nelkinda Software Craft Pvt Ltd. Also, this post describes how the whole event went and how good it was and what someone can possibly learn from a Coderetreat.'

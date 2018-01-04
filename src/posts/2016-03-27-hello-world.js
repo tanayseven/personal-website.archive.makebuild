@@ -1,6 +1,7 @@
 import React from "react"
 export const data = {
-    tags: ['introduction', 'about me', 'initial post'] ,
+    tags: ['introduction', 'about me', 'initial post'],
+    date: {year: '2016', month: '03', day: '27'},
     desc: 'My first post on this blog. It is called hello world because when learning a programming language, it is usually the first program that is written' ,
     title: 'Hello World!' ,
     description: 'My first post on this blog. It is called hello world because when learning a programming language, it is usually the first program that is written'

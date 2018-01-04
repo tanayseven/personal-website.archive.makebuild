@@ -18,7 +18,7 @@ export default getRouteProps(({ match, posts }) => (
             <ul>
               {posts.map(post => (
                 <li key={post.id}>
-                  <Link to={`/blog/post/${post.id}/`}>{post.title}</Link>
+                  <Link to={`/blog/post/${post.date.year}/${post.date.month}/${post.date.day}/`}>{post.title}</Link>
                 </li>
               ))}
             </ul>
