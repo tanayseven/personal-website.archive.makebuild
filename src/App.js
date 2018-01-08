@@ -10,8 +10,9 @@ export default () => (
     <div>
       <nav>
         <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
+        <Link to="/resume">Résumé</Link>
         <Link to="/blog">Blog</Link>
+        <Link to="/about">About</Link>
       </nav>
       <div className="content">
         <Routes />
