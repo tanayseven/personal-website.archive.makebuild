@@ -1,10 +1,7 @@
 import React from 'react'
-import { Router, Route, Switch, Link } from 'react-static'
+import { Router, Link } from 'react-static'
 //
-import Home from 'containers/Home'
-import About from 'containers/About'
-import Blog from 'containers/Blog'
-import NotFound from 'containers/404'
+import Routes from 'react-static-routes'
 
 import './app.css'
 
