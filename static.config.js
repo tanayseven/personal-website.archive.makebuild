@@ -30,6 +30,10 @@ export default {
         component: 'src/containers/About',
       },
       {
+        path: '/resume',
+        component: 'src/containers/Resume',
+      },
+      {
         path: '/blog',
         component: 'src/containers/Blog',
         getProps: () => ({
