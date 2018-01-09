@@ -26,7 +26,7 @@ npm run build
 num run test
 
 # Run eslint for all files
-eslint
+./node_modules/.bin/eslint "**.js" --ignore node_modules
 
 # Install all eslist dependencies
 npm i eslint@latest --save
@@ -36,8 +36,6 @@ npm i eslint-plugin-class-property@latest --save-dev
 npm i eslint-config-react-tools@latest --save-dev
 npm i eslint-plugin-react@latest --save-dev
 npm i eslint-config-react-tools@latest --save-dev
-
-#
 ```
 
 License
