@@ -9,6 +9,7 @@ export default () => (
   <Router>
     <div>
       <nav>
+        <span>Tanay PrabhuDesai</span>
         <Link to="/">Home</Link>
         <Link to="/resume">Résumé</Link>
         <Link to="/blog">Blog</Link>
