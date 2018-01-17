@@ -7,7 +7,7 @@
     "start": "react-static start",
     "build": "react-static build",
     "serve": "serve dist -p 3000",
-    "test": "jest"
+    "test": "./node_modules/.bin/jest"
   },
   "dependencies": {
     "axios": "^0.16.2",
