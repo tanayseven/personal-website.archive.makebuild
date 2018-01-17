@@ -34,7 +34,7 @@ export default () => (
       upon us.
     </p>
 
-    <img alt="code_retrospective" src="/res/images/code_retrospective_nelkinda/code_retrospective_nelkinda.jpg" />
+    <img alt="code_retrospective" src="/images/code_retrospective_nelkinda/code_retrospective_nelkinda.jpg" />
 
     <h4>One of the retrospective, me in yellow telling what happened in the code sprint</h4>
     <h3>The way the whole event went</h3>

@@ -20,6 +20,8 @@ export default () => (
         need to solve the problems in the book. This made me go back to the book again.
     </p>
 
+    <img src="/images/sicp-wizard.png" />
+
     <h2>Why SICP?</h2>
     <p>
         Although I told the method was wrong because I was just reading the book, I decided that I
