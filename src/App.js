@@ -12,20 +12,15 @@ const styles = theme => ({
   },
 })
 
-const navBarStyle = {
-  display: 'inline-block',
-  'list-style-type': 'none',
-}
-
 export default () => (
   <Router>
     <div>
       <nav>
-        <span style={navBarStyle}>Tanay PrabhuDesai</span>
-        <Link to="/" style={navBarStyle}>Home</Link>
-        <Link to="/resume" style={navBarStyle}>Résumé</Link>
-        <Link to="/blog" style={navBarStyle}>Blog</Link>
-        <Link to="/about" style={navBarStyle}>About</Link>
+        <span >Tanay PrabhuDesai</span>
+        <Link to="/">Home</Link>
+        <Link to="/resume">Résumé</Link>
+        <Link to="/blog">Blog</Link>
+        <Link to="/about">About</Link>
       </nav>
       <div className="content">
         <Routes />
