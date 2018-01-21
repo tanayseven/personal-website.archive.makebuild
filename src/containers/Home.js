@@ -13,6 +13,5 @@ export default getSiteProps(() => (
   </div>
   <p>Hi, I'm Tanay PrabhuDesai.</p>
   <p>I'm a software engineer based in Pune, India.</p>
-  <p>This website is generated using <a href="https://github.com/tanayseven/personal_website/">Frozen Flask</a></p>
 </div>
 ))
