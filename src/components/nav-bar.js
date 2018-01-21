@@ -7,12 +7,14 @@ import theme from './theme'
 class NavBar extends React.Component {
   constructor(props) {
     super(props)
+    this.pageList = ['', '/', '/resume', '/blog', '/about'],
     this.state = {
-      selection: 1,
+      selection: this.pageList.indexOf('/'+window.location.pathname.split('/')[1]),
     }
   }
   handleChange = (event, value) => {
     this.setState({selection: value})
+    setTimeout(() => window.open(this.pageList[value], '_self'), 300)
   }
   render() {
     return (
