@@ -2,6 +2,7 @@ import React from 'react'
 import { Router, Link } from 'react-static'
 import Routes from 'react-static-routes'
 
+import 'typeface-roboto'
 import Paper from 'material-ui/Paper'
 import Tabs, { Tab } from 'material-ui/Tabs'
 
