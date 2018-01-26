@@ -29,5 +29,6 @@ nav a {
 .content {
   padding: 1rem;
   max-width: 760px;
+  padding-top: 70px;
   margin: 0 auto;
 }
