@@ -3,9 +3,13 @@ node_js:
   - "node"
   - "9.1.0"
 
+cache:
+  - yarn: true
+
 before_script:
-  - npm config set -g production false
-  - npm install
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version version-number
+  - export PATH="$HOME/.yarn/bin:$PATH"
+  - yarn install
 
 script:
-  - npm run verify && npm run test
+  - yarn verify && yarn test
