@@ -23,5 +23,3 @@ rules:
   semi:
     - error
     - never
-  no-dynamic-require:
-    - warning
