@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "node"
+  - "9.1.0"
+
+before_script:
+  - npm install
+
+script:
+  - npm run verify && npm run test
