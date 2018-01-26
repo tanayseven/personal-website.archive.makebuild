@@ -6,6 +6,7 @@ Tanay's personal website
 [![License](https://img.shields.io/github/license/tanayseven/personal_website.svg)](LICENSE.txt)
 [![Maintainability](https://api.codeclimate.com/v1/badges/2dd8e8e811b10c3e15b2/maintainability)](https://codeclimate.com/github/tanayseven/personal_website/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/2dd8e8e811b10c3e15b2/test_coverage)](https://codeclimate.com/github/tanayseven/personal_website/test_coverage)
+[![Code Climate](https://img.shields.io/codeclimate/issues/github/tanayseven/personal_website.svg)]()
 
 This is my personal website which I use to post my own content (usually blogs)
 
