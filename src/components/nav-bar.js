@@ -5,7 +5,7 @@ import { MuiThemeProvider } from 'material-ui/styles'
 import theme from './theme'
 
 class NavBar extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.pageList = ['', '/', '/resume', '/blog', '/about'],
     this.state = {
@@ -16,7 +16,7 @@ class NavBar extends React.Component {
     this.setState({selection: value})
     setTimeout(() => window.open(this.pageList[value], '_self'), 300)
   }
-  render() {
+  render () {
     return (
       <MuiThemeProvider theme={theme}>
         <Paper>

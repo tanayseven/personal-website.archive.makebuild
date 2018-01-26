@@ -3,10 +3,10 @@ import React from 'react'
 //
 
 export default () => (
-<div>
-  <h1>Hi, I'm Tanay PrabhuDesai</h1>
-  <img src="/images/profile/tanay-profile.jpg" />
-  <p>
+  <div>
+    <h1>Hi, I'm Tanay PrabhuDesai</h1>
+    <img src="/images/profile/tanay-profile.jpg" />
+    <p>
     I love writing code and it gives me intense pleasure while doing so. Therefore, I’m going to
     give a brief history of how it led to the development of this interest in me. Since I was a
     kid, I was fascinated by computers. When I was 3, I started to play games on the computer by
@@ -23,9 +23,9 @@ export default () => (
     in different paradigms, philosophies and principles on which different languages are based.
     Also, I’m interested in theoretical computer science and learning new things with respect to
     computer science.
-  </p>
+    </p>
 
-  <p>
+    <p>
     Just being interested in programming does not satisfy me. I love to be creative and try to
     work on my own personal project. I have worked on quite a lot of my own/personal projects and
     learnt a lot of new things. And no, this is not about the past, I still do work on personal
@@ -36,9 +36,9 @@ export default () => (
     and technology, mainly physics and astronomy. I watch a lot of videos about science online and
     read some posts. No matter what field you work in creativity is very much needed in order to do
     something amazing in that field.
-  </p>
+    </p>
 
-  <p>
+    <p>
     Other than the technical things that I do in my life, I love to go out and spend time in 
     nature, explore different places. Also, there is something special about getting special
     pleasures from small things in life. It can be something as small as getting a cup of coffee on
@@ -47,6 +47,6 @@ export default () => (
     the guitar. Even though I'm from a very scientific background, I appreciate art a lot. There
     is something from the universe that is embedded in the art that makes it look so natural and
     beautiful.
-  </p>
-</div>
+    </p>
+  </div>
 )

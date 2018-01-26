@@ -7,7 +7,8 @@
     "start": "react-static start",
     "build": "react-static build",
     "serve": "serve dist -p 3000",
-    "test": "./node_modules/.bin/jest --config=./tests/config.json"
+    "test": "./node_modules/.bin/jest",
+    "verify": "./node_modules/.bin/eslint **.js"
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -23,7 +24,7 @@
     "eslint": "^4.15.0",
     "eslint-config-react-tools": "^1.0.10",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-react": "^7.6.0",
     "serve": "^6.1.0"
   }
 }

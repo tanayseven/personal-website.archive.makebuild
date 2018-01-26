@@ -32,3 +32,8 @@ nav a {
   padding-top: 70px;
   margin: 0 auto;
 }
+
+.project-card {
+  max-width: 250px;
+  display: inline-block;
+}
