@@ -9,16 +9,16 @@ export default getSiteProps(() => (
   <div>
     <Grid container spacing={24}>
       <Grid item xs={6} sm={3}>
-        <SocialSiteCard iconName='linkedin' href='plus.google.com' />
+        <SocialSiteCard iconName='linkedin' href='https://www.linkedin.com/in/tanay-prabhudesai-1029b073/' />
       </Grid>
       <Grid item xs={6} sm={3}>
-        <SocialSiteCard iconName='google-plus' href='plus.google.com' />
+        <SocialSiteCard iconName='google-plus' href='https://plus.google.com/+TanayPrabhuDesai' />
       </Grid>
       <Grid item xs={6} sm={3}>
-        <SocialSiteCard iconName='twitter' href='plus.google.com' />
+        <SocialSiteCard iconName='twitter' href='https://twitter.com/tanayseven' />
       </Grid>
       <Grid item xs={6} sm={3}>
-        <SocialSiteCard iconName='github' href='plus.google.com' />
+        <SocialSiteCard iconName='github' href='https://github.com/tanayseven/' />
       </Grid>
     </Grid>
     <div className='jumbo-text'>
