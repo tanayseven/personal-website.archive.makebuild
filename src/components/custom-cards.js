@@ -14,6 +14,9 @@ class SocialSiteCard extends React.Component {
       href: props.href,
     }
   }
+  openLinkOnNewPage () {
+    setTimeout(() => window.open(this.state.href, '_blank'), 300)
+  }
   render ()  {
     return (
       <MuiThemeProvider theme={theme}>
@@ -31,7 +34,7 @@ class SocialSiteCard extends React.Component {
           <CardActions
             style={{display: 'flex', margin: '0 auto'}}
           >
-            <IconButton aria-label={this.state.iconName}>
+            <IconButton aria-label={this.state.iconName} onClick={this.openLinkOnNewPage.bind(this)}>
               <Link />
             </IconButton>
           </CardActions>
