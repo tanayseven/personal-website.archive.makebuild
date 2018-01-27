@@ -1,5 +1,5 @@
 import React from 'react'
-import Paper from 'material-ui/Paper'
+import Card, { CardActions, CardContent } from 'material-ui/Card'
 import Tabs, { Tab } from 'material-ui/Tabs'
 import { MuiThemeProvider } from 'material-ui/styles'
 import theme from './theme'
@@ -19,7 +19,9 @@ class NavBar extends React.Component {
   render () {
     return (
       <MuiThemeProvider theme={theme}>
-        <Paper>
+        <Card
+          className='top-bar'
+        >
           <Tabs
             centered
             value={this.state.selection}
@@ -33,7 +35,7 @@ class NavBar extends React.Component {
             <Tab to="/blog" label="Blog" />
             <Tab to="/about" label="About" />
           </Tabs>
-        </Paper>
+        </Card>
       </MuiThemeProvider>
     )
   }

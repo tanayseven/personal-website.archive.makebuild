@@ -1,16 +1,8 @@
-body {
-  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
-    'Lucida Grande', sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-  color: #108db8;
-  font-weight: bold;
+.top-bar {
+  position: fixed;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
 }
 
 nav {
@@ -18,18 +10,12 @@ nav {
   max-width: 780px;
   margin:0 auto;
   text-align: center;
-}
-
-nav a {
-  color: white;
-  padding: 1rem;
-  display: inline-block;
+  position: fixed;
 }
 
 .content {
-  padding: 1rem;
   max-width: 760px;
-  padding-top: 70px;
+  padding: 70px 1rem 1rem;
   margin: 0 auto;
 }
 

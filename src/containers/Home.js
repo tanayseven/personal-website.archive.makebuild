@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from 'material-ui/Card'
+import Card, { CardContent } from 'material-ui/Card'
 import Grid from 'material-ui/Grid'
 import {getSiteProps} from 'react-static'
 
@@ -11,8 +11,10 @@ export default getSiteProps(() => (
       <a target="_blank" href="https://twitter.com/tanayseven">Twitter</a>
       <a target="_blank" href="https://github.com/tanayseven">Github</a>
     </div>
-    <p>Hi, I'm Tanay PrabhuDesai.</p>
-    <p>I'm a software engineer based in Pune, India.</p>
+    <div className='jumbo-text'>
+      <p>Hi, I'm Tanay PrabhuDesai.</p>
+      <p>I'm a software engineer based in Pune, India.</p>
+    </div>
     <div>
       <Grid container>
         <Card className='project-card'>
