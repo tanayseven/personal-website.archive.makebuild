@@ -1,16 +1,26 @@
 import React from 'react'
-import Card, { CardContent } from 'material-ui/Card'
+import Card, {CardContent} from 'material-ui/Card'
 import Grid from 'material-ui/Grid'
 import {getSiteProps} from 'react-static'
+import 'font-awesome/css/font-awesome.min.css'
+import SocialSiteCard from '../components/custom-cards'
 
 export default getSiteProps(() => (
   <div>
-    <div id="social-media-links">
-      <a target="_blank" href="https://www.linkedin.com/in/tanay-prabhudesai-1029b073/">Linkedin</a>
-      <a target="_blank" href="https://plus.google.com/+TanayPrabhuDesai">Google +</a>
-      <a target="_blank" href="https://twitter.com/tanayseven">Twitter</a>
-      <a target="_blank" href="https://github.com/tanayseven">Github</a>
-    </div>
+    <Grid container spacing={24}>
+      <Grid item xs={6} sm={3}>
+        <SocialSiteCard iconName='linkedin' href='plus.google.com' />
+      </Grid>
+      <Grid item xs={6} sm={3}>
+        <SocialSiteCard iconName='google-plus' href='plus.google.com' />
+      </Grid>
+      <Grid item xs={6} sm={3}>
+        <SocialSiteCard iconName='twitter' href='plus.google.com' />
+      </Grid>
+      <Grid item xs={6} sm={3}>
+        <SocialSiteCard iconName='github' href='plus.google.com' />
+      </Grid>
+    </Grid>
     <div className='jumbo-text'>
       <p>Hi, I'm Tanay PrabhuDesai.</p>
       <p>I'm a software engineer based in Pune, India.</p>
