@@ -40,7 +40,7 @@ class SocialSiteCard extends React.Component {
               onClick={this.openLinkOnNewPage.bind(this)}
             >
               <FontAwesome
-                name='link'
+                name='external-link'
               />
             </Button>
           </CardActions>
@@ -74,7 +74,7 @@ class PersonalProjectCard extends React.Component {
         onClick={this.openLiveLinkOnNewPage.bind(this)}
       >
         <FontAwesome
-          name='link'
+          name='external-link'
         />
       </Button>
       :
@@ -118,4 +118,55 @@ class PersonalProjectCard extends React.Component {
   }
 }
 
-export { PersonalProjectCard, SocialSiteCard }
+class BlogCard extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      title: props.title,
+      description: props.description,
+      date: props.date,
+      href: props.href,
+    }
+  }
+  openBlogOnCurrentPage () {
+    setTimeout(() => window.open(this.state.href, '_self'), 300)
+  }
+  render () {
+    return (
+      <MuiThemeProvider theme={theme}>
+        <Card
+          style={{display: 'flex', height: '160px', flexDirection: 'row', paddingBottom: '10px'}}
+        >
+          <CardContent
+            style={{display: 'flex', flexDirection: 'column'}}
+          >
+            <Typography type='caption'>
+              {this.state.date}
+            </Typography>
+            <Typography type='title'>
+              {this.state.title}
+            </Typography>
+            <Typography>
+              {this.state.description}
+            </Typography>
+          </CardContent>
+          <CardActions
+            style={{display: 'flex', margin: '0 auto'}}
+          >
+            <Button
+              aria-label={this.state.iconName}
+              fab mini
+              onClick={this.openBlogOnCurrentPage.bind(this)}
+            >
+              <FontAwesome
+                name='chevron-right'
+              />
+            </Button>
+          </CardActions>
+        </Card>
+      </MuiThemeProvider>
+    )
+  }
+}
+
+export { PersonalProjectCard, SocialSiteCard, BlogCard }

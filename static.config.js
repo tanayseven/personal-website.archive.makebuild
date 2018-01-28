@@ -3,7 +3,7 @@ const blogList = [
   '2016-07-14-finally-an-android-app',
   '2016-07-18-at-nelkinda-coderetreat',
   '2018-01-03-sicp-challenge',
-].sort()
+].sort().reverse()
 
 function moduleDataFor (moduleName) {
   const componentPath = `./src/posts/${moduleName}`
@@ -18,6 +18,7 @@ const posts = []
 blogList.forEach(element => {
   posts.push(moduleDataFor(element))
 }, this)
+
 export default {
   getSiteProps: () => ({
     title: 'React Static',
