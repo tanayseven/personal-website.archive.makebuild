@@ -53,27 +53,64 @@ class SocialSiteCard extends React.Component {
 class PersonalProjectCard extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {}
+    this.state = {
+      title: props.title,
+      description: props.description,
+      liveLink: props.liveLink,
+      githubLink: props.githubLink,
+    }
+  }
+  openLiveLinkOnNewPage () {
+    setTimeout(() => window.open(this.state.liveLink, '_blank'), 300)
+  }
+  openGithubLinkOnNewPage () {
+    setTimeout(() => window.open(this.state.githubLink, '_blank'), 300)
   }
   render () {
+    const liveLinkButton = this.state.liveLink ?
+      <Button
+        aria-label={this.state.iconName}
+        fab mini
+        onClick={this.openLiveLinkOnNewPage.bind(this)}
+      >
+        <FontAwesome
+          name='link'
+        />
+      </Button>
+      :
+      ''
+    const githubButton = this.state.githubLink ?
+      <Button
+        aria-label={this.state.iconName}
+        fab mini
+        onClick={this.openGithubLinkOnNewPage.bind(this)}
+      >
+        <FontAwesome
+          name='github'
+        />
+      </Button>
+      :
+      ''
     return (
       <MuiThemeProvider theme={theme}>
         <Card
-          style={{display: 'flex', height: '140px', flexDirection: 'column'}}
+          style={{display: 'flex', height: '160px', flexDirection: 'column', paddingBottom: '10px'}}
         >
           <CardContent
             style={{display: 'flex', flexDirection: 'column'}}
           >
             <Typography type='title'>
-              Project Name
+              {this.state.title}
             </Typography>
             <Typography component='p'>
-              {'Some short description about the project that was made. What all things were there in that project. How it was written.'}
+              {this.state.description}
             </Typography>
           </CardContent>
           <CardActions
             style={{display: 'flex', margin: '0 auto'}}
           >
+            {liveLinkButton}
+            {githubButton}
           </CardActions>
         </Card>
       </MuiThemeProvider>

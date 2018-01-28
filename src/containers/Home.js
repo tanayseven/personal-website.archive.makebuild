@@ -33,22 +33,27 @@ export default getSiteProps(() => (
     </Typography>
     <Grid container spacing={24}>
       <Grid item xs={12} sm={6}>
-        <PersonalProjectCard />
+        <PersonalProjectCard
+          title='Project Name'
+          description='This is some description. That description is needed to tell something about the project in brief'
+          liveLink='https://tanayseven.com'
+          githubLink='https://github.com/tanayseven'
+        />
       </Grid>
       <Grid item xs={12} sm={6}>
-        <PersonalProjectCard />
+        <PersonalProjectCard title='Project Name' description='This is some description. That description is needed to tell something about the project in brief' />
       </Grid>
       <Grid item xs={12} sm={6}>
-        <PersonalProjectCard />
+        <PersonalProjectCard title='Project Name' description='This is some description. That description is needed to tell something about the project in brief' />
       </Grid>
       <Grid item xs={12} sm={6}>
-        <PersonalProjectCard />
+        <PersonalProjectCard title='Project Name' description='This is some description. That description is needed to tell something about the project in brief' />
       </Grid>
       <Grid item xs={12} sm={6}>
-        <PersonalProjectCard />
+        <PersonalProjectCard title='Project Name' description='This is some description. That description is needed to tell something about the project in brief' />
       </Grid>
       <Grid item xs={12} sm={6}>
-        <PersonalProjectCard />
+        <PersonalProjectCard title='Project Name' description='This is some description. That description is needed to tell something about the project in brief' />
       </Grid>
     </Grid>
   </div>
