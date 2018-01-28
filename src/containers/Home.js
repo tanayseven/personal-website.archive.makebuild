@@ -4,6 +4,7 @@ import Grid from 'material-ui/Grid'
 import {getSiteProps} from 'react-static'
 import 'font-awesome/css/font-awesome.min.css'
 import SocialSiteCard from '../components/custom-cards'
+import Typography from 'material-ui/Typography'
 
 export default getSiteProps(() => (
   <div>
@@ -21,10 +22,10 @@ export default getSiteProps(() => (
         <SocialSiteCard iconName='github' href='https://github.com/tanayseven/' />
       </Grid>
     </Grid>
-    <div className='jumbo-text'>
+    <Typography type='display1'>
       <p>Hi, I'm Tanay PrabhuDesai.</p>
       <p>I'm a software engineer based in Pune, India.</p>
-    </div>
+    </Typography>
     <div>
       <Grid container>
         <Card className='project-card'>
