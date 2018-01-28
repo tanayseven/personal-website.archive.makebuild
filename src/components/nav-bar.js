@@ -25,7 +25,7 @@ class NavBar extends React.Component {
           <Card
             raised
             className='top-bar'
-            style={{'max-width': '960px', margin: '0 auto'}}
+            style={{maxWidth: '960px', margin: '0 auto'}}
           >
             <Tabs
               centered

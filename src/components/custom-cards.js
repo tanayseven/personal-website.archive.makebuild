@@ -32,7 +32,7 @@ class SocialSiteCard extends React.Component {
             />
           </CardContent>
           <CardActions
-            style={{display: 'flex', margin: '0', 'padding-bottom': '10px'}}
+            style={{display: 'flex', margin: '0', paddingBottom: '10px'}}
           >
             <Button
               aria-label={this.state.iconName}
