@@ -1,7 +1,7 @@
 import React from 'react'
-import Card, { CardActions, CardContent } from 'material-ui/Card'
-import Tabs, { Tab } from 'material-ui/Tabs'
-import { MuiThemeProvider } from 'material-ui/styles'
+import Tabs, {Tab} from 'material-ui/Tabs'
+import {MuiThemeProvider} from 'material-ui/styles'
+import Card from 'material-ui/Card'
 import theme from './theme'
 
 class NavBar extends React.Component {
@@ -19,23 +19,29 @@ class NavBar extends React.Component {
   render () {
     return (
       <MuiThemeProvider theme={theme}>
-        <Card
-          className='top-bar'
+        <div
+          style={{position: 'fixed', width: '100%'}}
         >
-          <Tabs
-            centered
-            value={this.state.selection}
-            indicatorColor="primary"
-            textColor="primary"
-            onChange={this.handleChange}
+          <Card
+            raised
+            className='top-bar'
+            style={{'max-width': '960px', margin: '0 auto'}}
           >
-            <Tab label="Tanay PrabhuDesai" disabled />
-            <Tab to="/" label="Home" />
-            <Tab to="/resume" label="Résumé" />
-            <Tab to="/blog" label="Blog" />
-            <Tab to="/about" label="About" />
-          </Tabs>
-        </Card>
+            <Tabs
+              centered
+              value={this.state.selection}
+              indicatorColor="primary"
+              textColor="primary"
+              onChange={this.handleChange}
+            >
+              <Tab label="Tanay PrabhuDesai" disabled />
+              <Tab to="/" label="Home" />
+              <Tab to="/resume" label="Résumé" />
+              <Tab to="/blog" label="Blog" />
+              <Tab to="/about" label="About" />
+            </Tabs>
+          </Card>
+        </div>
       </MuiThemeProvider>
     )
   }

@@ -1,9 +1,7 @@
-.top-bar {
-  position: fixed;
-  margin: 0 auto;
-  text-align: center;
-  width: 100%;
-}
+/*.top-bar {*/
+  /*position: fixed;*/
+  /*margin: 0 auto;*/
+/*}*/
 
 nav {
   background: #108db8;
@@ -15,7 +13,7 @@ nav {
 
 .content {
   max-width: 760px;
-  padding: 70px 1rem 1rem;
+  padding: 50px 1rem 1rem;
   margin: 0 auto;
 }
 
