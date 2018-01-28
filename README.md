@@ -12,32 +12,31 @@ This is my personal website which I use to post my own content (usually blogs)
 
 Instructions:
 -------------
-Make sure you have `sshpass` and `rsync` installed
+This project uses `yarn`
 ```bash
 # Install all the necessary modules
-npm install
-npm install -g jest
+yarn
 
 # Run the server
-npm run start
+yarn start
 
 # Build to static files
-npm run build
+yarn build
 
 # Run the tests
-num run test
+yarn test
 
 # Run eslint for all files
 ./node_modules/.bin/eslint "**.js" --ignore node_modules
 
 # Install all eslist dependencies
-npm i eslint@latest --save
-npm i eslint-plugin-import@latest --save-dev
-npm i eslint-plugin-jsx-a11y@latest --save-dev
-npm i eslint-plugin-class-property@latest --save-dev
-npm i eslint-config-react-tools@latest --save-dev
-npm i eslint-plugin-react@latest --save-dev
-npm i eslint-config-react-tools@latest --save-dev
+yarn add eslint@latest --save
+yarn add eslint-plugin-import@latest --save-dev
+yarn add eslint-plugin-jsx-a11y@latest --save-dev
+yarn add eslint-plugin-class-property@latest --save-dev
+yarn add eslint-config-react-tools@latest --save-dev
+yarn add eslint-plugin-react@latest --save-dev
+yarn add eslint-config-react-tools@latest --save-dev
 ```
 
 License
