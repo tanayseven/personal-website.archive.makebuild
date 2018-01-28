@@ -30,8 +30,7 @@ class NavBar extends React.Component {
             <Tabs
               centered
               value={this.state.selection}
-              indicatorColor="primary"
-              textColor="primary"
+              indicatorColor="grey"
               onChange={this.handleChange}
             >
               <Tab label="Tanay PrabhuDesai" disabled />
