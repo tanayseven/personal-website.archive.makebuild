@@ -20,7 +20,6 @@ class NavBar extends React.Component {
   render () {
     var redirect = null;
     if (this.state.buttonClicked) {
-      console.log('LINK ' + this.state.selection);
       redirect = <Redirect push to={this.pageList[this.state.selection]} />
     }
     this.state.buttonClicked = false;
