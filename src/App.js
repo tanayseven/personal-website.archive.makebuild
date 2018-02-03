@@ -6,8 +6,6 @@ import 'typeface-roboto'
 
 import NavBar from './components/nav-bar'
 
-import './app.css'
-
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -20,7 +18,7 @@ export default () => (
   <Router>
     <div>
       <NavBar />
-      <div className="content">
+      <div style={{maxWidth: '760px', padding: '70px 1rem 1rem', margin: '0 auto'}} >
         <Routes />
       </div>
     </div>
