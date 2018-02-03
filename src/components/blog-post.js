@@ -3,6 +3,9 @@ import {MuiThemeProvider} from 'material-ui/styles'
 import theme from './theme'
 import Card from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
+import {Redirect} from "react-static";
+import FontAwesome from 'react-fontawesome'
+import Button from "material-ui/Button";
 
 class BlogPost extends React.Component {
   constructor (props) {
@@ -14,11 +17,30 @@ class BlogPost extends React.Component {
       date: props.data.date,
       title: props.data.title,
       description: props.data.description,
+      goBack: false,
     }
   }
+  goBack = () => {
+    this.setState({goBack: true})
+  }
   render () {
+    var redirect = null;
+    if (this.state.goBack) {
+      redirect = <Redirect push to='/blog/' />
+    }
+    this.state.goBack = false
     return (
       <MuiThemeProvider theme={theme}>
+        {redirect}
+        <Button
+          fab mini
+          onClick={this.goBack}
+          style={{position: 'fixed'}}
+        >
+          <FontAwesome
+            name='angle-left'
+          />
+        </Button>
         <Typography type='headline' align='center'>
           {this.state.title}
         </Typography>
@@ -26,7 +48,7 @@ class BlogPost extends React.Component {
         <Card
           style={{padding: '20px 20px 20px'}}
         >
-          <Typography type='body1'>
+          <Typography type='body2'>
             {this.state.children}
           </Typography>
         </Card>
