@@ -95,7 +95,7 @@ class PersonalProjectCard extends React.Component {
     return (
       <MuiThemeProvider theme={theme}>
         <Card
-          style={{display: 'flex', height: '160px', flexDirection: 'column', paddingBottom: '10px'}}
+          style={{display: 'flex', flexDirection: 'column', paddingBottom: '10px'}}
         >
           <CardContent
             style={{display: 'flex', flexDirection: 'column'}}
