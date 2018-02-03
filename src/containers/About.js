@@ -1,7 +1,7 @@
 import React from 'react'
 import Typography from 'material-ui/Typography'
 import Card from "material-ui/Card/Card";
-import Avatar from "material-ui/es/Avatar/Avatar";
+import Avatar from "material-ui/Avatar";
 
 export default () => (
   <div>

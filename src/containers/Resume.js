@@ -2,7 +2,6 @@ import React from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Card from 'material-ui/Card'
 import Chip from 'material-ui/Chip'
-import Avatar from 'material-ui/Avatar'
 import Typography from 'material-ui/Typography'
 import theme from '../components/theme'
 
