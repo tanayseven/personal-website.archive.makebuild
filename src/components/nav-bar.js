@@ -27,7 +27,7 @@ class NavBar extends React.Component {
       <MuiThemeProvider theme={theme}>
         {redirect}
         <div
-          style={{position: 'fixed', width: '100%'}}
+          style={{position: 'fixed', width: '100%', marginTop: '10px'}}
         >
           <Card
             raised
