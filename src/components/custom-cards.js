@@ -5,6 +5,7 @@ import FontAwesome from 'react-fontawesome'
 import Card, {CardActions, CardContent} from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
 import Button from 'material-ui/Button'
+import {Redirect} from "react-static";
 
 class SocialSiteCard extends React.Component {
   constructor (props) {
@@ -126,16 +127,24 @@ class BlogCard extends React.Component {
       description: props.description,
       date: props.date,
       href: props.href,
+      blogToBeOpened: false,
     }
   }
-  openBlogOnCurrentPage () {
-    setTimeout(() => window.open(this.state.href, '_self'), 300)
+  openBlogOnCurrentPage = function () {
+    this.setState({blogToBeOpened: true})
+    console.log('outputted')
   }
   render () {
+    var redirect = null
+    if (this.state.blogToBeOpened) {
+      redirect = <Redirect push to={this.state.href} />
+    }
+    this.state.blogToBeOpened = false
     return (
       <MuiThemeProvider theme={theme}>
+        {redirect}
         <Card
-          style={{display: 'flex', height: '160px', flexDirection: 'row', paddingBottom: '10px'}}
+          style={{display: 'flex', minHeight: '80px', flexDirection: 'row', paddingBottom: '10px'}}
         >
           <CardContent
             style={{display: 'flex', flexDirection: 'column'}}
