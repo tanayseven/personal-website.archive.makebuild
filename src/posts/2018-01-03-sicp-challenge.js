@@ -1,4 +1,5 @@
 import React from 'react'
+import BlogPost from "../components/blog-post";
 
 export const data = {
   tags: ['sicp', 'scheme', 'functional programming'],
@@ -9,8 +10,9 @@ export const data = {
 }
 
 export default () => (
-  <div>
-    <p>
+  <BlogPost data={data}>
+    <div>
+      <p>
         Almost over a year back I started reading the long-awaited book from my bucket list,
         "Structure and Interpretation of Computer Programs".  When I was reading the book, quite a
         lot of the things in the book were already known to me and therefore it started to get
@@ -18,22 +20,22 @@ export default () => (
         problem was not the reason behind reading the book but the problem was the approach
         towards the book. The book is not designed to be just read as if it is a novel but you also
         need to solve the problems in the book. This made me go back to the book again.
-    </p>
+      </p>
 
-    <img src="/images/sicp-wizard.png" />
+      <img src="/images/sicp-wizard.png" />
 
-    <h2>Why SICP?</h2>
-    <p>
+      <h2>Why SICP?</h2>
+      <p>
         Although I told the method was wrong because I was just reading the book, I decided that I
         will try to solve every problem given in the book's exercise section. Therefore I have set
         up a Github repository that will have all the code snippets of the exercises that I solve,
         irrespective if that exercise needs me to write code or not. The other reason for me going
         ahead with SICP is that it teaches Computer Science and understanding the computer as an
         abstract machine used to manipulate information.
-    </p>
+      </p>
 
-    <h2>That stuff is old and outdated</h2>
-    <p>
+      <h2>That stuff is old and outdated</h2>
+      <p>
         "This thing is outdated!", "That thing is outdated!", these are some of the most common words
         that you can hear in the software industry. But is something really outdated? Well, I
         consider 'outdated' a very heavy word to be used so casually and I personally think that
@@ -45,10 +47,10 @@ export default () => (
         the abstract concepts, even the authors say that the book is not about and does not teach
         Scheme. Even if some institutes like Massachusetts Institute of Technology themselves have
         stopped teaching this course, I don't consider it outdated and therefore am going for it.
-    </p>
+      </p>
 
-    <h2>Studying that same stuff... Again?</h2>
-    <p>
+      <h2>Studying that same stuff... Again?</h2>
+      <p>
         Well, now you might say that I've already studied Computer Science in my career then why
         study the same stuff again? It has been ages since I've done any Computer Science, and at
         times I'm missing all of that while writing software for clients at a software consultancy.
@@ -58,10 +60,10 @@ export default () => (
         feel that everyone who writes software should not forget the fundamentals and even if it is
         repeating the same things again, it stays in memory and can be applied whenever needed in
         the future.
-    </p>
+      </p>
 
-    <h2>But then why Scheme?</h2>
-    <p>
+      <h2>But then why Scheme?</h2>
+      <p>
         My initial thought regarding programming language was to use Clojure because I had used
         ClojureScript in a software project for making a front-end app deployed to Android using
         Cordova. So I went ahead with Clojure as my choice of language. After a while, I realized
@@ -70,16 +72,16 @@ export default () => (
         choice as a language. It is a pretty good choice to go with if you are making something
         like a web application. You can also go with a full stack approach using Clojure on the
         backend and ClojureScript on the front end, and the list just goes on.
-    </p>
-    <p>
+      </p>
+      <p>
         But I decided to choose MIT-Scheme after trying Clojure because when I had a look at the
         language, it looked very small, something you can just get going with within a couple of
         hours. Another reason is that you can just copy/paste the examples from the book and then
         run them using the MIT-Scheme interpreter.
-    </p>
+      </p>
 
-    <h2>Aim and Expected Result</h2>
-    <p>
+      <h2>Aim and Expected Result</h2>
+      <p>
         So my aim is to finish the whole book in the entire year of 2018 by doing a little bit of
         SICP almost every day. And that does not mean just reading the book but also solving the
         exercises extensively. I've set up a GitHub repository for solving all these problems and
@@ -91,6 +93,7 @@ export default () => (
         As a follow-up post to this post, I will be writing a tutorial for super-fast learning
         MIT-Scheme to get started with SICP. I might also write posts for how I approached problems
         that I felt difficult to solve in SICP.
-    </p>
-  </div>
+      </p>
+    </div>
+  </BlogPost>
 )
