@@ -19,10 +19,14 @@ class BlogPost extends React.Component {
   render () {
     return (
       <MuiThemeProvider theme={theme}>
+        <Typography type='headline' align='center'>
+          {this.state.title}
+        </Typography>
+        <br/>
         <Card
           style={{padding: '20px 20px 20px'}}
         >
-          <Typography type=''>
+          <Typography type='body1'>
             {this.state.children}
           </Typography>
         </Card>
