@@ -9,8 +9,14 @@ class NavBar extends React.Component {
   constructor (props) {
     super(props)
     this.pageList = ['', '/', '/resume', '/blog', '/about']
+    let selection
+    if (typeof window !== 'undefined') {
+      selection = this.pageList.indexOf('/' + window.location.pathname.split('/')[1])
+    } else {
+      selection = '/'
+    }
     this.state = {
-      selection: this.pageList.indexOf('/'+window.location.pathname.split('/')[1]),
+      selection: selection,
       buttonClicked: false,
     }
   }

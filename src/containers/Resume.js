@@ -54,7 +54,7 @@ export default () => (
       {resumeData.techSpecificSkills.map((skill) =>
         <Chip
           label={skill.name}
-          deleteIcon={<Avatar>{skill.points}</Avatar>}
+          deleteIcon={<p>{skill.points}</p>}
           style={{margin: '3px'}}
           onDelete={()=>{}} />)
       }
