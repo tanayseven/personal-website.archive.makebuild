@@ -27,7 +27,7 @@ yarn build
 yarn test
 
 # Run eslint for all files
-./node_modules/.bin/eslint "**.js" --ignore node_modules
+yarn verify
 
 # Install all eslist dependencies
 yarn add eslint@latest --save
