@@ -1,5 +1,6 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import Tabs, {Tab} from 'material-ui/Tabs'
+import { mount, shallow } from 'enzyme'
 import NavBar from '../../src/components/nav-bar'
 
 describe('NavBar', () => {
@@ -26,4 +27,24 @@ describe('NavBar', () => {
     expect(divs.length).toBeGreaterThan(0)
   })
 
+  it('should activate "home" tab when the path is set as "/"', () => {
+    const tabs = shallow(<NavBar path='/' />).find(Tabs)
+    expect(tabs.props().value).toBe(1)
+  })
+
+
+  it('should activate "resume" tab when the path is set as "/resume"', () => {
+    const tabs = shallow(<NavBar path='/resume' />).find(Tabs)
+    expect(tabs.props().value).toBe(2)
+  })
+
+  it('should activate "blog" tab when the path is set as "/blog"', () => {
+    const tabs = shallow(<NavBar path='/blog' />).find(Tabs)
+    expect(tabs.props().value).toBe(3)
+  })
+
+  it('should activate "about" tab when the path is set as "/about"', () => {
+    const tabs = shallow(<NavBar path='/about' />).find(Tabs)
+    expect(tabs.props().value).toBe(4)
+  })
 })
