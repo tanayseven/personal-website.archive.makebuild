@@ -11,7 +11,7 @@ class NavBar extends React.Component {
     this.pageList = ['', '/', '/resume', '/blog', '/about']
     let selection
     if (typeof window !== 'undefined') {
-      selection = this.pageList.indexOf('/' + window.location.pathname.split('/')[1])
+      selection = this.pageList.indexOf('/' + props.path.split('/')[1])
     } else {
       selection = '/'
     }

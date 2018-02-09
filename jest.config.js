@@ -7,5 +7,6 @@ module.exports = {
     '**/*.{js,jsx}',
     '!**/node_modules/**',
     '!**/vendor/**',
-  ]
+  ],
+  setupFiles: ['./test/setupTests'],
 }
