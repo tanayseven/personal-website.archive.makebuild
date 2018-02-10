@@ -3,7 +3,7 @@ import Tabs, {Tab} from 'material-ui/Tabs'
 import {MuiThemeProvider} from 'material-ui/styles'
 import Card from 'material-ui/Card'
 import theme from './theme'
-import {Redirect} from "react-static";
+import {Redirect, Router} from "react-static";
 
 class NavBar extends React.Component {
   constructor (props) {
@@ -22,7 +22,11 @@ class NavBar extends React.Component {
   render () {
     var redirect = null
     if (this.state.buttonClicked) {
-      redirect = <Redirect push to={this.pageList[this.state.selection]} />
+      redirect = (
+        <Router>
+          <Redirect push to={this.pageList[this.state.selection]} />
+        </Router>
+      )
     }
     this.state.buttonClicked = false;
     return (

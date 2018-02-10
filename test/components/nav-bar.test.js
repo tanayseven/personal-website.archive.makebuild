@@ -2,6 +2,7 @@ import React from 'react'
 import Tabs, {Tab} from 'material-ui/Tabs'
 import { mount, shallow } from 'enzyme'
 import NavBar from '../../src/components/nav-bar'
+import {Redirect} from "react-static";
 
 describe('NavBar', () => {
   let props
@@ -47,4 +48,17 @@ describe('NavBar', () => {
     const tabs = shallow(<NavBar path='/about' />).find(Tabs)
     expect(tabs.props().value).toBe(4)
   })
+
+  it('should render redirect when any one of the tabs is clicked on', () => {
+    const wrapper = mount(<NavBar path='/' />)
+    wrapper.find(Tab).at(1).simulate('click')
+    wrapper.update()
+    expect(wrapper.find(Redirect).length).toBeGreaterThan(0)
+  })
+
+  it('should not render redirect when any one of the tabs is not clicked', () => {
+    const wrapper = shallow(<NavBar path='/' />)
+    expect(wrapper.find(Redirect).length).toBe(0)
+  })
+
 })
