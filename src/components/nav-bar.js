@@ -3,7 +3,7 @@ import Tabs, {Tab} from 'material-ui/Tabs'
 import {MuiThemeProvider} from 'material-ui/styles'
 import Card from 'material-ui/Card'
 import theme from './theme'
-import {Redirect, Router} from "react-static";
+import {Link, Redirect, Router} from "react-static";
 
 class NavBar extends React.Component {
   constructor (props) {
@@ -28,34 +28,24 @@ class NavBar extends React.Component {
         </Router>
       )
     }
-    this.state.buttonClicked = false;
     return (
-      <MuiThemeProvider theme={theme}>
-        {redirect}
         <div
           style={{position: 'fixed', width: '100%', marginTop: '10px'}}
         >
-          <Card
-            raised
-            className='top-bar'
-            style={{maxWidth: '960px', margin: '0 auto'}}
-          >
-            <Tabs
-              centered
-              value={this.state.selection}
-              indicatorColor="grey"
-              onChange={this.handleChange}
-            >
-              <Tab label="Tanay PrabhuDesai" disabled />
-              <Tab to="/" label='Home' onClick={()=>this.state.selection='/'} />
-              <Tab to="/resume" label='Résumé' onClick={()=>this.state.selection='/resume'} />
-              <Tab to="/blog" label='Blog' onClick={()=>this.state.selection='/blog'} />
-              <Tab to="/about" label='About' onClick={()=>this.state.selection='/about'} />
-            </Tabs>
-          </Card>
+          <nav>
+            <div className="nav-wrapper">
+              <a href="#" className="brand-logo">Tanay PrabhuDesai</a>
+              <ul id="nav-mobile" className="right hide-on-med-and-down">
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/resume">Résumé</Link></li>
+                <li><Link to="/blog">Blog</Link></li>
+                <li><Link to="/about">About Me</Link></li>
+              </ul>
+            </div>
+          </nav>
         </div>
-      </MuiThemeProvider>
     )
+    this.state.buttonClicked = false;
   }
 }
 export default NavBar
