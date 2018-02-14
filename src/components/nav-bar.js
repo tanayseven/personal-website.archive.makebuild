@@ -1,51 +1,41 @@
 import React from 'react'
-import Tabs, {Tab} from 'material-ui/Tabs'
-import {MuiThemeProvider} from 'material-ui/styles'
-import Card from 'material-ui/Card'
-import theme from './theme'
-import {Link, Redirect, Router} from "react-static";
+import {Link} from "react-static";
+
+class NavBarButton extends React.Component {
+  constructor(props) {
+    super(props)
+    const path = typeof window !== 'undefined' ? window.location.pathname : ''
+    const buttonClasses = '/' + path.split('/')[1] === this.props.link ? 'active disabled' : ''
+    this.state = {
+      buttonClasses: buttonClasses
+    }
+  }
+  render() {
+    return (
+      <li className={this.state.buttonClasses}><Link to={this.props.link}>{this.props.label}</Link></li>
+    )
+  }
+}
 
 class NavBar extends React.Component {
   constructor (props) {
     super(props)
-    this.pageList = ['', '/', '/resume', '/blog', '/about']
-    let selection
-    selection = this.pageList.indexOf('/' + props.path.split('/')[1])
-    this.state = {
-      selection: selection,
-      buttonClicked: false,
-    }
-  }
-  handleChange = (event, value) => {
-    this.setState({selection: value, buttonClicked: true})
   }
   render () {
-    var redirect = null
-    if (this.state.buttonClicked) {
-      redirect = (
-        <Router>
-          <Redirect push to={this.pageList[this.state.selection]} />
-        </Router>
-      )
-    }
     return (
-        <div
-          style={{position: 'fixed', width: '100%', marginTop: '10px'}}
-        >
-          <nav>
-            <div className="nav-wrapper">
-              <a href="#" className="brand-logo">Tanay PrabhuDesai</a>
-              <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/resume">Résumé</Link></li>
-                <li><Link to="/blog">Blog</Link></li>
-                <li><Link to="/about">About Me</Link></li>
-              </ul>
-            </div>
-          </nav>
+      <nav>
+        <div className="nav-wrapper">
+          <a className="brand-logo left disabled">Tanay PrabhuDesai</a>
+          <ul className="right">
+            <NavBarButton link='/' label='Home' />
+            <NavBarButton link='/resume' label='Résumé' />
+            <NavBarButton link='/blog' label='Blog' />
+            <NavBarButton link='/about' label='About Me' />
+          </ul>
         </div>
+      </nav>
     )
-    this.state.buttonClicked = false;
+    // this.state.buttonClicked = false;
   }
 }
 export default NavBar
