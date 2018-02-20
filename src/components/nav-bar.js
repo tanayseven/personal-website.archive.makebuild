@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from "react-static";
+import {Link, withRouter} from 'react-static'
 
 class NavBar extends React.Component {
   constructor (props) {
@@ -7,7 +7,7 @@ class NavBar extends React.Component {
   }
 
   compareCurrentLocationWith(link) {
-    return link === '/' + window.location.pathname.split('/')[1] ? 'active disabled' : ''
+    return link === '/' + this.props.location.pathname.split('/')[1] ? 'active disabled' : ''
   }
 
   render () {
@@ -15,7 +15,7 @@ class NavBar extends React.Component {
       <nav>
         <div className="nav-wrapper">
           <a className="brand-logo left disabled">Tanay PrabhuDesai</a>
-          <ul className="right">
+          <ul className="right hide-on-med-and-down">
             <li className={this.compareCurrentLocationWith('/')}>
               <Link to='/'>Home</Link>
             </li>
@@ -34,4 +34,4 @@ class NavBar extends React.Component {
     )
   }
 }
-export default NavBar
+export default withRouter(NavBar)
