@@ -3,7 +3,7 @@ import Tabs, {Tab} from 'material-ui/Tabs'
 import {MuiThemeProvider} from 'material-ui/styles'
 import Card from 'material-ui/Card'
 import theme from './theme'
-import {Redirect, Router} from "react-static";
+import {Redirect, Router, withRouter} from "react-static";
 
 class NavBar extends React.Component {
   constructor (props) {
@@ -58,4 +58,4 @@ class NavBar extends React.Component {
     )
   }
 }
-export default NavBar
+export default withRouter(NavBar)

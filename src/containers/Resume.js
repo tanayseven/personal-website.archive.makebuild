@@ -92,6 +92,11 @@ export default () => (
     </Card>
     <br />
     <Card style={{padding: '10px'}}>
+      <h3>Chatoodle</h3>
+      <p>A real-time chat and doodle app made in Node and Socket.IO</p>
+    </Card>
+    <br />
+    <Card style={{padding: '10px'}}>
       <h3>Smarter Keyboard Input Method</h3>
       <p>Made as a part of my Bachelor of Computer Engineering Project</p>
     </Card>
