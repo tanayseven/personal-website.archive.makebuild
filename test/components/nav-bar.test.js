@@ -4,7 +4,7 @@ import { mount, shallow } from 'enzyme'
 import NavBar from '../../src/components/nav-bar'
 import {Redirect} from "react-static";
 
-describe.skip('NavBar', () => {
+describe('NavBar', () => {
   let props
   let mountedNavBar
   const navBar = () => {

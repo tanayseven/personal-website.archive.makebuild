@@ -1,37 +1,61 @@
 import React from 'react'
-import {Link, withRouter} from 'react-static'
+import Tabs, {Tab} from 'material-ui/Tabs'
+import {MuiThemeProvider} from 'material-ui/styles'
+import Card from 'material-ui/Card'
+import theme from './theme'
+import {Redirect, Router} from "react-static";
 
 class NavBar extends React.Component {
   constructor (props) {
     super(props)
+    this.pageList = ['', '/', '/resume', '/blog', '/about']
+    let selection
+    selection = this.pageList.indexOf('/' + props.path.split('/')[1])
+    this.state = {
+      selection: selection,
+      buttonClicked: false,
+    }
   }
-
-  compareCurrentLocationWith(link) {
-    return link === '/' + this.props.location.pathname.split('/')[1] ? 'active disabled' : ''
+  handleChange = (event, value) => {
+    this.setState({selection: value, buttonClicked: true})
   }
-
   render () {
+    var redirect = null
+    if (this.state.buttonClicked) {
+      redirect = (
+        <Router>
+          <Redirect push to={this.pageList[this.state.selection]} />
+        </Router>
+      )
+    }
+    this.state.buttonClicked = false;
     return (
-      <nav>
-        <div className="nav-wrapper">
-          <a className="brand-logo left disabled">Tanay PrabhuDesai</a>
-          <ul className="right hide-on-med-and-down">
-            <li className={this.compareCurrentLocationWith('/')}>
-              <Link to='/'>Home</Link>
-            </li>
-            <li className={this.compareCurrentLocationWith('/resume')}>
-              <Link to='/resume'>Résumé</Link>
-            </li>
-            <li className={this.compareCurrentLocationWith('/blog')}>
-              <Link to='/blog'>Blog</Link>
-            </li>
-            <li className={this.compareCurrentLocationWith('/about')}>
-              <Link to='/about'>About Me</Link>
-            </li>
-          </ul>
+      <MuiThemeProvider theme={theme}>
+        {redirect}
+        <div
+          style={{position: 'fixed', width: '100%', marginTop: '10px'}}
+        >
+          <Card
+            raised
+            className='top-bar'
+            style={{maxWidth: '960px', margin: '0 auto'}}
+          >
+            <Tabs
+              centered
+              value={this.state.selection}
+              indicatorColor="grey"
+              onChange={this.handleChange}
+            >
+              <Tab label="Tanay PrabhuDesai" disabled />
+              <Tab to="/" label='Home' onClick={()=>this.state.selection='/'} />
+              <Tab to="/resume" label='Résumé' onClick={()=>this.state.selection='/resume'} />
+              <Tab to="/blog" label='Blog' onClick={()=>this.state.selection='/blog'} />
+              <Tab to="/about" label='About' onClick={()=>this.state.selection='/about'} />
+            </Tabs>
+          </Card>
         </div>
-      </nav>
+      </MuiThemeProvider>
     )
   }
 }
-export default withRouter(NavBar)
+export default NavBar

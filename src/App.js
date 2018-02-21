@@ -4,15 +4,17 @@ import Routes from 'react-static-routes'
 
 import 'typeface-roboto'
 
-import './css/materialize.min.css'
 import './app.css'
+import './css/materialize.min.css'
 
 import NavBar from './components/nav-bar'
+
+const windowVar = typeof window === undefined ? window : ''
 
 export default () => (
   <Router>
     <div style={{backgroundColor: '#eeeeee', margin: 0}}>
-      <NavBar />
+      <NavBar path={windowVar} />
       <div style={{maxWidth: '760px', padding: '70px 1rem 1rem', margin: '0 auto'}} >
         <Routes />
       </div>

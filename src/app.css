@@ -1,12 +1,5 @@
 body {
     margin: 0;
 }
-nav {
-    position: fixed;
-}
-.nav-wrapper {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 960px;
-}
+
 
