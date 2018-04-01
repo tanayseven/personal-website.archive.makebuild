@@ -8,15 +8,20 @@ interface Props {
 
 export default withRouteData(({ posts }: Props) => (
   <div>
-    <h1>It's blog time.</h1>
-    <br />
-    All Posts:
-    <ul>
-      {posts.map(post => (
-        <li key={post.id}>
-          <Link to={`/blog/post/${post.id}/`}>{post.title}</Link>
-        </li>
-      ))}
-    </ul>
+      {posts.map((post, index) => {
+        <div className="row">
+          <div className="card">
+            <div className="card-image">
+              <img src={post.thumb} />
+            </div>
+            <div className="card-content">
+              <span className="card-title">{post.title}</span>
+              <span className="text-gray">{post.date}</span>
+              {post.description}
+            </div>
+          </div>
+        </div>
+      })}
+
   </div>
 ))

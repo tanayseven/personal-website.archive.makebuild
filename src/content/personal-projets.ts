@@ -6,7 +6,7 @@ interface PersonalProject {
   image: string|null,
 }
 
-interface PersonalProjects extends Array<PersonalProject>{};
+interface PersonalProjects extends Array<PersonalProject>{}
 
 const personalProjects: PersonalProjects = [
   {

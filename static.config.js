@@ -1,52 +1,65 @@
-import axios from 'axios'
 import path from 'path'
 import React from 'react'
 
+// import { blogList } from './active-blog-list'
+
 // Paths Aliases defined through tsconfig.json
 const typescriptWebpackPaths = require('./webpack.config.js')
+
+import posts from './src/posts/index'
+
+// function moduleDataFor (moduleName) {
+//   const componentPath = `./src/posts/${moduleName}`
+//   /* eslint-disable */
+//   const data = require(componentPath).data
+//   /* eslint-enable */
+//   data.componentPath = componentPath
+//   return data
+// }
+
+// const posts = []
+// blogList.forEach(element => {
+//   posts.push(moduleDataFor(element))
+// }, this)
+
 
 export default {
   entry: path.join(__dirname, 'src', 'index.tsx'),
   getSiteData: () => ({
     title: 'React Static',
   }),
-  getRoutes: async () => {
-    const { data: posts } = await axios.get(
-      'https://jsonplaceholder.typicode.com/posts',
-    )
-    return [
-      {
-        path: '/',
-        component: 'src/containers/Home',
-      },
-      {
-        path: '/about',
-        component: 'src/containers/About',
-      },
-      {
-        path: '/resume',
-        component: 'src/containers/Resume',
-      },
-      {
-        path: '/blog',
-        component: 'src/containers/Blog',
+  getRoutes: async () => [
+    {
+      path: '/',
+      component: 'src/containers/Home',
+    },
+    {
+      path: '/about',
+      component: 'src/containers/About',
+    },
+    {
+      path: '/resume',
+      component: 'src/containers/Resume',
+    },
+    {
+      path: '/blog',
+      component: 'src/containers/Blog',
+      getData: () => ({
+        posts,
+      }),
+      children: posts.map(post => ({
+        path: `/post/${post.id}`,
+        component: post.componentPath,
         getData: () => ({
-          posts,
+          post,
         }),
-        children: posts.map(post => ({
-          path: `/post/${post.id}`,
-          component: 'src/containers/Post',
-          getData: () => ({
-            post,
-          }),
-        })),
-      },
-      {
-        is404: true,
-        component: 'src/containers/404',
-      },
-    ]
-  },
+      })),
+    },
+    {
+      is404: true,
+      component: 'src/containers/404',
+    },
+  ],
   webpack: (config, { defaultLoaders }) => {
     // Add .ts and .tsx extension to resolver
     config.resolve.extensions.push('.ts', '.tsx')
