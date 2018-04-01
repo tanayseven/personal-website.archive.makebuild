@@ -1,44 +1,20 @@
-Tanay's personal website
-========================
+# React-Static - TypeScript Enabled Example
 
-[![build-status](https://travis-ci.org/tanayseven/personal_website.svg?branch=master)](https://travis-ci.org/tanayseven/personal_website)
-[![Website](https://img.shields.io/website-up-down-green-red/https/tanayseven.com.svg?label=hosted_on_server)](https://tanayseven.com)
-[![License](https://img.shields.io/github/license/tanayseven/personal_website.svg)](LICENSE.txt)
-[![Maintainability](https://api.codeclimate.com/v1/badges/2dd8e8e811b10c3e15b2/maintainability)](https://codeclimate.com/github/tanayseven/personal_website/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/2dd8e8e811b10c3e15b2/test_coverage)](https://codeclimate.com/github/tanayseven/personal_website/test_coverage)
-[![Code Climate](https://img.shields.io/codeclimate/issues/github/tanayseven/personal_website.svg)](https://codeclimate.com/github/tanayseven/personal_website/issues)
+This example includes:
+- TypeScript & Loader Configuration (full support)
+- Source-Maps for everything (in dev)
+- TypeScript paths alias mapping as a standard `webpack.config.js` used 
+within react-static's build system (see tsconfig.json` paths & 
+src/path-alias-example)
+- TypeScript hot module replacement
+- Simultaneous support of **using JavaScript and TypeScript interchangeably**
+- Types for all modules (except react-static's costume methods — will be 
+added later)
+- Styled-Components
+- Image imports
+- File imports
+- Automatic Routing
 
-This is my personal website which I use to post my own content (usually blogs)
 
-Instructions:
--------------
-This project uses `yarn`
-```bash
-# Install all the necessary modules
-yarn
-
-# Run the server
-yarn start
-
-# Build to static files
-yarn build
-
-# Run the tests
-yarn test
-
-# Run eslint for all files
-yarn verify
-
-# Install all eslist dependencies
-yarn add eslint@latest --save
-yarn add eslint-plugin-import@latest --save-dev
-yarn add eslint-plugin-jsx-a11y@latest --save-dev
-yarn add eslint-plugin-class-property@latest --save-dev
-yarn add eslint-config-react-tools@latest --save-dev
-yarn add eslint-plugin-react@latest --save-dev
-yarn add eslint-config-react-tools@latest --save-dev
-```
-
-License
--------
-The MIT License (MIT)
+To get started, run `react-static create` and use the `typescript` 
+template.
