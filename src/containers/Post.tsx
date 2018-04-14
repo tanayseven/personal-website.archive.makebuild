@@ -10,7 +10,6 @@ export default withRouteData(({ post }: Props) => (
   <div>
     <Link to="/blog/">{'<'} Back</Link>
     <br />
-    <h3>{post.title}</h3>
-    <p>{post.body}</p>
+    <div dangerouslySetInnerHTML={{__html: post.body}} />
   </div>
 ))

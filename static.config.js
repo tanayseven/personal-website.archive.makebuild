@@ -1,65 +1,58 @@
 import path from 'path'
 import React from 'react'
+import fs from 'fs'
 
-// import { blogList } from './active-blog-list'
-
-// Paths Aliases defined through tsconfig.json
 const typescriptWebpackPaths = require('./webpack.config.js')
 
-import posts from './src/posts/index'
-
-// function moduleDataFor (moduleName) {
-//   const componentPath = `./src/posts/${moduleName}`
-//   /* eslint-disable */
-//   const data = require(componentPath).data
-//   /* eslint-enable */
-//   data.componentPath = componentPath
-//   return data
-// }
-
-// const posts = []
-// blogList.forEach(element => {
-//   posts.push(moduleDataFor(element))
-// }, this)
-
+const blogList = [
+  '2016-03-27-hello-world.fjson',
+  '2016-07-14-finally-an-android-app.fjson',
+  '2016-07-18-at-nelkinda-coderetreat.fjson',
+  '2018-01-03-sicp-challenge.fjson',
+]
 
 export default {
   entry: path.join(__dirname, 'src', 'index.tsx'),
   getSiteData: () => ({
     title: 'React Static',
   }),
-  getRoutes: async () => [
-    {
-      path: '/',
-      component: 'src/containers/Home',
-    },
-    {
-      path: '/about',
-      component: 'src/containers/About',
-    },
-    {
-      path: '/resume',
-      component: 'src/containers/Resume',
-    },
-    {
-      path: '/blog',
-      component: 'src/containers/Blog',
-      getData: () => ({
-        posts,
-      }),
-      children: posts.map(post => ({
-        path: `/post/${post.id}`,
-        component: post.componentPath,
+  getRoutes: async () => {
+    const posts = blogList.map(filename => {
+      return JSON.parse(fs.readFileSync('./posts/' + filename, 'utf-8'))
+    })
+    return [
+      {
+        path: '/',
+        component: 'src/containers/Home',
+      },
+      {
+        path: '/about',
+        component: 'src/containers/About',
+      },
+      {
+        path: '/resume',
+        component: 'src/containers/Resume',
+      },
+      {
+        path: '/blog',
+        component: 'src/containers/Blog',
         getData: () => ({
-          post,
+          posts,
         }),
-      })),
-    },
-    {
-      is404: true,
-      component: 'src/containers/404',
-    },
-  ],
+        children: posts.map(post => ({
+          path: `/post/${post.current_page_name}`,
+          component: 'src/containers/Post',
+          getData: () => ({
+            post,
+          }),
+        })),
+      },
+      {
+        is404: true,
+        component: 'src/containers/404',
+      },
+    ]
+  },
   webpack: (config, { defaultLoaders }) => {
     // Add .ts and .tsx extension to resolver
     config.resolve.extensions.push('.ts', '.tsx')
