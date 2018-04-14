@@ -6,7 +6,7 @@ import aliasExample from '@myPathAlias/component'
 
 export default () => (
     <div>
-        <h1>This is my resume, you can hire me if you want</h1>
+        <h1></h1>
         <p>
             React, static sites, performance, speed. It's the stuff that makes us
             tick.
