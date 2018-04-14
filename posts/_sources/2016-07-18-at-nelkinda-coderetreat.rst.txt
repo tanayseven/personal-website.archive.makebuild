@@ -19,11 +19,12 @@ given problem but to focus on the practices such as clean code, writing tests an
 TDD. We were also free to choose the language of our choice rather than enforcing a language
 upon us.
 
-.. image:: /images/code_retrospective_nelkinda.jpg
+.. figure:: //images/code_retrospective_nelkinda.jpg
     :alt: Nelkinda Code Retrospective
+    :align: center
+    
+    One of the retrospective, me in yellow telling what happened in the code sprint
 
-One of the retrospective, me in yellow telling what happened in the code sprint
--------------------------------------------------------------------------------
 
 The way the whole event went
 ----------------------------

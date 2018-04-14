@@ -9,7 +9,7 @@ const blogList = [
   '2016-07-14-finally-an-android-app.fjson',
   '2016-07-18-at-nelkinda-coderetreat.fjson',
   '2018-01-03-sicp-challenge.fjson',
-]
+].sort().reverse()
 
 export default {
   entry: path.join(__dirname, 'src', 'index.tsx'),
