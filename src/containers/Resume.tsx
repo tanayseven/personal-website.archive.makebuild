@@ -1,17 +1,29 @@
 import React from 'react'
+import { technologySpecificSkills, nonTechnologySpecificSkills, Skills } from '../content/resume'
 
-// Example of using paths alias via tsconfig.json to easily re-use legacy code
-// Also, use TypeScript and JavaScript interchangeably.
-import aliasExample from '@myPathAlias/component'
+function renderSkills(skills: Skills) {
+  return (
+    <div className="collection">
+    {skills.map((skill)=>(
+      <a href="#!" className="collection-item">
+      <span className="new badge" data-badge-caption=" / 8">
+        {skill.points}
+      </span>
+      {skill.name}
+      </a>
+    ))}
+    </div>
+  )
+}
 
 export default () => (
+  <div>
     <div>
-        <h1></h1>
-        <p>
-            React, static sites, performance, speed. It's the stuff that makes us
-            tick.
-        </p>
-        {aliasExample}
+      {renderSkills(technologySpecificSkills)}
     </div>
+    <div>
+      {renderSkills(nonTechnologySpecificSkills)}
+    </div>
+  </div>
 )
 
