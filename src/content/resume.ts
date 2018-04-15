@@ -79,4 +79,28 @@ const nonTechnologySpecificSkills: Skills = [
     },
 ]
 
-export { technologySpecificSkills, nonTechnologySpecificSkills, Skills }
+interface WorkExperience {
+    company: string,
+    position: string,
+    timePeriod: string,
+    details: string,
+}
+
+interface WorkExperienceList extends Array<WorkExperience>{}
+
+const workExperienceList: WorkExperienceList = [
+    {
+        company: 'Tata Consultancy Services',
+        position: 'Intern',
+        timePeriod: 'December 2013 to January 2014',
+        details: 'Worked on profiling an embedded application written for Windows Embedded Standard 7 Technology used to develop was C# and profilers used were Red Gate ANTS and CLR',
+    },
+    {
+        company: 'Nelkinda Software Craft',
+        position: 'Intern',
+        timePeriod: 'December 2013 to January 2014',
+        details: 'Worked on profiling an embedded application written for Windows Embedded Standard 7 Technology used to develop was C# and profilers used were Red Gate ANTS and CLR',
+    },
+]
+
+export { technologySpecificSkills, nonTechnologySpecificSkills, workExperienceList, Skills, WorkExperience }
