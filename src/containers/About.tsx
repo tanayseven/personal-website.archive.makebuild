@@ -2,13 +2,18 @@ import React from 'react'
 
 export default () => (
   <div className="row">
+      <div className="center">
+        <h3>About me</h3>
+      </div>
     <div className="card-panel white">
-      <img
+      <div className="center">
+        <img
           id="about-profile-image"
-          className="responsive-img circle"
+          className="responsive-img circle center"
           src="/images/profile/tanay-profile.jpg"
-      />
-      <span className="black-text">
+        />
+      </div>
+      <span className="black-text flow-text">
           <p>I love writing code and it gives me intense pleasure while doing so. Therefore, I’m going to
           give a brief history of how it led to the development of this interest in me. Since I was a
           kid, I was fascinated by computers. When I was 3, I started to play games on the computer by
