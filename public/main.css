@@ -32,6 +32,16 @@ nav a {
   padding: 1rem;
 }
 
+.medium-icon {
+  height: 30px;
+  width: 30px;
+  margin: 5px;
+}
+
+.seperator {
+  padding-left: 20px;
+}
+
 #about-profile-image {
   max-width: 200px;
 }

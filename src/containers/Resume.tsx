@@ -1,17 +1,46 @@
-import React from 'react'
-import { technologySpecificSkills, nonTechnologySpecificSkills, workExperienceList, Skills, WorkExperience } from '../content/resume'
+import React, { Key } from 'react'
+import { 
+  technologySpecificSkills,
+  nonTechnologySpecificSkills,
+  workExperienceList,
+  keyHighlights,
+  Skills,
+  WorkExperience,
+  KeyHighlights,
+} from '../content/resume'
+
+function renderKeyHighlights(keyHighlights: KeyHighlights) {
+  return (
+    <ul className="collapsible">
+    {keyHighlights.map((keyHighlight) => (
+      <li>
+        <div className="collapsible-header">
+          <img className="medium-icon" src={"/icons/" + keyHighlight.icon} />
+          <span className="seperator" />
+          <div className="valign-wrapper">
+            {keyHighlight.topic}
+          </div>
+        </div>
+        <div className="collapsible-body"><p>{keyHighlight.description}</p></div>
+      </li>
+    ))}
+    </ul>
+  )
+}
 
 function renderSkills(skills: Skills) {
   return (
     <div className="collection">
-    {skills.map((skill)=>(
-      <a href="#!" className="collection-item">
-      <span className="new badge" data-badge-caption=" / 8">
-        {skill.points}
-      </span>
-      {skill.name}
-      </a>
-    ))}
+      <ul>
+      {skills.map((skill)=>(
+        <li href="#!" className="collection-item">
+        <span className="new badge" data-badge-caption=" / 8">
+          {skill.points}
+        </span>
+        {skill.name}
+        </li>
+      ))}
+      </ul>
     </div>
   )
 }
@@ -33,7 +62,7 @@ export default () => (
   <div>
     <h4>Key Highlights</h4>
     <div>
-      {/* TODO add key highlights */}
+      {renderKeyHighlights(keyHighlights)}
     </div>
     <h4>Skills</h4>
     <div>

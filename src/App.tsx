@@ -12,17 +12,19 @@ const App = () => (
       <div className="navbar-fixed">
         <nav>
           <div className="nav-wrapper">
-            <a href="#" className="brand-logo">Tanay PrabhuDesai</a>
-            <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/resume">Résumé</Link></li>
-              <li><Link to="/blog">Blog</Link></li>
-              <li><Link to="/about">About Me</Link></li>
-            </ul>
+            <div className="container">
+              <a href="#" className="brand-logo">Tanay PrabhuDesai</a>
+              <ul id="nav-mobile" className="right hide-on-med-and-down">
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/resume">Résumé</Link></li>
+                <li><Link to="/blog">Blog</Link></li>
+                <li><Link to="/about">About Me</Link></li>
+              </ul>
+            </div>
             </div>
         </nav>
       </div>
-      <div className="content">
+      <div className="content container">
         <Routes />
       </div>
     </div>
