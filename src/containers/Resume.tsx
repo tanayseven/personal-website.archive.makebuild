@@ -30,7 +30,7 @@ function renderKeyHighlights(keyHighlights: KeyHighlights) {
 
 function renderSkills(skills: Skills) {
   return (
-    <div className="collection">
+    <div className="collection col s12 m6 l6 xl6">
       <ul>
       {skills.map((skill)=>(
         <li href="#!" className="collection-item">
@@ -65,10 +65,8 @@ export default () => (
       {renderKeyHighlights(keyHighlights)}
     </div>
     <h4>Skills</h4>
-    <div>
+    <div className="row">
       {renderSkills(technologySpecificSkills)}
-    </div>
-    <div>
       {renderSkills(nonTechnologySpecificSkills)}
     </div>
     <h4>Work Experience</h4>

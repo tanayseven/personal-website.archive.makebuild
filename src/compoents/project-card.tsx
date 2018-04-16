@@ -5,7 +5,7 @@ interface ProjectCardProps {title: string, image: string|null, liveLink: string|
 class ProjectCard extends React.Component<ProjectCardProps, {}> {
   render () {
     return (
-      <div className="row">
+      <div className="col s12 m6 l6 xl6">
         <div className="card">
           <div className="card-image">
             <img src={this.props.image}/>

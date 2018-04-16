@@ -43,6 +43,11 @@ nav a {
   padding-left: 20px;
 }
 
+.space-surrounding {
+  margin: 5px;
+}
+
 #about-profile-image {
   max-width: 350px;
+  min-width: 100px;
 }
