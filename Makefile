@@ -2,7 +2,7 @@ export SHELLOPTS:=$(SHELLOPTS):pipefail
 
 VALIDATOR:=$(or $(shell which html5validator), /usr/bin/html5validator)
 PYTHON:=$(or $(shell which python3), /usr/bin/python3)
-GP_REPO_PATH:=$(~/projects/tanayseven.github.io)
+GP_REPO_PATH:=~/projects/tanayseven.github.io
 
 COMPILE_SCRIPT:=./website/compile.py
 
@@ -57,7 +57,8 @@ verify:
 deploy:
 	cp -rf _build/* $(GP_REPO_PATH)
 	cd $(GP_REPO_PATH)
-	git commit
+	git add .
+	git status --porcelain | git commit -F -
 	git pull --rebase
 	git push
 
