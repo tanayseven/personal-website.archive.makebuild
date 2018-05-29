@@ -1,0 +1,22 @@
+{% macro project_card(title, image, description, code_link, live_link) -%}
+  <!--suppress ALL -->
+<div class="col s12 m6 l6 xl6">
+    <div class="card">
+      <div class="card-image">
+        <img src="{{ image }}"/>
+      </div>
+      <div class="card-content">
+        <span class="card-title">"{{ title }}"</span>
+        "{{ description }}"
+      </div>
+      <div class="card-action">
+      {%  if code_link %}
+          <a href={{ code_link }}>Code</a>
+      {% endif %}
+      {% if live_link %}
+        <a href={{ live_link }}>Live Demo</a>
+      {% endif %}
+      </div>
+    </div>
+  </div>
+{%- endmacro %}

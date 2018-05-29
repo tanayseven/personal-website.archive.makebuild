@@ -1,0 +1,10 @@
+{% macro work_experience_card(company, position, time_period, details) -%}
+<div class="card">
+  <div class="card-content">
+    <span class="card-title black-text text-darken-4">{{ company }}</span>
+    <h6>{{ position }}</h6>
+    <p class="grey-text">{{ time_period }}</p>
+    <p>{{ details }}</p>
+  </div>
+</div>
+{% endmacro %}

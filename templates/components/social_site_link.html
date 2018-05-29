@@ -1,0 +1,11 @@
+{% macro social_site_link(icon_name, link) -%}
+  <span class="space-surrounding">
+    <a
+      class="btn-floating btn-large waves-effect waves-light"
+      target="_blank"
+      href={{ link }}
+    >
+      <i class="{{ "fab fa-"+icon_name }}"></i>
+    </a>
+  </span>
+{%- endmacro %}

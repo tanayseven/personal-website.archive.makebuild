@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% from 'components/social_site_link.html' import social_site_link %}
+{% from 'components/project_card.html' import project_card %}
+{% set active_button = 'home' %}
+{% set title = 'Tanay PrabhuDesai - Home' %}
+{% block content %}
+  <div>
+    <div class="center">
+      {{ social_site_link("linkedin-in", "https://www.linkedin.com/in/tanay-prabhudesai") }}
+      {{ social_site_link("twitter", "https://twitter.com/tanayseven") }}
+      {{ social_site_link("github", "https://github.com/tanayseven/") }}
+      {{ social_site_link("google-plus-g", "https://plus.google.com/+TanayPrabhuDesai") }}
+    </div>
+    <div class="row">
+      {{
+        project_card(
+          "Pitchy Bird",
+          "/images/project_thumbs/pitchy_bird.png",
+          "A voice controlled browser based game simillar to Flappy Bird",
+          "https://pitchybird.herokuapp.com",
+          "https://github.com/tanayseven/PitchyBird"
+        )
+      }}
+      {{
+        project_card(
+          "SKIM (Sentence completion and prediction)",
+          "/images/project_thumbs/skim.png",
+          "BE final year research based project to aid in typing on computers",
+          "https://link.springer.com/chapter/10.1007/978-3-319-11933-5_43",
+          None
+        )
+      }}
+      {{
+        project_card(
+          "Pitchy Bird",
+          "/images/project_thumbs/pitchy_bird.png",
+          "A voice controlled browser based game simillar to Flappy Bird",
+          "https://pitchybird.herokuapp.com",
+          "https://github.com/tanayseven/PitchyBird"
+        )
+        }}
+      {{
+        project_card(
+          "Techyon 2013",
+          "/images/project_thumbs/techyon.png",
+          "A website made for the events in the college technical festival",
+          "http://tanayseven.com/techyon2013/",
+          "https://github.com/tanayseven/techyon2013"
+        )
+        }}
+      {{
+        project_card(
+          "JTankWars",
+          None,
+          "My very fist project a 2d game in Java a clone of Battle City",
+          None,
+          "https://github.com/tanayseven/j-tank-wars"
+        )
+      }}
+      {{
+        project_card(
+          "Find Figam",
+          "/images/project_thumbs/find_figam.png",
+          "An app hacked over a night and refined over time for a hackathon code for cause",
+          "http://www.hackathon.io/find-figam",
+          None
+        )
+      }}
+      {{
+        project_card(
+          "Chatoodle",
+          "/images/project_thumbs/pitchy_bird.png",
+          "A socket.io based web app to chat and doodle at the same time",
+          "https://chatoodle.herokuapp.com/",
+          "https://github.com/tanayseven/Chatoodle"
+        )
+      }}
+      {{
+        project_card(
+          "Voix Twitter",
+          None,
+          "An online polling app that uses twitter to accept votes and casts them",
+          "https://pitchybird.herokuapp.com",
+          "https://github.com/tanayseven/PitchyBird"
+        )
+      }}
+      {{
+        project_card(
+          "SMS Server",
+          None,
+          "An Android app that accepts registrations and votes via SMSes",
+          "https://drive.google.com/file/d/0B8ZGvtCVIoJgNlZPMnU3WHVXcFk/view",
+          None
+        )
+      }}
+    ))}
+    </div>
+  </div>
+{% endblock %}
