@@ -2,6 +2,7 @@ export SHELLOPTS:=$(SHELLOPTS):pipefail
 
 VALIDATOR:=$(or $(shell which html5validator), /usr/bin/html5validator)
 PYTHON:=$(or $(shell which python3), /usr/bin/python3)
+GP_REPO_PATH:=$(~/projects/tanayseven.github.io)
 
 COMPILE_SCRIPT:=./website/compile.py
 
@@ -49,6 +50,16 @@ clean::
 ## To verify if all the generated files follow the HTML5 standard or not
 verify:
 	$(VALIDATOR) --root _build/
+
+.PHONY: deploy
+.ONESHELL:
+## To deploy the website on Github Pages
+deploy:
+	cp -rf _build/* $(GP_REPO_PATH)
+	cd $(GP_REPO_PATH)
+	git commit
+	git pull --rebase
+	git push
 
 -include .makehelp/include/makehelp/Help.mak
 
