@@ -3,19 +3,23 @@
 <div class="col s12 m6 l6 xl6">
     <div class="card">
       <div class="card-image">
+        {% if image %}
         <img src="{{ image }}"/>
+        {% else %}
+        <img src="/images/project_thumbs/no_image.png" />
+        {%  endif %}
       </div>
       <div class="card-content">
         <span class="card-title">"{{ title }}"</span>
         "{{ description }}"
       </div>
       <div class="card-action">
-      {%  if code_link %}
-          <a href={{ code_link }}>Code</a>
-      {% endif %}
-      {% if live_link %}
+        {%  if code_link %}
+        <a href={{ code_link }}>Code</a>
+        {% endif %}
+        {% if live_link %}
         <a href={{ live_link }}>Live Demo</a>
-      {% endif %}
+        {% endif %}
       </div>
     </div>
   </div>
