@@ -29,8 +29,12 @@ _build/%.html: ./templates/%.html $(DEPENDENT_TEMPLATES)
 _build/main.%: ./res/main.%
 	rsync $^ $@
 
+.PHONY: sync_images
+sync_images:
+	rsync -avzh res/images/* _build/images/
+
 .PHONY: website
-website: _build/index.html _build/resume/ _build/blog/ _build/about/
+website: _build/index.html _build/resume/ _build/blog/ _build/about/ sync_images
 
 .PHONY: build
 .ONESHELL:
@@ -58,11 +62,10 @@ verify:
 .ONESHELL:
 ## To deploy the website on Github Pages
 deploy: $(GP_REPO_PATH)
-	rsync _build/* $(GP_REPO_PATH)
+	rsync -avzh _build/* $(GP_REPO_PATH)
 	cd $(GP_REPO_PATH)
 	git add .
-	git status --porcelain | git commit -F -
-	git pull --rebase
+	git commit -m "$$(git status --porcelain)"
 	git push
 
 -include .makehelp/include/makehelp/Help.mak
