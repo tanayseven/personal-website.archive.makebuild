@@ -8,6 +8,13 @@ repository is currently used to build my personal website and is open for other 
 MIT license. This website uses Jinja2 as a templating engine for generating the intermediate components and websites.
 Please submit a pull request if you want to fix any issue or submit any feature you feel to be missing.
 
+Inspired from the following websites:
+
+.. _Nelkinda: http://nelkinda.com
+
+.. _alice_maz: https://www.alicemaz.com/
+
+
 Tanay's Personal Website
 ========================
 
