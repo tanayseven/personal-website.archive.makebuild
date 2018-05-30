@@ -2,11 +2,14 @@ export SHELLOPTS:=$(SHELLOPTS):pipefail
 
 VALIDATOR:=$(or $(shell which html5validator), /usr/bin/html5validator)
 PYTHON:=$(or $(shell which python3), /usr/bin/python3)
-GP_REPO_PATH:=~/projects/tanayseven.github.io
+GP_REPO_PATH:=tanayseven.github.io/
 
 COMPILE_SCRIPT:=./website/compile.py
 
 DEPENDENT_TEMPLATES:=./templates/base.html $(shell find ./templates/components/ -name "*.html") _build/main.css _build/main.js
+
+$(GP_REPO_PATH):
+	git clone git@github.com:tanayseven/tanayseven.github.io.git
 
 _build/:
 	mkdir -p _build/
@@ -24,7 +27,7 @@ _build/%.html: ./templates/%.html $(DEPENDENT_TEMPLATES)
 
 .PRECIOUS: _build/main.%
 _build/main.%: ./res/main.%
-	cp $^ $@
+	rsync $^ $@
 
 .PHONY: website
 website: _build/index.html _build/resume/ _build/blog/ _build/about/
@@ -54,8 +57,8 @@ verify:
 .PHONY: deploy
 .ONESHELL:
 ## To deploy the website on Github Pages
-deploy:
-	cp -rf _build/* $(GP_REPO_PATH)
+deploy: $(GP_REPO_PATH)
+	rsync _build/* $(GP_REPO_PATH)
 	cd $(GP_REPO_PATH)
 	git add .
 	git status --porcelain | git commit -F -
