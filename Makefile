@@ -1,6 +1,7 @@
 export SHELLOPTS:=$(SHELLOPTS):pipefail
 
-VALIDATOR:=$(or $(shell which html5validator), /usr/bin/html5validator)
+VALIDATOR:=java -jar ./bin/vnu.jar
+BUILT_FILES:=$(shell find _build/ -name "*.html" -or -name "*.css")
 PYTHON:=$(or $(shell which python3), /usr/bin/python3)
 GP_REPO_PATH:=tanayseven.github.io/
 
@@ -56,7 +57,7 @@ clean::
 .PHONY: verify
 ## To verify if all the generated files follow the HTML5 standard or not
 verify:
-	$(VALIDATOR) --root _build/
+	$(VALIDATOR) $(BUILT_FILES)
 
 .PHONY: deploy
 .ONESHELL:
@@ -74,9 +75,6 @@ ifeq "help" "$(filter help,$(MAKECMDGOALS))"
 .makehelp/include/makehelp/Help.mak:
 	git clone --depth=1 https://github.com/christianhujer/makehelp.git .makehelp
 endif
-
-$(VALIDATOR):
-	pip install -U html5validator
 
 $(PYTHON):
 	sudo apt-get install python3
