@@ -1,0 +1,12 @@
+language: python
+python:
+  - "3.6"
+addons:
+  apt:
+    packages:
+      - openjdk-8-jre
+
+install:
+  - pip install -r requirements.txt
+
+script: make verify
