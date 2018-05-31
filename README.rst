@@ -10,8 +10,8 @@ Please submit a pull request if you want to fix any issue or submit any feature 
 
 Inspired from the following websites:
 
-1.  `Nelkinda_`
-2.  `alice_maz_`
+1.  `Nelkinda`_
+2.  `alice_maz`_
 
 .. _Nelkinda: http://nelkinda.com
 
