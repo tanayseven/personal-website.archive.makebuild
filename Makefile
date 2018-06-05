@@ -8,8 +8,7 @@ GP_REPO_PATH:=tanayseven.github.io/
 COMPILE_SCRIPT:=./website/compile.py
 
 DEPENDENT_TEMPLATES:=./templates/base.html $(shell find ./templates/components/ -name "*.html") _build/main.css _build/main.js
-BLOG_TEMPLATES:=$(shell find ./templates/blog/ -name "*.html")
-BLOG_OUTPUT:=$(patsubst ./templates/blog/%.html, _build/blog/%.html, $(BLOG_TEMPLATES))
+BLOG_OUTPUT:=$(shell awk -F '|' '{if (NR!=1) {print "_build/blog/" $$1 ".html"}}' blog_list.txt)
 
 $(GP_REPO_PATH):
 	git clone git@github.com:tanayseven/tanayseven.github.io.git
@@ -17,8 +16,11 @@ $(GP_REPO_PATH):
 _build/:
 	mkdir -p _build/
 
+test:
+	@echo "$(BLOG_OUTPUT)"
+
 .ONESHELL:
-_build/%/: ./templates/%.html $(DEPENDENT_TEMPLATES)
+_build/%/: ./templates/%.html
 	mkdir -p $@
 	touch $(dir $@)
 	$(PYTHON) $(COMPILE_SCRIPT) $^ > $@index.html
