@@ -6,9 +6,11 @@ PYTHON:=$(or $(shell which python3), /usr/bin/python3)
 GP_REPO_PATH:=tanayseven.github.io/
 
 COMPILE_SCRIPT:=./website/compile.py
+TABLE_TO_JSON:=./website/table_to_json.py
 
 DEPENDENT_TEMPLATES:=./templates/base.html $(shell find ./templates/components/ -name "*.html") _build/main.css _build/main.js
 BLOG_OUTPUT:=$(shell awk -F '|' '{if (NR!=1) {print "_build/blog/" $$1 ".html"}}' blog_list.txt)
+
 
 $(GP_REPO_PATH):
 	git clone git@github.com:tanayseven/tanayseven.github.io.git
@@ -17,7 +19,7 @@ _build/:
 	mkdir -p _build/
 
 test:
-	@echo "$(BLOG_OUTPUT)"
+	$(PYTHON) $(TABLE_TO_JSON) blog_list.txt
 
 .ONESHELL:
 _build/%/: ./templates/%.html
