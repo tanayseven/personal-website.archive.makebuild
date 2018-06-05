@@ -4,20 +4,18 @@
 {% block content %}
   <div>
     <span>My blog, this is a place I call my public diary</span>
+    {% for obj in objs %}
     <div class="row">
       <div class="card">
-        <div class="card-image">
-          {# <img src={post.thumb} /> #}
-        </div>
         <div class="card-content">
-          <span class="card-title">{post.title}</span>
-          {#  <span class="text-gray">{post.date}</span> #}
-          {#  {post.body} #}
+          <span class="card-title">{{ obj.title }}</span>
+          <span class="text-gray">{{ obj.title }}</span>
         </div>
         <div class="card-action">
           {#  <a href="{{ '/blog/post/' + post.current_page_name }}" >Read</a> #}
         </div>
       </div>
     </div>
+    {% endfor %}
   </div>
 {% endblock %}
