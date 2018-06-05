@@ -148,3 +148,5 @@ yarn-error.log*
 
 *__pycache__*
 tanayseven.github.io
+
+*.swp
