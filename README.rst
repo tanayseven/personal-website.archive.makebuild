@@ -1,3 +1,7 @@
+.. image:: https://travis-ci.org/tanayseven/personal_website.svg?branch=master
+    :target: https://travis-ci.org/tanayseven/personal_website
+    :alt: tests
+
 Static Website Generator
 ========================
 
