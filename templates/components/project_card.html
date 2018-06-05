@@ -4,9 +4,9 @@
     <div class="card">
       <div class="card-image">
         {% if image %}
-        <img src="{{ image }}"/>
+        <img alt="{{ title }}" src="{{ image }}"/>
         {% else %}
-        <img src="/images/project_thumbs/no_image.png" />
+        <img alt="{{ title }}" src="/images/project_thumbs/no_image.png" />
         {%  endif %}
       </div>
       <div class="card-content">

@@ -1,7 +1,7 @@
 export SHELLOPTS:=$(SHELLOPTS):pipefail
 
 VALIDATOR:=java -jar ./bin/vnu.jar
-BUILT_FILES:=$(shell find _build/ -name "*.html" -or -name "*.css")
+BUILT_FILES:=$(shell find _build/ -name "*.html")
 PYTHON:=$(or $(shell which python3), /usr/bin/python3)
 GP_REPO_PATH:=tanayseven.github.io/
 
