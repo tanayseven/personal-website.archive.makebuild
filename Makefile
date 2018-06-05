@@ -9,8 +9,7 @@ COMPILE_SCRIPT:=./website/compile.py
 TABLE_TO_JSON:=./website/table_to_json.py
 
 DEPENDENT_TEMPLATES:=./templates/base.html $(shell find ./templates/components/ -name "*.html") _build/main.css _build/main.js
-BLOG_OUTPUT:=$(shell awk -F '|' '{if (NR!=1) {print "_build/blog/" $$1 ".html"}}' blog_list.txt)
-
+BLOG_OUTPUT:=$(shell awk -F ',' '{if (NR!=1) {print "_build/blog/" $$1 ".html"}}' blog_list.csv)
 
 $(GP_REPO_PATH):
 	git clone git@github.com:tanayseven/tanayseven.github.io.git
@@ -19,7 +18,7 @@ _build/:
 	mkdir -p _build/
 
 test:
-	$(PYTHON) $(TABLE_TO_JSON) blog_list.txt
+	$(PYTHON) $(TABLE_TO_JSON) blog_list.csv
 
 .ONESHELL:
 _build/%/: ./templates/%.html

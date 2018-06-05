@@ -2,7 +2,7 @@ import csv
 import json
 import sys
 
-delimiter = '|'
+delimiter = ','
 rows = []
 with open(sys.argv[1], newline='\n') as file:
     spamreader = csv.reader(file, delimiter=delimiter)
