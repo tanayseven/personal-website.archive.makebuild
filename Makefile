@@ -49,7 +49,7 @@ sync_images:
 	rsync -avzh res/images/* _build/images/
 
 .PHONY: website
-website: _build/index.html _build/resume/ _build/blog/ _build/about/ sync_images $(BLOG_OUTPUT)
+website: _build/index.html _build/resume/ _build/blog/ _build/about/ sync_images _build/main.css _build/main.js $(BLOG_OUTPUT)
 
 .PHONY: build
 .ONESHELL:
