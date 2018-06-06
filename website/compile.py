@@ -1,7 +1,6 @@
 import csv
-import json
-import sys
 
+import click
 from jinja2 import Environment, PackageLoader, select_autoescape
 
 env = Environment(
@@ -9,11 +8,11 @@ env = Environment(
     autoescape=select_autoescape(['html', 'xml']),
 )
 
-rows = []
-if len(sys.argv) > 2:
-    delimiter = ','
-    with open(sys.argv[2], newline='\n') as file:
-        spamreader = csv.reader(file, delimiter=delimiter)
+
+def extract_into_list(file_name):
+    rows = []
+    with open(file_name, newline='\n') as file:
+        spamreader = csv.reader(file, delimiter=',')
         for i, row in enumerate(spamreader):
             if i != 0:
                 rows.append({
@@ -21,6 +20,19 @@ if len(sys.argv) > 2:
                     "title": row[1],
                     "description": row[2],
                 })
+    return rows
 
-template = env.get_template(sys.argv[1][len('templates/'):])
-print(template.render(objs=rows))
+
+@click.command()
+@click.option('--template', default='index.html', help='template directory that is to be rendered')
+@click.option('--file', default=None, help='csv file that has the necessary data in it')
+def compile_(template, file):
+    template = env.get_template(template[len('templates/'):])
+    rows = []
+    if file is not None:
+        rows = extract_into_list(file)
+    print(template.render(objs=rows))
+
+
+if __name__ == '__main__':
+    compile_()

@@ -17,28 +17,25 @@ $(GP_REPO_PATH):
 _build/:
 	mkdir -p _build/
 
-test:
-	$(PYTHON) $(TABLE_TO_JSON) blog_list.csv
-
 .ONESHELL:
 _build/%/: ./templates/%.html
 	mkdir -p $@
 	touch $(dir $@)
-	$(PYTHON) $(COMPILE_SCRIPT) $^ > $@index.html
+	$(PYTHON) $(COMPILE_SCRIPT) --template=$^ > $@index.html
 
 _build/blog/%.html: ./templates/blog/%.html
-	$(PYTHON) $(COMPILE_SCRIPT) $^ > $@
+	$(PYTHON) $(COMPILE_SCRIPT) --template=$^ > $@
 
 .ONESHELL:
 _build/blog/: ./templates/blog.html
 	mkdir -p $@
 	touch $(dir $@)
-	$(PYTHON) $(COMPILE_SCRIPT) $^ blog_list.csv > $@index.html
+	$(PYTHON) $(COMPILE_SCRIPT) --template=$^ --file=blog_list.csv > $@index.html
 
 .ONESHELL:
 _build/%.html: ./templates/%.html
 	touch $(dir $@)
-	$(PYTHON) $(COMPILE_SCRIPT) $^ > $@
+	$(PYTHON) $(COMPILE_SCRIPT) --template=$^ > $@
 
 .PRECIOUS: _build/main.%
 _build/main.%: ./res/main.%
