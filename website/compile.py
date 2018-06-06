@@ -1,3 +1,4 @@
+import csv
 import json
 import sys
 
@@ -8,9 +9,18 @@ env = Environment(
     autoescape=select_autoescape(['html', 'xml']),
 )
 
-json_objs = None
+rows = []
 if len(sys.argv) > 2:
-    json_objs = json.loads(sys.argv[2])
+    delimiter = ','
+    with open(sys.argv[2], newline='\n') as file:
+        spamreader = csv.reader(file, delimiter=delimiter)
+        for i, row in enumerate(spamreader):
+            if i != 0:
+                rows.append({
+                    "id": row[0],
+                    "title": row[1],
+                    "description": row[2],
+                })
 
 template = env.get_template(sys.argv[1][len('templates/'):])
-print(template.render(objs=json_objs))
+print(template.render(objs=rows))
