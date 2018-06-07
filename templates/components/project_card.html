@@ -1,12 +1,12 @@
 {% macro project_card(title, image, description, code_link, live_link) -%}
   <!--suppress ALL -->
 <div class="col s12 m6 l6 xl6">
-    <div class="card">
+    <div class="card project-card">
       <div class="card-image">
         {% if image %}
-        <img alt="{{ title }}" src="{{ image }}"/>
+        <img alt="{{ title }}" src="{{ '/res/images' + image }}"/>
         {% else %}
-        <img alt="{{ title }}" src="/images/project_thumbs/no_image.png" />
+        <img alt="{{ title }}" src="/res/images/project_thumbs/no_image.png" />
         {%  endif %}
       </div>
       <div class="card-content">
