@@ -3,16 +3,15 @@
 {% set title = 'Tanay PrabhuDesai - Blogs' %}
 {% block content %}
   <div>
-    <span>My blog, this is a place I call my public diary</span>
+    <h3>My blog, the place I call my public diary</h3>
     {% for obj in objs %}
     <div class="row">
-      <div class="card">
-        <div class="card-content">
-          <span class="card-title">{{ obj.title }}</span>
-          <span class="text-gray">{{ obj.title }}</span>
-        </div>
-        <div class="card-action">
-          {#  <a href="{{ '/blog/post/' + post.current_page_name }}" >Read</a> #}
+      <div class="col s12 m12">
+        <div class="card-panel blog-list-card">
+          <a href="{{ '/blog/' + obj.id + '.html' }}" >
+            <span class="left">{{ obj.title }}</span>
+          </a>
+          <span class="right">{{ obj.description }}</span>
         </div>
       </div>
     </div>

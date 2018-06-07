@@ -20,6 +20,8 @@ def extract_into_list(file_name):
                     "title": row[1],
                     "description": row[2],
                 })
+    rows.sort(key=lambda obj: obj['id'])
+    rows.reverse()
     return rows
 
 
