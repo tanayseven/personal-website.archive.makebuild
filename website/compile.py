@@ -26,12 +26,13 @@ def extract_into_list(file_name):
 @click.command()
 @click.option('--template', default='index.html', help='template directory that is to be rendered')
 @click.option('--file', default=None, help='csv file that has the necessary data in it')
-def compile_(template, file):
+@click.option('--title', default=None, help='set the title of the page to this argument')
+def compile_(template, file, title):
     template = env.get_template(template[len('templates/'):])
     rows = []
     if file is not None:
         rows = extract_into_list(file)
-    print(template.render(objs=rows))
+    print(template.render(objs=rows, title=title))
 
 
 if __name__ == '__main__':

@@ -24,7 +24,7 @@ _build/%/: ./templates/%.html
 	$(PYTHON) $(COMPILE_SCRIPT) --template=$^ > $@index.html
 
 _build/blog/%.html: ./templates/blog/%.html
-	$(PYTHON) $(COMPILE_SCRIPT) --template=$^ > $@
+	$(PYTHON) $(COMPILE_SCRIPT) --title="$(shell awk -F ',' -v cmp="$*" '{if ($$1==cmp) {la=$$2}} END {print la}' blog_list.csv)" --template=$^ > $@
 
 .ONESHELL:
 _build/blog/: ./templates/blog.html
