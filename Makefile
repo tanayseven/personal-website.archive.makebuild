@@ -42,8 +42,10 @@ _build/main.%: ./res/main.%
 	cp $^ $@
 
 .PHONY: sync_images
+ONESHELL:
 sync_images:
-	rsync -avzh res/images/* _build/images/
+	mkdir -p _build/res/images/
+	rsync -avzh res/images/* _build/res/images/
 
 .PHONY: website
 website: _build/index.html _build/resume/ _build/blog/ _build/about/ sync_images _build/main.css _build/main.js $(BLOG_OUTPUT)
