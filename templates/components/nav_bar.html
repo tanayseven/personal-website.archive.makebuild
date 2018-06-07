@@ -4,8 +4,11 @@
       <nav>
         <div class="nav-wrapper">
           <div class="container">
-            <a href="#" class="brand-logo">Tanay PrabhuDesai</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <a href="#" class="brand-logo hide-on-small-and-down">Tanay PrabhuDesai</a>
+            <a href="#" data-target="slide-out" class="left brand-logo sidenav-trigger show-on-medium-and-down">
+              <i class="fas fa-bars"></i>
+            </a>
+            <ul class="right hide-on-med-and-down">
               <li {% if active_button == 'home' %}class="active"{% endif %}><a href="/">Home</a></li>
               <li {% if active_button == 'resume' %}class="active"{% endif %}><a href="/resume" >Résumé</a></li>
               <li {% if active_button == 'blog' %}class="active"{% endif %}><a href="/blog">Blog</a></li>
@@ -14,6 +17,12 @@
           </div>
           </div>
       </nav>
+      <ul id="slide-out" class="sidenav">
+        <li {% if active_button == 'home' %}class="active"{% endif %}><a href="/">Home</a></li>
+        <li {% if active_button == 'resume' %}class="active"{% endif %}><a href="/resume" >Résumé</a></li>
+        <li {% if active_button == 'blog' %}class="active"{% endif %}><a href="/blog">Blog</a></li>
+        <li {% if active_button == 'about' %}class="active"{% endif %}><a href="/about">About Me</a></li>
+      </ul>
     </div>
   </div>
 {%- endmacro %}
