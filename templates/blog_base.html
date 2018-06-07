@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% set active_button = 'blog' %}
+{% block content %}
+  <div class="card-panel white">
+    <span class="black-text normal-paragraph-text">
+    {% block blog_content %}{% endblock %}
+    </span>
+  </div>
+{% endblock %}
