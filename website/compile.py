@@ -25,6 +25,13 @@ def extract_into_list(file_name):
     return rows
 
 
+def date_from_name(file_name):
+    month_to_words = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
+    year, month, day = tuple(file_name.split('-')[:3])
+    month = month_to_words[int(month)]
+    return day + ' ' + month + ' ' + year
+
+
 @click.command()
 @click.option('--template', default='index.html', help='template directory that is to be rendered')
 @click.option('--file', default=None, help='csv file that has the necessary data in it')
@@ -34,7 +41,7 @@ def compile_(template, file, title):
     rows = []
     if file is not None:
         rows = extract_into_list(file)
-    print(template.render(objs=rows, title=title))
+    print(template.render(objs=rows, title=title, date_from_name=date_from_name))
 
 
 if __name__ == '__main__':
