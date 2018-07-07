@@ -1,0 +1,6 @@
+{% macro image_center(src, alt, caption) %}
+<div class="center-image-container">
+  <img alt="{{ alt }}" src="{{ src }}" class="center"/>
+  <div>{{ caption }}</div>
+</div>
+{% endmacro %}
