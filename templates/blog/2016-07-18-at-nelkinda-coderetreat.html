@@ -1,4 +1,5 @@
 {% extends 'blog_base.html' %}
+{% from 'components/image.html' import image_center %}
 {% block blog_content %}
 <div>
   <p>
@@ -19,9 +20,11 @@
     language of our choice rather than enforcing a language upon us.
   </p>
 
-  <img alt="code_retrospective" src="/res/images/code_retrospective_nelkinda/code_retrospective_nelkinda.jpg"  class="center"/>
+  {{ image_center(
+    "/res/images/code_retrospective_nelkinda/code_retrospective_nelkinda.jpg",
+    "code_retrospective", "One of the retrospective, me in yellow telling what happened in the code sprint"
+  ) }}
 
-  <h4>One of the retrospective, me in yellow telling what happened in the code sprint</h4>
   <h3>The way the whole event went</h3>
 
   <p>
