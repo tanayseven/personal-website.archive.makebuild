@@ -53,14 +53,14 @@ website: _build/index.html _build/resume/ _build/blog/ _build/about/ sync_images
 .PHONY: build
 .ONESHELL:
 ## Will compile all the newer changes and accordingly update the files in the _build/ directory
-build: _build/ website
+build: _build/ website $(GP_REPO_PATH)
 
 .PHONY: serve
 .ONESHELL:
 ## Will start a server on a given port with the static site available for testing
 serve: _build/ website
-	cd _build/
-	$(PYTHON) -m http.server
+	cd _build/ \
+	&& $(PYTHON) -m http.server
 
 .PHONY: clean
 ## To remove all the generated files (DO NOT USE THIS GENERATED FILES ARE NEEDED FOR FASTER BUILDS)
