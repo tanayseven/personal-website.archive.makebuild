@@ -10,6 +10,6 @@ addons:
 
 install:
   - pip install -r requirements.txt
-  - make build
+  - make clean && make build
 
 script: make verify
