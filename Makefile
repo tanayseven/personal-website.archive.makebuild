@@ -21,7 +21,7 @@ _build/:
 _build/%/: ./templates/%.html
 	mkdir -p $@
 	touch $(dir $@)
-	$(PYTHON) $(COMPILE_SCRIPT) --template=$^ > $@index.html
+	$(PYTHON) $(COMPILE_SCRIPT) --template=$^ > $@/index.html
 
 _build/blog/%.html: ./templates/blog/%.html
 	$(PYTHON) $(COMPILE_SCRIPT) --title="$(shell awk -F ',' -v cmp="$*" '{if ($$1==cmp) {la=$$2}} END {print la}' blog_list.csv)" --template=$^ > $@
@@ -30,7 +30,7 @@ _build/blog/%.html: ./templates/blog/%.html
 _build/blog/: ./templates/blog.html
 	mkdir -p $@
 	touch $(dir $@)
-	$(PYTHON) $(COMPILE_SCRIPT) --template=$^ --file=blog_list.csv > $@index.html
+	$(PYTHON) $(COMPILE_SCRIPT) --template=$^ --file=blog_list.csv > $@/index.html
 
 .ONESHELL:
 _build/%.html: ./templates/%.html
@@ -53,7 +53,7 @@ website: _build/index.html _build/resume/ _build/blog/ _build/about/ sync_images
 .PHONY: build
 .ONESHELL:
 ## Will compile all the newer changes and accordingly update the files in the _build/ directory
-build: _build/ website $(GP_REPO_PATH)
+build: _build/ website
 
 .PHONY: serve
 .ONESHELL:
