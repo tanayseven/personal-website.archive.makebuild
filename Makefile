@@ -6,10 +6,12 @@ PYTHON:=$(or $(shell which python3), /usr/bin/python3)
 GP_REPO_PATH:=tanayseven.github.io/
 
 COMPILE_SCRIPT:=./website/compile.py
+IMAGE_RESIZE_SCRIPT:=./website/resize_image.py
 TABLE_TO_JSON:=./website/table_to_json.py
 
 DEPENDENT_TEMPLATES:=./templates/base.html $(shell find ./templates/components/ -name "*.html") _build/main.css _build/main.js
 BLOG_OUTPUT:=$(shell awk -F ',' '{if (NR!=1) {print "_build/blog/" $$1 ".html"}}' blog_list.csv)
+IMAGES_PNG:=$(patsubst res/images/%, _build/out/images/%, $(shell find res/images -name "*.png" -or -name "*.jpg"))
 
 $(GP_REPO_PATH):
 	git clone git@github.com:tanayseven/tanayseven.github.io.git
@@ -41,11 +43,16 @@ _build/%.html: ./templates/%.html
 _build/main.%: ./res/main.%
 	cp $^ $@
 
+_build/out/images/%: res/images/%
+	mkdir -p $@
+	rmdir $@
+	$(PYTHON) $(IMAGE_RESIZE_SCRIPT) --input=$^ --output=$@
+
 .PHONY: sync_images
 ONESHELL:
-sync_images:
+sync_images: $(IMAGES_PNG)
 	mkdir -p _build/res/images/
-	rsync -avzh res/images/* _build/res/images/
+	rsync -avzh _build/out/images/* _build/res/images/
 
 .PHONY: website
 website: _build/index.html _build/resume/ _build/blog/ _build/about/ sync_images _build/main.css _build/main.js $(BLOG_OUTPUT)
