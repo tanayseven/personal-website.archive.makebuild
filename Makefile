@@ -83,10 +83,10 @@ verify:
 .ONESHELL:
 ## To deploy the website on Github Pages
 deploy: $(GP_REPO_PATH)
-	rsync -avzh _build/* $(GP_REPO_PATH)
-	cd $(GP_REPO_PATH)
-	git add .
-	git commit -m "$$(git status --porcelain)"
+	rsync -avzh _build/* $(GP_REPO_PATH)  && \
+	cd $(GP_REPO_PATH) && \
+	git add . && \
+	git commit -m "$$(git status --porcelain)" && \
 	git push
 
 -include .makehelp/include/makehelp/Help.mak
