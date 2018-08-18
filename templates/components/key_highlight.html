@@ -1,12 +1,16 @@
 {% macro key_highlights(icon_name, title, description) -%}
 <li>
-  <div class="collapsible-header">
+  <div class="collapsible-header center">
     <i class="{{ icon_name }}"></i>
-    <span class="seperator" ></span>
-    <div class="valign-wrapper">
+    <div class="valign-wrapper center">
       {{ title }}
     </div>
   </div>
   <div class="collapsible-body"><p>{{ description }}</p></div>
+</li>
+{% endmacro %}
+{% macro key_highlights_header(heading) -%}
+<li class="collection-header center">
+  <h3>{{ heading }}</h3>
 </li>
 {% endmacro %}
