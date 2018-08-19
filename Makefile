@@ -43,6 +43,10 @@ _build/%.html: ./templates/%.html
 _build/main.%: ./res/main.%
 	cp $^ $@
 
+.PRECIOUS: _build/contact_form.txt
+_build/contact_form.txt: ./res/contact_form.txt
+	cp $^ $@
+
 _build/out/images/%: res/images/%
 	mkdir -p $@
 	rmdir $@
@@ -55,7 +59,7 @@ sync_images: $(IMAGES_PNG)
 	rsync -avzh _build/out/images/* _build/res/images/
 
 .PHONY: website
-website: _build/index.html _build/resume/ _build/blog/ sync_images _build/main.css _build/main.js $(BLOG_OUTPUT)
+website: _build/index.html _build/resume/ _build/blog/ sync_images _build/main.css _build/contact_form.txt _build/main.js $(BLOG_OUTPUT)
 
 .PHONY: build
 .ONESHELL:
@@ -77,7 +81,7 @@ clean::
 .PHONY: verify
 ## To verify if all the generated files follow the HTML5 standard or not
 verify:
-	$(VALIDATOR) $(BUILT_FILES)
+	$(VALIDATOR) --skip-non-html $(BUILT_FILES)
 
 .PHONY: deploy
 .ONESHELL:
