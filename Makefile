@@ -37,7 +37,7 @@ _build/blog/: ./templates/blog.html
 .ONESHELL:
 _build/%.html: ./templates/%.html
 	touch $(dir $@)
-	$(PYTHON) $(COMPILE_SCRIPT) --template=$^ > $@
+	$(PYTHON) $(COMPILE_SCRIPT) --template=$^ --file=blog_list.csv  > $@
 
 .PRECIOUS: _build/main.%
 _build/main.%: ./res/main.%
