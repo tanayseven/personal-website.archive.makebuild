@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% set page_type = 'landing_page'%}
 {% from 'components/key_highlight.html' import key_highlights %}
 {% from 'components/work_experience.html' import work_experience_card %}
 {% set title = 'Tanay PrabhuDesai' %}
@@ -10,7 +11,7 @@
     <div class="separator"></div>
     {% include 'sections/blogs.html' %}
     <span class="center">
-      <a class="waves-effect waves-light btn" href="/blog/"><i class="material-icons right">link</i>See all blogs</a>
+      <a class="waves-effect waves-light btn" href="/blog/"><i class="material-icons right">link</i>Blog List Page</a>
     </span>
     <div class="separator"></div>
     {% include 'sections/work.html' %}

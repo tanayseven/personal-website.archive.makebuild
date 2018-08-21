@@ -1,29 +1,41 @@
-{% macro navbar(active_button) -%}
+{% macro navbar(page_type) -%}
   <div>
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
           <div class="container">
-            <a href="#" class="brand-logo hide-on-small-and-down">Tanay PrabhuDesai</a>
+            <a href="/" class="brand-logo hide-on-small-and-down">Tanay PrabhuDesai</a>
             <a href="#" data-target="slide-out" class="left brand-logo sidenav-trigger show-on-medium-and-down">
               <i class="fas fa-bars"></i>
-            </a>
+              </a>
             <ul class="right hide-on-med-and-down">
+
+            {% if page_type == 'landing_page' %}
               <li><a href="#top">Top</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#blog">Blog</a></li>
               <li><a href="#work" >Work Experience</a></li>
               <li><a href="#contact">Contact Me</a></li>
+            {% endif %}
+            {% if page_type == 'blog_post' %}
+            <li><a href="/"><i class="material-icons left">home</i>Go Back to Home Page</a></li>
+            {% endif %}
+
             </ul>
           </div>
           </div>
       </nav>
       <ul id="slide-out" class="sidenav">
+      {% if page_type == 'landing_page' %}
         <li><a href="#top">Top</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#blog">Blog</a></li>
         <li><a href="#work" >Work Experience</a></li>
         <li><a href="#contact">Contact Me</a></li>
+      {% endif %}
+      {% if page_type == 'blog_post' %}
+      <li><a href="/"><i class="material-icons left">home</i>Go Back to Home Page</a></li>
+      {% endif %}
       </ul>
       <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
