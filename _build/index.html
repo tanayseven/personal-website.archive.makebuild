@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet" href="/dracula.css" />
   <link rel="stylesheet" href="/main.css" />
   <title>Tanay PrabhuDesai</title>
 </head>
@@ -129,6 +130,16 @@
     <div class="separator"></div>
     <div id="blog">
   <h4 class="center">My blog, the place I call my public diary</h4>
+  
+  <div class="card">
+    <div class="card-panel blog-list-card">
+      <div class="grey-text">21 Sep 2018</div>
+      <a href="/blog/2018-08-21-scheme-crash-course.html" >
+        <div>Scheme Crash Course</div>
+      </a>
+      <div>This blog explains Scheme which is a LISP in a single post and in a simplified way.</div>
+    </div>
+  </div>
   
   <div class="card">
     <div class="card-panel blog-list-card">
@@ -262,12 +273,13 @@
     </div>
   </div>
 </footer>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" ></script>
+<script src="/highlight.js" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js" ></script>
 <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@14.2.1/dist/smooth-scroll.polyfills.min.js" ></script>
 <script src="/main.js"></script>
 <script>
     const scroll = new SmoothScroll('a[href*="#"]', {offset: 80});
+    hljs.initHighlightingOnLoad();
 </script>
 </body>
 </html>

@@ -39,8 +39,12 @@ _build/%.html: ./templates/%.html
 	touch $(dir $@)
 	$(PYTHON) $(COMPILE_SCRIPT) --template=$^ --file=blog_list.csv  > $@
 
-.PRECIOUS: _build/main.%
-_build/main.%: ./res/main.%
+.PRECIOUS: _build/%.css
+_build/%.css: ./res/%.css
+	cp $^ $@
+
+.PRECIOUS: _build/%.js
+_build/%.js: ./res/%.js
 	cp $^ $@
 
 .PRECIOUS: _build/contact_form.txt
@@ -59,7 +63,7 @@ sync_images: $(IMAGES_PNG)
 	rsync -avzh _build/out/images/* _build/res/images/
 
 .PHONY: website
-website: _build/index.html _build/resume/ _build/blog/ sync_images _build/main.css _build/contact_form.txt _build/main.js $(BLOG_OUTPUT)
+website: _build/index.html _build/resume/ _build/blog/ sync_images _build/main.css _build/contact_form.txt _build/main.js _build/dracula.css _build/highlight.js $(BLOG_OUTPUT)
 
 .PHONY: build
 .ONESHELL:
