@@ -63,7 +63,7 @@ sync_images: $(IMAGES_PNG)
 	rsync -avzh _build/out/images/* _build/res/images/
 
 .PHONY: website
-website: _build/index.html _build/resume/ _build/blog/ sync_images _build/main.css _build/contact_form.txt _build/main.js _build/dracula.css _build/highlight.js $(BLOG_OUTPUT)
+website: _build/index.html _build/blog/ sync_images _build/main.css _build/main.js _build/dracula.css _build/highlight.js $(BLOG_OUTPUT)
 
 .PHONY: build
 .ONESHELL:
