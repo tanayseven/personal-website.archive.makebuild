@@ -68,7 +68,15 @@ http://zenorocha.mit-license.org
 .hljs-type,
 .hljs-name,
 .hljs-strong {
-  font-weight: bold;
+  font-weight: normal;
+}
+
+.hljs-type, .hljs-string, .hljs-number, .hljs-selector-id, .hljs-selector-class, .hljs-quote, .hljs-template-tag, .hljs-deletion {
+  color: #ff0808;
+}
+
+.hljs-comment, .hljs-quote, .hljs-deletion, .hljs-meta {
+  color: #c4d3ff;
 }
 
 .hljs-emphasis {

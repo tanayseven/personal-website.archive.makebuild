@@ -33,5 +33,14 @@
             lst)
     #f)))
 </code></pre>
+<pre><code class="python">
+@click.option('--title', default=None, help='set the title of the page to this argument')
+def compile_(template, file, title):
+    template = env.get_template(template[len('templates/'):])
+    rows = []
+    if file is not None:
+        rows = extract_into_list(file)
+    print(template.render(objs=rows, title=title, date_from_name=date_from_name))
+</code></pre>
 {% endblock %}
 
