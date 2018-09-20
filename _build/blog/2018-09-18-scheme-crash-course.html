@@ -50,158 +50,118 @@
     <h4 class="center">Scheme Crash Course</h4>
     <div class="black-text normal-paragraph-text">
     
-<p>This is some text</p>
-<p>This is some other text</p>
-<!-- Basic arithematic -->
+<p>
+    This crash course on Scheme that I'm writing is the kind of course that I would had liked before starting
+    to read SICP. This crash course is geared towards people who are already familiar with some programming
+    language and want to start with SICP but are not really comfortable Scheme or any LISP for that matter.
+    All the Python code in this blog is Python 3 compatible and all the Scheme code is MIT-Scheme compatible.
+</p>
+<p>
+    The whole blog post is written in such a way that you should be able to pick up Scheme in an hour or so
+    by typing out the programs in an online Scheme interpreter and see how the things work there. The examples
+    here are in two languages namely Python and obviously Scheme. Every concept here is first introduced in
+    Python and then a exact implementaion is shown in Scheme. The main reason for choosing Python is that it
+    is very easy and looks a lot like pseudocode and for those who don't know the language can easily 
+    undrstand the code.
+</p>
+
+<h4>Arithematic operations</h4>
+<p>
+    Since Scheme is a LISP it does not have operators that we can use in a infix notation, so we have operators
+    like <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> which have to be used in prefix notation.
+    To make this easier let's visualize these operators to be nothing but functions, which they actually are
+    and makes much more sense when think them to be like that.
+</p>
+<p>
+    We will therefore assume that the languages that we are comparing Scheme do not have arithematic operators
+    but have functions like <code>add()</code>, <code>subtract()</code>, <code>multiply()</code>,
+    <code>divide()</code>. Let's start writing some of these arithematic operators in Python. After the Python
+    block of the code the exact Scheme version of the same will be shown in the block below it.
+</p>
+
+<pre><code class="python"># (1 + 2) * (5 - 3) / 9
+divide(multiply(add(1, 2), subtract(5, 3)), 9)  # =&gt; 0.666666666666666
+
+# 3 + 4 + 5 + 6 + 8
+add(3, 4, 5, 6, 8)  # =&gt; 26
+
+# 9 * 9 - 3 - 5 - 3
+subtract(multiply(9, 9), 3, 5, 3)  # =&gt; 70
+
+# zero arguments
+add()  # =&gt; 0
+</code></pre>
+
+
+<pre><code class="scheme">; (1 + 2) * (5 - 3) / 9
+(/ (* (+ 1 2) (- 5 3)) 9)  ; =&gt; Value: 2/3
+
+; 3 + 4 + 5 + 6 + 8
+(+ 3 4 5 6 8)  ; =&gt; Value: 26 
+
+; 9 * 9 - 3 - 5 - 3
+(- (* 9 9) 3 5 3) ; =&gt; Value: 70
+
+# zero arguments
+(+)  # =&gt; 0
+</code></pre>
+
+<p>
+    Let's first try to understand the above code. The Python part of the code has these functions
+    <code>add()</code>, <code>subtract()</code>, <code>multiply()</code>, <code>divide()</code>.
+    There functions take any number of arguments on which the respective operation is to be
+    recursively performed. For exaple in <code>subtract()</code> the first argument will be taken
+    and one after the other all the remaining arguments of <code>subtract()</code> will be 
+    subtracted from till ultimately just one value is left. In case if no arguments are passed
+    then a <code>0</code> will be returned.
+</p>
+<p>
+    Now let's try to understand the Scheme code. Scheme is a typical LISP so every function call is
+    enclosed in parenthesis. All the arguments passed to the function are separated with spaces.
+    The first argument or the word that follows just after <code>(</code> is the call to that function.
+    For eample in <code>(+ 2 3)</code>, <code>+</code> is the function call to add and <code>2</code>
+    and <code>3</code> are the arguments passed to that add function.
+</p>
+
+<h4>Variables</h4>
+
 <pre><code class="python">
+# define a variable MAX that holds 500
+def max() -&gt; int:
+    return 500
 
+# define a constant PI that returns the value of PI
+def pi() -&gt; float:
+    return 3.14
 </code></pre>
-<pre><code class="java">
 
-</code></pre>
-<pre><code class="scheme">
 
-</code></pre>
-<!-- Simple functions -->
 <pre><code class="python">
+; define a variable MAX that holds 500
+(define max 500)
 
+; define a constant PI that returns the value of PI
+(define pi 3.14)
 </code></pre>
-<pre><code class="java">
 
-</code></pre>
-<pre><code class="scheme">
-
-</code></pre>
-<!-- Conditional -->
-<pre><code class="python">
-
-</code></pre>
-<pre><code class="java">
-
-</code></pre>
-<pre><code class="scheme">
-
-</code></pre>
-<!-- List operation: get length -->
-<pre><code class="python">
-
-</code></pre>
-<pre><code class="java">
-
-</code></pre>
-<pre><code class="scheme">
-
-</code></pre>
-<!-- list operation: reverse -->
-<pre><code class="python">
-
-</code></pre>
-<pre><code class="java">
-
-</code></pre>
-<pre><code class="scheme">
-
-</code></pre>
-<!-- list operation: append -->
-<pre><code class="python">
-
-</code></pre>
-<pre><code class="java">
-
-</code></pre>
-<pre><code class="scheme">
-
-</code></pre>
-<!-- list operation: head -->
-<pre><code class="python">
-
-</code></pre>
-<pre><code class="java">
-
-</code></pre>
-<pre><code class="scheme">
-
-</code></pre>
-<!-- list operation: tail -->
-<pre><code class="python">
-
-</code></pre>
-<pre><code class="java">
-
-</code></pre>
-<pre><code class="scheme">
-
-</code></pre>
-<!-- list operation: cons (append to head) -->
-<pre><code class="python">
-
-</code></pre>
-<pre><code class="java">
-
-</code></pre>
-<pre><code class="scheme">
-
-</code></pre>
-<!-- some simple implementations fibonacci -->
-<pre><code class="python">
-
-</code></pre>
-<pre><code class="java">
-
-</code></pre>
-<pre><code class="scheme">
-
-</code></pre>
-<!-- some simple implementations find an element -->
-<pre><code class="python">
-
-</code></pre>
-<pre><code class="java">
-
-</code></pre>
-<pre><code class="scheme">
-
-</code></pre>
-<!-- some simple implementations sort a list -->
-<pre><code class="python">
-
-</code></pre>
-<pre><code class="java">
-
-</code></pre>
-<pre><code class="scheme">
-
-</code></pre>
-<!-- some simple implementations list to a BST -->
-<pre><code class="python">
-
-</code></pre>
-<pre><code class="java">
-
-</code></pre>
-<pre><code class="scheme">
-
-</code></pre>
-<!-- input and output stdio -->
-<pre><code class="python">
-
-</code></pre>
-<pre><code class="java">
-
-</code></pre>
-<pre><code class="scheme">
-
-</code></pre>
-<!-- writing tests (testing framework) -->
-<pre><code class="python">
-
-</code></pre>
-<pre><code class="java">
-
-</code></pre>
-<pre><code class="scheme">
-
-</code></pre>
+<p>
+    There is no way to define variables to Scheme. The above can be visualized in such a way that we have functions that are defined. These functions are evaluated whenever we refer them somewhere in the code. This reference to the functions for computation of area of a circle using PI is shown above. The Python code is written in a very non Pythonic way just to help us visualize how the same would be visualized in Scheme.
+</p>
+<h4>Functions</h4>
+<h4>Conditionals</h4>
+<h4>List: Getting length</h4>
+<h4>List: Reversing</h4>
+<h4>List: Appending two lists</h4>
+<h4>List: getting the head element</h4>
+<h4>List: getting the tail</h4>
+<h4>List: add new element to head</h4>
+<h4>Compute factorial</h4>
+<h4>Compute fibonacci</h4>
+<h4>Find element in the list</h4>
+<h4>Sort elements in a list</h4>
+<h4>Elements of a list ot a BST</h4>
+<h4>Simple input and output</h4>
+<h4>Writing tests</h4>
 
     </div>
   </div>
