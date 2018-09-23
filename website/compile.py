@@ -26,7 +26,7 @@ def extract_into_list(file_name):
 
 
 def date_from_name(file_name):
-    month_to_words = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
+    month_to_words = ('', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
     year, month, day = tuple(file_name.split('-')[:3])
     month = month_to_words[int(month)]
     return day + ' ' + month + ' ' + year
