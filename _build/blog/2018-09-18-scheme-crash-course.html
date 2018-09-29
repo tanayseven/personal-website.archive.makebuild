@@ -125,29 +125,79 @@ add()  # =&gt; 0
 
 <h4>Variables</h4>
 
-<pre><code class="python">
-# define a variable MAX that holds 500
-def max() -&gt; int:
-    return 500
+<pre><code class="python"># define a variable MAX that holds 500
+&gt; MAX = 500
+&gt; MAX  # =&gt; 500
 
 # define a constant PI that returns the value of PI
-def pi() -&gt; float:
-    return 3.14
+&gt; PI = 3.14
+&gt; PI  # =&gt; 3.14
+
+# compute sum of two numbers and store it in a variable
+&gt; SUM = 3 + 6
+&gt; SUM  # =&gt; 9
 </code></pre>
 
 
-<pre><code class="python">
-; define a variable MAX that holds 500
-(define max 500)
+<pre><code class="scheme">; define a variable MAX that holds 500
+&gt; (define max 500)
+&gt; max  ; =&gt; Value: 500
 
 ; define a constant PI that returns the value of PI
-(define pi 3.14)
+&gt; (define pi 3.14)
+&gt; pi  ; =&gt; Value: 3.14
+
+; compute sum of two numbers and store it in a variable
+&gt; (define sum (+ 3 6))
+&gt; sum  ; =&gt; Value: 9
 </code></pre>
 
 <p>
-    There is no way to define variables to Scheme. The above can be visualized in such a way that we have functions that are defined. These functions are evaluated whenever we refer them somewhere in the code. This reference to the functions for computation of area of a circle using PI is shown above. The Python code is written in a very non Pythonic way just to help us visualize how the same would be visualized in Scheme.
+    Let's now look at these above things as variables, but name value binding. What exactly
+    do we mean by name value binding? Simply stating it's that when we enter that name, it is
+    evaluated to it's respective value that it was assigned to. This name can be later
+    changed in the code be reassigning another value to that variable. To prevent that,
+    we should take care about the kind of name that we give to the variables. Naming should
+    be such that we do not reassign that name to something else. In other words even
+    though the so called variables are not constant they should be treated as such or
+    else they will not maintain
+    <a href="https://en.wikipedia.org/wiki/Referential_transparency" target="_blank">referential transparency</a>.
+</p>
+<p>
+    The syntax for defining a variable is very easy. Take the example of PI <code>(define PI 3.14)</code>.
+    Whatever follows define is a new name with which we are associating a value, <code>PI</code> in this
+    case is the name and <code>3.14</code> is the value associated with it. That is simply how assigning
+    variables work in Scheme. The we can also evaluate an expression as a value assigned to name, this is
+    done for <code>sum</code> in the code snippet shown above.
 </p>
 <h4>Functions</h4>
+
+<pre><code class="python"># Lambda implementation of square function
+&gt; square = lambda x: x * x
+&gt; square(7)   #  =&gt; 49
+
+# Square implementation as function (syntactic sugar)
+&gt; def square(x):
+      return x * x
+&gt; square(7)
+</code></pre>
+
+
+<pre><code class="scheme">;  Lambda implementation of square function
+&gt; (define square (lambda (x) (* x x)))
+&gt; (square 7)  ;  =&gt; Value: 49
+
+; Square implementation as function (syntactic sugar)
+&gt; (define (square x) (* x x))
+&gt; (square 7)  ;  =&gt; Value: 49
+</code></pre>
+
+<p>
+    By default in Scheme we define variable of which the value is lambda which is first shown in Python.
+    In Python this is not the default way we define a function. But this is again written in that way because
+    that's how it is done in Scheme. The second function that shows default way of implementing functions in Python.
+    The same is shown in Scheme which is nothing but syntactic sugar for binding lambdas to name.
+</p>
 <h4>Conditionals</h4>
 <h4>List: Getting length</h4>
 <h4>List: Reversing</h4>
