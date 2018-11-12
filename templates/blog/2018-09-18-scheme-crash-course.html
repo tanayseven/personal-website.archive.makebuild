@@ -148,19 +148,158 @@ highlighted_code('scheme',
     that's how it is done in Scheme. The second function that shows default way of implementing functions in Python.
     The same is shown in Scheme which is nothing but syntactic sugar for binding lambdas to name.
 </p>
-<h4>Conditionals</h4>
+<!-- TODO start editing from here -->
+<h4>Taking a decision</h4>
+<p>
+{{highlighted_code('python',
+'''# Old enough to drink string
+def old_enough(age):
+    if age >= 18:
+        return "Yes"
+    else:
+        return "No"
+
+old_enough(34)
+old_enough(17)
+
+# Check if a given number is even returns the respective string
+
+''')}}
+{{highlighted_code('scheme',
+'''; old enough to drink string
+
+; Check if a given number is even returns the respective string
+
+''')}}
+</p>
 <h4>List: Getting length</h4>
+{{highlighted_code('python',
+'''# Recursively iterating to get the length of the list
+def length_of_list(lst, current_length=0):
+    if lst == []:
+        return current_length
+    return length_of_list(lst[1:], current_length+1)
+''')}}
+{{highlighted_code('scheme',
+'''; recursively iterating to get the length of the list
+
+''')}}
+<h4>List: Concatenating two lists</h4>
+{{highlighted_code('python',
+'''# Simply concatenating two lists
+[1, 2, 3, 4] + [5, 6, 7]
+
+[1, 2, 3, 4, 5, 6, 7]
+''')}}
+{{highlighted_code('scheme',
+'''; Simply concatenating two lists (cons)
+
+''')}}
+<h4>List: Appending element to list</h4>
+{{highlighted_code('python',
+'''# Simply appending element to list
+[1, 2, 3, 4, 5].append(6)
+''')}}
+{{highlighted_code('scheme',
+'''; Simply appending element to list
+
+''')}}
+<h4>List: Getting the first element in the list</h4>
+{{highlighted_code('python',
+'''[1, 2, 3, 4, 5][0]
+''')}}
+{{highlighted_code('scheme',
+'''
+''')}}
+<h4>List: Getting the rest in the list</h4>
+{{highlighted_code('python',
+'''[1, 2, 3, 4, 5][1:]
+''')}}
+{{highlighted_code('scheme',
+'''
+
+''')}}
 <h4>List: Reversing</h4>
-<h4>List: Appending two lists</h4>
-<h4>List: getting the head element</h4>
-<h4>List: getting the tail</h4>
-<h4>List: add new element to head</h4>
+{{highlighted_code('python',
+'''# Recursively iterating to reverse the list
+def reverse_list(lst, new_lst=[]):
+    if lst == []:
+        return new_lst
+    return reverse_list(lst[1:], list(lst[1]) + new_lst)
+
+# Use the reverse function provided by the language
+> list(reversed([1, 2, 3, 4, 5]))  # => [5, 4, 3, 2, 1]
+''')}}
+{{highlighted_code('scheme',
+'''; recursively iterating to reverse the list (use car, cdr and cons)
+
+; Use the reverse function provided by the language
+
+''')}}
 <h4>Compute factorial</h4>
+{{highlighted_code('python',
+'''
+def factorial(number, current_product=1):
+    if number == 1:
+        return current_product
+    return factorial(number-1, current_product * number)
+''')}}
+{{highlighted_code('scheme',
+'''
+
+''')}}
 <h4>Compute fibonacci</h4>
+{{highlighted_code('python',
+'''
+def fibonacci(count, current_list=[], previous=0, current=1):
+    if len(current_list) == count:
+        return current_list
+    return fibonacci(count, current_list.append(previous), previous=current, current=previous+current)
+''')}}
+{{highlighted_code('scheme',
+'''
+
+''')}}
 <h4>Find element in the list</h4>
-<h4>Sort elements in a list</h4>
-<h4>Elements of a list ot a BST</h4>
+{{highlighted_code('python',
+'''def search_element(lst, key, index=0):
+    if index == len(lst):
+        return None
+    if lst[index] == key:
+        return index
+    return search_element(lst, key, index+1)
+''')}}
+{{highlighted_code('scheme',
+'''
+
+''')}}
 <h4>Simple input and output</h4>
+{{highlighted_code('python',
+'''
+int(input()) + 45 # input an int and add 45 to it
+
+print("Enter your name: ")
+"Hello " + input() # output a prompt and take string input name and say hello
+
+''')}}
+{{highlighted_code('scheme',
+'''
+
+''')}}
 <h4>Writing tests</h4>
+{{highlighted_code('python',
+'''
+''')}}
+{{highlighted_code('scheme',
+'''
+(load "test-manager/load.scm")
+(load "src/ex_1.2.scm")
+
+(in-test-group
+  translation-of-an-expression-into-prefix-form
+  (define-test (expression-infix)
+     (assert-= (expression) -37/150)))
+(run-registered-tests)
+''')}}
 {% endblock %}
 
