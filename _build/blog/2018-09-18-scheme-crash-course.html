@@ -198,20 +198,182 @@ add()  # =&gt; 0
     that's how it is done in Scheme. The second function that shows default way of implementing functions in Python.
     The same is shown in Scheme which is nothing but syntactic sugar for binding lambdas to name.
 </p>
-<h4>Conditionals</h4>
+<!-- TODO start editing from here -->
+<h4>Taking a decision</h4>
+<p>
+
+<pre><code class="python"># Old enough to drink string
+def old_enough(age):
+    if age &gt;= 18:
+        return &#34;Yes&#34;
+    else:
+        return &#34;No&#34;
+
+old_enough(34)
+old_enough(17)
+
+# Check if a given number is even returns the respective string
+
+</code></pre>
+
+
+<pre><code class="scheme">; old enough to drink string
+
+; Check if a given number is even returns the respective string
+
+</code></pre>
+
 <h4>List: Getting length</h4>
+
+<pre><code class="python"># Recursively iterating to get the length of the list
+def length_of_list(lst, current_length=0):
+    if lst == []:
+        return current_length
+    return length_of_list(lst[1:], current_length+1)
+</code></pre>
+
+
+<pre><code class="scheme">; recursively iterating to get the length of the list
+
+</code></pre>
+
+<h4>List: Concatenating two lists</h4>
+
+<pre><code class="python"># Simply concatenating two lists
+[1, 2, 3, 4] + [5, 6, 7]
+
+[1, 2, 3, 4, 5, 6, 7]
+</code></pre>
+
+
+<pre><code class="scheme">; Simply concatenating two lists (cons)
+
+</code></pre>
+
+<h4>List: Appending element to list</h4>
+
+<pre><code class="python"># Simply appending element to list
+[1, 2, 3, 4, 5].append(6)
+</code></pre>
+
+
+<pre><code class="scheme">; Simply appending element to list
+
+</code></pre>
+
+<h4>List: Getting the first element in the list</h4>
+
+<pre><code class="python">[1, 2, 3, 4, 5][0]
+</code></pre>
+
+
+<pre><code class="scheme">
+</code></pre>
+
+<h4>List: Getting the rest in the list</h4>
+
+<pre><code class="python">[1, 2, 3, 4, 5][1:]
+</code></pre>
+
+
+<pre><code class="scheme">
+
+</code></pre>
+
 <h4>List: Reversing</h4>
-<h4>List: Appending two lists</h4>
-<h4>List: getting the head element</h4>
-<h4>List: getting the tail</h4>
-<h4>List: add new element to head</h4>
+
+<pre><code class="python"># Recursively iterating to reverse the list
+def reverse_list(lst, new_lst=[]):
+    if lst == []:
+        return new_lst
+    return reverse_list(lst[1:], list(lst[1]) + new_lst)
+
+# Use the reverse function provided by the language
+&gt; list(reversed([1, 2, 3, 4, 5]))  # =&gt; [5, 4, 3, 2, 1]
+</code></pre>
+
+
+<pre><code class="scheme">; recursively iterating to reverse the list (use car, cdr and cons)
+
+; Use the reverse function provided by the language
+
+</code></pre>
+
 <h4>Compute factorial</h4>
+
+<pre><code class="python">
+def factorial(number, current_product=1):
+    if number == 1:
+        return current_product
+    return factorial(number-1, current_product * number)
+</code></pre>
+
+
+<pre><code class="scheme">
+
+</code></pre>
+
 <h4>Compute fibonacci</h4>
+
+<pre><code class="python">
+def fibonacci(count, current_list=[], previous=0, current=1):
+    if len(current_list) == count:
+        return current_list
+    return fibonacci(count, current_list.append(previous), previous=current, current=previous+current)
+</code></pre>
+
+
+<pre><code class="scheme">
+
+</code></pre>
+
 <h4>Find element in the list</h4>
-<h4>Sort elements in a list</h4>
-<h4>Elements of a list ot a BST</h4>
+
+<pre><code class="python">def search_element(lst, key, index=0):
+    if index == len(lst):
+        return None
+    if lst[index] == key:
+        return index
+    return search_element(lst, key, index+1)
+</code></pre>
+
+
+<pre><code class="scheme">
+
+</code></pre>
+
 <h4>Simple input and output</h4>
+
+<pre><code class="python">
+int(input()) + 45 # input an int and add 45 to it
+
+print(&#34;Enter your name: &#34;)
+&#34;Hello &#34; + input() # output a prompt and take string input name and say hello
+
+</code></pre>
+
+
+<pre><code class="scheme">
+
+</code></pre>
+
 <h4>Writing tests</h4>
+
+<pre><code class="python">
+</code></pre>
+
+
+<pre><code class="scheme">
+(load &#34;test-manager/load.scm&#34;)
+(load &#34;src/ex_1.2.scm&#34;)
+
+(in-test-group
+  translation-of-an-expression-into-prefix-form
+  (define-test (expression-infix)
+     (assert-= (expression) -37/150)))
+(run-registered-tests)
+</code></pre>
+
 
     </div>
   </div>
