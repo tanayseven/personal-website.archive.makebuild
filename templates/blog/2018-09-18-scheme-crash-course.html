@@ -163,14 +163,26 @@ old_enough(34)
 old_enough(17)
 
 # Check if a given number is even returns the respective string
+def is_even(number):
+    if number % 2 == 0:
+        return "Yes"
+    else:
+        return "No"
 
+is_even(2)
+is_even(3)
 ''')}}
 {{highlighted_code('scheme',
 '''; old enough to drink string
-(define (age) (if (>= age 18) "Yes" "No"))
+> (define (old-enough age) 
+          (if (>= age 18) "Yes" "No"))
+> (old-enough 34)  ;  =>  Value: "Yes"
+> (old-enough 17)  ;  =>  Value: "No"
 
 ; Check if a given number is even returns the respective string
-
+> (define (is-even number) (if (= 0 (remainder number 2)) "Yes" "No"))
+> (is-even 2)  ;  =>  Value: "Yes"
+> (is-even 3)  ;  =>  Value: "No"
 ''')}}
 <h4>List: Getting length</h4>
 {{highlighted_code('python',
