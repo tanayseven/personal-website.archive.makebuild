@@ -1,4 +1,4 @@
-export SHELLOPTS:=$(SHELLOPTS):pipefail
+# export SHELLOPTS:=$(SHELLOPTS):pipefail
 
 VALIDATOR:=java -jar ./bin/vnu.jar
 BUILT_FILES:=$(shell find _build/ -name "*.html")
@@ -67,29 +67,24 @@ website: _build/index.html _build/blog/ sync_images _build/main.css _build/main.
 
 .PHONY: build
 .ONESHELL:
-## Will compile all the newer changes and accordingly update the files in the _build/ directory
 build: _build/ website
 
 .PHONY: serve
 .ONESHELL:
-## Will start a server on a given port with the static site available for testing
 serve: _build/ website
 	cd _build/ \
-	&& $(PYTHON) -m http.server
+	&& $(PYTHON) -m http.server 3000
 
 .PHONY: clean
-## To remove all the generated files (DO NOT USE THIS GENERATED FILES ARE NEEDED FOR FASTER BUILDS)
 clean::
 	$(RM) -rf _build/
 
 .PHONY: verify
-## To verify if all the generated files follow the HTML5 standard or not
 verify:
 	$(VALIDATOR) --skip-non-html $(BUILT_FILES)
 
 .PHONY: deploy
 .ONESHELL:
-## To deploy the website on Github Pages
 deploy: $(GP_REPO_PATH)
 	rsync -avzh _build/* $(GP_REPO_PATH)  && \
 	cd $(GP_REPO_PATH) && \
@@ -97,12 +92,13 @@ deploy: $(GP_REPO_PATH)
 	git commit -m "$$(git status --porcelain)" && \
 	git push
 
--include .makehelp/include/makehelp/Help.mak
-
-ifeq "help" "$(filter help,$(MAKECMDGOALS))"
-.makehelp/include/makehelp/Help.mak:
-	git clone --depth=1 https://github.com/christianhujer/makehelp.git .makehelp
-endif
-
 $(PYTHON):
 	sudo apt-get install python3
+
+help:
+	@echo "MAKE TARGETS:"
+	@echo "build  : will compile the website into a static website in the _build/ directory"
+	@echo "clean  : will clean the _build/ directory"
+	@echo "deploy : will deploy the website to the github pages hosting"
+	@echo "serve  : will start a local server and start serving the files from _build/ directory as a static website"
+	@echo "verify : will verify if the built website adheres to the HTML5 standard"
