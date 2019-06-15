@@ -11,7 +11,7 @@ TABLE_TO_JSON:=./website/table_to_json.py
 
 DEPENDENT_TEMPLATES:=./templates/base.html $(shell find ./templates/components/ -name "*.html") _build/main.css _build/main.js
 BLOG_OUTPUT:=$(shell awk -F ',' '{if (NR!=1) {print "_build/blog/" $$1 ".html"}}' blog_list.csv)
-IMAGES_PNG:=$(patsubst res/images/%, _build/out/images/%, $(shell find res/images -name "*.png" -or -name "*.jpg"))
+IMAGES_LIST:=$(patsubst res/images/%, _build/out/images/%, $(shell find res/images -name "*.png" -or -name "*.jpg" -or -name "*.json"))
 
 $(GP_REPO_PATH):
 	git clone git@github.com:tanayseven/tanayseven.github.io.git
@@ -58,7 +58,7 @@ _build/out/images/%: res/images/%
 
 .PHONY: sync_images
 ONESHELL:
-sync_images: $(IMAGES_PNG)
+sync_images: $(IMAGES_LIST)
 	mkdir -p _build/res/images/
 	rsync -avzh _build/out/images/* _build/res/images/
 
