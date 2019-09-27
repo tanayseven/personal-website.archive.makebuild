@@ -13,6 +13,8 @@ DEPENDENT_TEMPLATES:=./templates/base.html $(shell find ./templates/components/ 
 BLOG_OUTPUT:=$(shell awk -F ',' '{if (NR!=1) {print "_build/blog/" $$1 ".html"}}' blog_list.csv)
 IMAGES_LIST:=$(patsubst res/images/%, _build/out/images/%, $(shell find res/images -name "*.png" -or -name "*.jpg" -or -name "*.json"))
 
+all: build verify serve
+
 $(GP_REPO_PATH):
 	git clone git@github.com:tanayseven/tanayseven.github.io.git
 
@@ -30,13 +32,11 @@ _build/blog/%.html: ./templates/blog/%.html
 
 .ONESHELL:
 _build/blog/: ./templates/blog.html
-	mkdir -p $@
-	touch $(dir $@)
+	mkdir -p $@ 
 	$(PYTHON) $(COMPILE_SCRIPT) --template=$^ --file=blog_list.csv > $@/index.html
 
 .ONESHELL:
 _build/%.html: ./templates/%.html
-	touch $(dir $@)
 	$(PYTHON) $(COMPILE_SCRIPT) --template=$^ --file=blog_list.csv  > $@
 
 .PRECIOUS: _build/%.css
@@ -57,7 +57,7 @@ _build/out/images/%: res/images/%
 	$(PYTHON) $(IMAGE_RESIZE_SCRIPT) --input=$^ --output=$@
 
 .PHONY: sync_images
-ONESHELL:
+.ONESHELL:
 sync_images: $(IMAGES_LIST)
 	mkdir -p _build/res/images/
 	rsync -avzh _build/out/images/* _build/res/images/
@@ -68,6 +68,11 @@ website: _build/index.html _build/blog/ sync_images _build/main.css _build/main.
 .PHONY: build
 .ONESHELL:
 build: _build/ website
+
+.PHONY: buildWatch
+.ONESHELL:
+buildWatch:
+	watch make build
 
 .PHONY: serve
 .ONESHELL:
@@ -85,7 +90,7 @@ verify:
 
 .PHONY: deploy
 .ONESHELL:
-deploy: $(GP_REPO_PATH)
+deploy: $(GP_REPO_PATH) build verify
 	rsync -avzh _build/* $(GP_REPO_PATH)  && \
 	cd $(GP_REPO_PATH) && \
 	git add . && \

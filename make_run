@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-docker run -it -d -v ~/.ssh:/home/root/.ssh -v `pwd`:/personal_website personal_website make $1 $2 $3 $4 $5
-
