@@ -1,21 +1,25 @@
-# export SHELLOPTS:=$(SHELLOPTS):pipefail
+# All the power to build the website
 
+# Tools needed for building
 VALIDATOR:=java -jar ./bin/vnu.jar
 BUILT_FILES:=$(shell find _build/ -name "*.html")
 PYTHON:=$(or $(shell which python3), /usr/bin/python3)
-GP_REPO_PATH:=tanayseven.github.io/
 
+# Self written python scripts that take some actions
 COMPILE_SCRIPT:=./website/compile.py
 IMAGE_RESIZE_SCRIPT:=./website/resize_image.py
-TABLE_TO_JSON:=./website/table_to_json.py
 
+# Create dir script which creates directory for a path without the file at the end of the path
+CREATE_DIR = mkdir -p `echo $@ | sed -r "s/(.+)\/.+/\1/"`
+
+# Source directories
 DEPENDENT_TEMPLATES:=./templates/base.html $(shell find ./templates/components/ -name "*.html") _build/main.css _build/main.js
 BLOG_OUTPUT:=$(shell awk -F ',' '{if (NR!=1) {print "_build/blog/" $$1 ".html"}}' blog_list.csv)
 IMAGES_LIST:=$(patsubst res/images/%, _build/out/images/%, $(shell find res/images -name "*.png" -or -name "*.jpg" -or -name "*.json"))
 
+# Destination directories
 FILES_TO_BE_BUILT := _build/index.html _build/blog/ _build/main.css _build/main.js _build/dracula.css _build/highlight.js $(BLOG_OUTPUT)
-
-CREATE_DIR = mkdir -p `echo $@ | sed -r "s/(.+)\/.+/\1/"`
+GP_REPO_PATH:=tanayseven.github.io/
 
 all:
 	make clean && make build && make verify
