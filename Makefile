@@ -13,13 +13,15 @@ DEPENDENT_TEMPLATES:=./templates/base.html $(shell find ./templates/components/ 
 BLOG_OUTPUT:=$(shell awk -F ',' '{if (NR!=1) {print "_build/blog/" $$1 ".html"}}' blog_list.csv)
 IMAGES_LIST:=$(patsubst res/images/%, _build/out/images/%, $(shell find res/images -name "*.png" -or -name "*.jpg" -or -name "*.json"))
 
-all: build verify serve
+FILES_TO_BE_BUILT := _build/index.html _build/blog/ _build/main.css _build/main.js _build/dracula.css _build/highlight.js $(BLOG_OUTPUT)
+
+CREATE_DIR = mkdir -p `echo $@ | sed -r "s/(.+)\/.+/\1/"`
+
+all:
+	make clean && make build && make verify
 
 $(GP_REPO_PATH):
 	git clone git@github.com:tanayseven/tanayseven.github.io.git
-
-_build/:
-	mkdir -p _build/
 
 .ONESHELL:
 _build/%/: ./templates/%.html
@@ -37,24 +39,22 @@ _build/blog/: ./templates/blog.html
 
 .ONESHELL:
 _build/%.html: ./templates/%.html
-	$(PYTHON) $(COMPILE_SCRIPT) --template=$^ --file=blog_list.csv  > $@
+	$(CREATE_DIR) && $(PYTHON) $(COMPILE_SCRIPT) --template=$^ --file=blog_list.csv  > $@
 
 .PRECIOUS: _build/%.css
 _build/%.css: ./res/%.css
-	cp $^ $@
+	$(CREATE_DIR) && cp $^ $@
 
 .PRECIOUS: _build/%.js
 _build/%.js: ./res/%.js
-	cp $^ $@
+	$(CREATE_DIR) && cp $^ $@
 
 .PRECIOUS: _build/contact_form.txt
 _build/contact_form.txt: ./res/contact_form.txt
-	cp $^ $@
+	$(CREATE_DIR) && cp $^ $@
 
 _build/out/images/%: res/images/%
-	mkdir -p $@
-	rmdir $@
-	$(PYTHON) $(IMAGE_RESIZE_SCRIPT) --input=$^ --output=$@
+	$(CREATE_DIR) && $(PYTHON) $(IMAGE_RESIZE_SCRIPT) --input=$^ --output=$@
 
 .PHONY: sync_images
 .ONESHELL:
@@ -62,12 +62,9 @@ sync_images: $(IMAGES_LIST)
 	mkdir -p _build/res/images/
 	rsync -avzh _build/out/images/* _build/res/images/
 
-.PHONY: website
-website: _build/index.html _build/blog/ sync_images _build/main.css _build/main.js _build/dracula.css _build/highlight.js $(BLOG_OUTPUT)
-
 .PHONY: build
 .ONESHELL:
-build: _build/ website
+build: $(FILES_TO_BE_BUILT) sync_images
 
 .PHONY: buildWatch
 .ONESHELL:
@@ -76,7 +73,7 @@ buildWatch:
 
 .PHONY: serve
 .ONESHELL:
-serve: _build/ website
+serve: build
 	cd _build/ \
 	&& $(PYTHON) -m http.server 3000
 
@@ -96,9 +93,6 @@ deploy: $(GP_REPO_PATH) build verify
 	git add . && \
 	git commit -m "$$(git status --porcelain)" && \
 	git push
-
-$(PYTHON):
-	sudo apt-get install python3
 
 help:
 	@echo "MAKE TARGETS:"
