@@ -50,6 +50,9 @@ Advantages of using ``make`` and different internal workings
 
 5.  **Minification of CSS and JS** The JS and CSS is minified before making it available to the website to use.
 
+6.  **High speed parallel builds** The main advantage of using make is that the project is built very fast simply with
+    the use of the ``-j`` flag as command argument
+
 
 LICENSE
 ~~~~~~~
