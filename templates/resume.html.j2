@@ -1,7 +1,7 @@
-{% extends "base.html" %}
-{% from 'components/key_highlight.html' import key_highlights %}
-{% from 'components/skill.html' import skill %}
-{% from 'components/work_experience.html' import work_experience_card %}
+{% extends "base.html.j2" %}
+{% from 'components/key_highlight.html.j2' import key_highlights %}
+{% from 'components/skill.html.j2' import skill %}
+{% from 'components/work_experience.html.j2' import work_experience_card %}
 {% set active_button = 'resume' %}
 {% set title = 'Tanay PrabhuDesai - Résumé' %}
 {% block content %}

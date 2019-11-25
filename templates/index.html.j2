@@ -1,21 +1,21 @@
-{% extends "base.html" %}
+{% extends "base.html.j2" %}
 {% set page_type = 'landing_page'%}
-{% from 'components/key_highlight.html' import key_highlights %}
-{% from 'components/work_experience.html' import work_experience_card %}
+{% from 'components/key_highlight.html.j2' import key_highlights %}
+{% from 'components/work_experience.html.j2' import work_experience_card %}
 {% set title = 'Tanay PrabhuDesai' %}
 {% block content %}
   <div class="row">
-    {% include 'sections/self.html' %}
+    {% include 'sections/self.html.j2' %}
     <div class="separator"></div>
-    {% include 'sections/about.html' %}
+    {% include 'sections/about.html.j2' %}
     <div class="separator"></div>
-    {% include 'sections/blogs.html' %}
+    {% include 'sections/blogs.html.j2' %}
     <span class="center">
       <a class="waves-effect waves-light btn" href="/blog/"><i class="material-icons right">link</i>Blog List Page</a>
     </span>
     <div class="separator"></div>
-    {% include 'sections/work.html' %}
+    {% include 'sections/work.html.j2' %}
     <div class="separator"></div>
-    {% include 'sections/contact.html' %}
+    {% include 'sections/contact.html.j2' %}
   </div>
 {% endblock %}

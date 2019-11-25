@@ -13,7 +13,7 @@ IMAGE_RESIZE_SCRIPT:=./website/resize_image.py
 CREATE_DIR = mkdir -p `echo $@ | sed -r "s/(.+)\/.+/\1/"`
 
 # Source directories
-DEPENDENT_TEMPLATES:=./templates/base.html $(shell find ./templates/components/ -name "*.html") _build/main.css _build/main.js
+DEPENDENT_TEMPLATES:=./templates/base.html.j2 $(shell find ./templates/components/ -name "*.html.j2") _build/main.css _build/main.js
 BLOG_OUTPUT:=$(shell awk -F ',' '{if (NR!=1) {print "_build/blog/" $$1 ".html"}}' blog_list.csv)
 IMAGES_LIST:=$(patsubst res/images/%, _build/out/images/%, $(shell find res/images -name "*.png" -or -name "*.jpg" -or -name "*.json"))
 
@@ -28,21 +28,21 @@ $(GP_REPO_PATH):
 	git clone git@github.com:tanayseven/tanayseven.github.io.git
 
 .ONESHELL:
-_build/%/: ./templates/%.html
+_build/%/: ./templates/%.html.j2
 	mkdir -p $@
 	touch $(dir $@)
 	$(PYTHON) $(COMPILE_SCRIPT) --template=$^ > $@/index.html
 
-_build/blog/%.html: ./templates/blog/%.html
+_build/blog/%.html: ./templates/blog/%.html.j2
 	$(PYTHON) $(COMPILE_SCRIPT) --title="$(shell awk -F ',' -v cmp="$*" '{if ($$1==cmp) {la=$$2}} END {print la}' blog_list.csv)" --template=$^ > $@
 
 .ONESHELL:
-_build/blog/: ./templates/blog.html
+_build/blog/: ./templates/blog.html.j2
 	mkdir -p $@ 
 	$(PYTHON) $(COMPILE_SCRIPT) --template=$^ --file=blog_list.csv > $@/index.html
 
 .ONESHELL:
-_build/%.html: ./templates/%.html
+_build/%.html: ./templates/%.html.j2
 	$(CREATE_DIR) && $(PYTHON) $(COMPILE_SCRIPT) --template=$^ --file=blog_list.csv  > $@
 
 .PRECIOUS: _build/%.css
