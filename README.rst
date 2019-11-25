@@ -6,6 +6,10 @@
     :target: https://app.netlify.com/sites/tanay-personal-website-pre-prod/deploys
     :alt: Netlify Status
 
+.. image:: https://img.shields.io/github/repo-size/tanayseven/tanayseven.github.io?logo=Prod%20build%20size&style=for-the-badge
+    :target: https://github.com/tanayseven/tanayseven.github.io
+    :alt: Prod build size
+
 
 Static Website Generator
 ========================
