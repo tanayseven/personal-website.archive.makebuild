@@ -6,9 +6,21 @@
     :target: https://app.netlify.com/sites/tanay-personal-website-pre-prod/deploys
     :alt: Netlify Status
 
-.. image:: https://img.shields.io/github/repo-size/tanayseven/tanayseven.github.io?logo=Prod%20build%20size&style=for-the-badge
+.. image:: https://img.shields.io/github/languages/code-size/tanayseven/tanayseven.github.io?label=Build%20size&style=flat-square
     :target: https://github.com/tanayseven/tanayseven.github.io
-    :alt: Prod build size
+    :alt: Prod build 
+
+.. image:: https://img.shields.io/website?down_color=red&down_message=DOWN&label=Production&style=flat-square&up_color=green&up_message=UP&url=https%3A%2F%2Ftanayseven.com
+    :target: https://tanayseven.com
+    :alt: Prod deployment status
+
+.. image:: https://img.shields.io/github/license/tanayseven/personal_website?color=blue&label=License&style=flat-square
+    :target: https://www.mit.edu/~amini/LICENSE.md
+    :alt: License
+
+.. image:: https://img.shields.io/github/v/release/tanayseven/personal_website?include_prereleases&label=Current%20version&style=flat-square
+    :target: https://tanayseven.com
+    :alt: Current release version
 
 
 Static Website Generator
