@@ -1,0 +1,9 @@
+{% macro looking_for_work(yes=True) %}
+<div class="center looking-for-work-container">
+{% if yes %}
+  <span class="center new badge blue" data-badge-caption="currently looking for work">I'm</span>
+{% else %}
+  <span class="center new badge red" data-badge-caption="currently looking for work">I'm not</span>
+{% endif %}
+</div>
+{% endmacro %}
