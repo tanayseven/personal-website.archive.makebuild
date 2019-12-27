@@ -18,7 +18,7 @@ BLOG_OUTPUT:=$(shell awk -F ',' '{if (NR!=1) {print "_build/blog/" $$1 ".html"}}
 IMAGES_LIST:=$(patsubst res/images/%, _build/out/images/%, $(shell find res/images -name "*.png" -or -name "*.jpg" -or -name "*.json"))
 
 # Destination directories
-FILES_TO_BE_BUILT := _build/index.html _build/blog/ _build/main.css _build/main.js _build/dracula.css _build/highlight.js $(BLOG_OUTPUT)
+FILES_TO_BE_BUILT := _build/index.html _build/blog/ _build/main.css _build/main.js _build/dracula.css _build/highlight.js _build/.nojekyll $(BLOG_OUTPUT)
 GP_REPO_PATH:=tanayseven.github.io/
 
 all:
@@ -56,6 +56,10 @@ _build/%.js: ./res/%.js
 .PRECIOUS: _build/contact_form.txt
 _build/contact_form.txt: ./res/contact_form.txt
 	$(CREATE_DIR) && cp $^ $@
+
+.PRECIOUS: _build/.nojekyll
+_build/.nojekyll:
+	$(CREATE_DIR) touch _build/.nojekyll
 
 _build/out/images/%: res/images/%
 	$(CREATE_DIR) && $(PYTHON) $(IMAGE_RESIZE_SCRIPT) --input=$^ --output=$@

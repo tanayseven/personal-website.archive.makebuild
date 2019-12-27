@@ -26,6 +26,9 @@
 Static Website Generator
 ========================
 
+.. image:: personal_site.png
+    :alt: Personal website picture
+
 This repository contains a very small yet powerful static website generator which is used to make static website by
 using reusable components that will be used across the website and uses ``make`` as a tool to have incremental builds of
 the website. The attempt is to keep things very clean and do it the "Unix way" by representing everything in files. This
