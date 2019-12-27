@@ -15,7 +15,7 @@ CREATE_DIR = mkdir -p `echo $@ | sed -r "s/(.+)\/.+/\1/"`
 # Source directories
 DEPENDENT_TEMPLATES:=./templates/base.html.j2 $(shell find ./templates/components/ -name "*.html.j2") _build/main.css _build/main.js
 BLOG_OUTPUT:=$(shell awk -F ',' '{if (NR!=1) {print "_build/blog/" $$1 ".html"}}' blog_list.csv)
-IMAGES_LIST:=$(patsubst res/images/%, _build/out/images/%, $(shell find res/images -name "*.png" -or -name "*.jpg" -or -name "*.json"))
+IMAGES_LIST:=$(patsubst res/images/%, _build/out/images/%, $(shell find res/images -name "*.png" -or -name "*.jpg" -or -name "*.json" -or -name "*.svg"))
 
 # Destination directories
 FILES_TO_BE_BUILT := _build/index.html _build/blog/ _build/main.css _build/main.js _build/dracula.css _build/highlight.js _build/.nojekyll $(BLOG_OUTPUT)
