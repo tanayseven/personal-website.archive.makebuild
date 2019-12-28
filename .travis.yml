@@ -10,7 +10,6 @@ addons:
 
 before_install:
   - pip install awscli pipenv
-  - aws s3 sync s3://travis-build-stages-shared-storage-test/$TRAVIS_BUILD_NUMBER ~/$TRAVIS_BUILD_NUMBER
 
 install:
   - pipenv install --system --ignore-pipfile 
