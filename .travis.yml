@@ -18,8 +18,8 @@ install:
 jobs:
   include:
     - stage: build
-      script: pipenv run make clean && pipenv run make build -j && aws s3 sync _build s3://tanayseven-personal-website-build/$TRAVIS_BUILD_NUMBER/_build
+      script: ./shell-scripts/build.sh
     - stage: verify
-      script: aws s3 sync s3://tanayseven-personal-website-build/$TRAVIS_BUILD_NUMBER/_build _build && pipenv run make verify
+      script: ./shell-scripts/verify.sh
     - stage: deploy
-      script: echo "Deploy yet to be implemented"
+      script: ./shell-scripts/deploy.sh
