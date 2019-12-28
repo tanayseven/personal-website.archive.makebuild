@@ -8,15 +8,18 @@ addons:
     packages:
       - openjdk-8-jre
 
+before_install:
+  - pip install awscli pipenv
+  - aws s3 sync s3://travis-build-stages-shared-storage-test/$TRAVIS_BUILD_NUMBER ~/$TRAVIS_BUILD_NUMBER
+
 install:
-  - pip install pipenv
   - pipenv install --system --ignore-pipfile 
 
 jobs:
   include:
     - stage: build
-      script: pipenv run make clean && pipenv run make build -j
+      script: pipenv run make clean && pipenv run make build -j && aws s3 sync _build s3://tanayseven-personal-website-build/$TRAVIS_BUILD_NUMBER/_build
     - stage: verify
-      script: pipenv run make verify
+      script: aws s3 sync s3://tanayseven-personal-website-build/$TRAVIS_BUILD_NUMBER/_build _build && pipenv run make verify
     - stage: deploy
       script: echo "Deploy yet to be implemented"
