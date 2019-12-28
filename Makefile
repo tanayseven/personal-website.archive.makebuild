@@ -99,7 +99,7 @@ deploy: $(GP_REPO_PATH) build verify
 	rsync -avzh _build/* $(GP_REPO_PATH)  && \
 	cd $(GP_REPO_PATH) && \
 	git add . && \
-	git commit -m "$$(git status --porcelain)" && \
+	git commit -m "$$(git status --porcelain)" || echo "Nothing new in the branch, nothing will be deployed" && \
 	git push
 
 help:
