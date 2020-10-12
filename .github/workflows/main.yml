@@ -17,7 +17,7 @@ jobs:
         run: make clean clean-deps
 
       - name: Install all the dependencies
-        run: make install-deps
+        run: sudo apt-get install python3-venv && make install-deps
   
       - name: Build the project
         run: make build -j
@@ -25,5 +25,5 @@ jobs:
       - name: Verify the built files
         run: make verify
       
-      - name: deploy
-        run: echo To be updated
+      - name: Deploy to Github pages
+        run: make deploy
