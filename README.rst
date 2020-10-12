@@ -1,6 +1,6 @@
-.. image:: https://travis-ci.org/tanayseven/personal_website.svg?branch=master
-    :target: https://travis-ci.org/tanayseven/personal_website
-    :alt: tests
+.. image:: https://github.com/tanayseven/personal-website/workflows/CI/badge.svg
+    :target: https://github.com/tanayseven/personal-website/actions?query=workflow%3ACI
+    :alt: CI
 
 .. image:: https://api.netlify.com/api/v1/badges/12c02181-a429-42f0-becb-fc25eaae57e8/deploy-status
     :target: https://app.netlify.com/sites/tanay-personal-website-pre-prod/deploys
