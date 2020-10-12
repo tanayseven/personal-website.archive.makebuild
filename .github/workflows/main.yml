@@ -12,16 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-    
-      - name: Bash for GitHub Actions
-        uses: jcblw/bash@1.0.0
         
       - name: Clean everything and start from scratch
         run: make clean clean-deps
 
       - name: Install all the dependencies
-        run: make build
-        
+        run: make install-deps
+  
+      - name: Build the project
+        run: make build -j
+  
       - name: Verify the built files
         run: make verify
       
