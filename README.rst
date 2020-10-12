@@ -18,10 +18,6 @@
     :target: https://www.mit.edu/~amini/LICENSE.md
     :alt: License
 
-.. image:: https://img.shields.io/github/v/release/tanayseven/personal_website?include_prereleases&label=Current%20version&style=flat-square
-    :target: https://tanayseven.com
-    :alt: Current release version
-
 
 Static Website Generator
 ========================
