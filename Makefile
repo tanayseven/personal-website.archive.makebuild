@@ -2,6 +2,7 @@
 # May the force be with you
 
 # Tools needed for building
+SHELL:=$(or $(shell which zsh), $(shell which bash))
 VALIDATOR:=java -jar ./bin/vnu.jar
 PYTHON:=$(or $(shell which python3), /usr/bin/python3)
 PIP:=pip
