@@ -73,6 +73,7 @@ _build/.nojekyll:
 	$(CREATE_DIR) touch _build/.nojekyll
 
 _build/out/images/%: res/images/%
+	$(ACTIVATE)
 	$(CREATE_DIR) && $(PYTHON) $(IMAGE_RESIZE_SCRIPT) --input=$^ --output=$@
 
 .PHONY: sync_images
