@@ -1,4 +1,5 @@
 # All the power to build the website
+# May the force be with you
 
 # Tools needed for building
 VALIDATOR:=java -jar ./bin/vnu.jar
@@ -21,7 +22,7 @@ IMAGES_LIST:=$(patsubst res/images/%, _build/out/images/%, $(shell find res/imag
 FILES_TO_BE_BUILT := _build/index.html _build/blog/ _build/main.css _build/main.js _build/dracula.css _build/highlight.js _build/.nojekyll $(BLOG_OUTPUT)
 GP_REPO_PATH:=tanayseven.github.io/
 
-all:
+all: ## will clean the _build/ directory"
 	make clean && make build && make verify
 
 $(GP_REPO_PATH):
@@ -72,7 +73,7 @@ sync_images: $(IMAGES_LIST)
 
 .PHONY: build
 .ONESHELL:
-build: $(FILES_TO_BE_BUILT) sync_images
+build: $(FILES_TO_BE_BUILT) sync_images  ## will compile the website into a static website in the _build/ directory"
 
 .PHONY: buildWatch
 .ONESHELL:
@@ -81,7 +82,7 @@ buildWatch:
 
 .PHONY: serve
 .ONESHELL:
-serve: build
+serve: build  ## will start a local server and start serving the files from _build/ directory as a static website
 	cd _build/ \
 	&& $(PYTHON) -m http.server 3000
 
@@ -90,22 +91,20 @@ clean::
 	$(RM) -rf _build/
 
 .PHONY: verify
-verify:
+verify:   ## will verify if the built website adheres to the HTML5 standard
 	$(VALIDATOR) --skip-non-html $(BUILT_FILES)
 
 .PHONY: deploy
 .ONESHELL:
-deploy: $(GP_REPO_PATH) build verify
+deploy: $(GP_REPO_PATH) build verify  ## will deploy the website to the github pages hosting
 	rsync -avzh _build/* $(GP_REPO_PATH)  && \
 	cd $(GP_REPO_PATH) && \
 	git add . && \
 	git commit -m "$$(git status --porcelain)" || echo "Nothing new in the branch, nothing will be deployed" && \
 	git push
 
-help:
-	@echo "MAKE TARGETS:"
-	@echo "build  : will compile the website into a static website in the _build/ directory"
-	@echo "clean  : will clean the _build/ directory"
-	@echo "deploy : will deploy the website to the github pages hosting"
-	@echo "serve  : will start a local server and start serving the files from _build/ directory as a static website"
-	@echo "verify : will verify if the built website adheres to the HTML5 standard"
+help:   ## will print this help
+	@echo '** Make targets **'
+	@grep '^[a-zA-Z]' $(MAKEFILE_LIST) | \
+    sort | \
+    awk -F ':.*?## ' 'NF==2 {printf "\033[36m  %-25s\033[0m %s\n", $$1, $$2}'
