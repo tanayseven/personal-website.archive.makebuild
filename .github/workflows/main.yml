@@ -15,9 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         
-      - name: GitHub Action for Bash
-        uses: lafernando/github-action-bash@v1.0
-        
       - name: Clean everything and start from scratch
         run: make clean clean-deps
 
@@ -27,7 +24,9 @@ jobs:
           sudo apt-get install python3-venv && make install-deps
   
       - name: Build the project
-        run: make build -j
+        run: |
+          echo "-------------------->"$SHELL
+          make build -j
   
       - name: Verify the built files
         run: make verify
