@@ -15,6 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         
+      - name: GitHub Action for Bash
+        uses: lafernando/github-action-bash@v1.0
+        
       - name: Clean everything and start from scratch
         run: make clean clean-deps
 
