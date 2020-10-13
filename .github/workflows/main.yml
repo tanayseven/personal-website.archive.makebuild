@@ -24,16 +24,16 @@ jobs:
       - name: Build the project
         run: make build -j
 
-      - name: Setup Github config
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-  
       - name: Verify the built files
         run: make verify
 
+      - name: Setup Github config
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+
       - name: Clone the Github pages repository
         run: git clone https://${{ secrets.GH_TOKEN }}@github.com/tanayseven/tanayseven.github.io.git
-      
+
       - name: Deploy to Github pages
         run: make deploy
