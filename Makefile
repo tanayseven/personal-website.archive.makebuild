@@ -4,7 +4,8 @@
 # Tools needed for building
 SHELL:=$(or $(shell which zsh), $(shell which bash))
 VALIDATOR:=java -jar ./bin/vnu.jar
-PYTHON:=$(or $(shell which python3), /usr/bin/python3)
+PYTHON_3:=$(or $(shell which python3), /usr/bin/python3)
+PYTHON:=python
 PIP:=pip
 PIP_COMPILE:=pip-compile
 ACTIVATE:=source .venv/bin/activate
@@ -85,7 +86,7 @@ sync_images: $(IMAGES_LIST)
 
 .ONESHELL:
 .venv:
-	$(PYTHON) -m venv .venv
+	$(PYTHON_3) -m venv .venv
 
 .ONESHELL:
 requirements.txt: requirements.in .venv

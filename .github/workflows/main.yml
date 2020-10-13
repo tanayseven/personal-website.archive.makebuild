@@ -19,14 +19,10 @@ jobs:
         run: make clean clean-deps
 
       - name: Install all the dependencies
-        run: |
-          echo "-------------------->"$SHELL
-          sudo apt-get install python3-venv && make install-deps
+        run: sudo apt-get install python3-venv && make install-deps
   
       - name: Build the project
-        run: |
-          echo "-------------------->"$SHELL
-          make build -j
+        run: make build -j
   
       - name: Verify the built files
         run: make verify
