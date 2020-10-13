@@ -91,8 +91,8 @@ sync_images: $(IMAGES_LIST)
 .ONESHELL:
 requirements.txt: requirements.in .venv
 	$(ACTIVATE)
-	$(PIP_COMPILE) requirements.in >> requirements.txt
-	$(PIP) install -r requirements.txt | grep -v 'Requirement already satisfied'
+	$(PIP_COMPILE) requirements.in --generate-hashes >> requirements.txt
+	$(PIP) install --require-hashes -r requirements.txt | grep -v 'Requirement already satisfied'
 
 .PHONY: install-deps
 install-deps: requirements.txt
