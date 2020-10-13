@@ -6,3 +6,4 @@ personal_website.iml
 _build/
 .vscode/
 .venv/
+test_results/

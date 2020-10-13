@@ -38,15 +38,20 @@ jobs:
       - name: Deploy to Github pages
         run: make deploy
 
-      - name: Lighthouse CI
-      - uses: actions/checkout@v2
+      - name: Install node js
+        run: |
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
+          export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          nvm install 12.19.0
+          nvm use 12.19.0
+          sudo chmod -R +rw /usr/local/lib/node_modules
 
-      - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v3
+      - name: Run lighthouse performance
+        run: make compute-site-performance
+
+      - name: Publish the lighthouse performance badges
+        uses: actions/upload-artifact@v2
         with:
-          urls: |
-            https://tanayseven.com/
-            https://tanayseven.com/blog
-          budgetPath: ./budget.json # test performance budgets
-          uploadArtifacts: true # save results as an action artifacts
-          temporaryPublicStorage: true # upload lighthouse report to the temporary storage
+          name: lighthouse-accessiblity
+          path: test_results/lighthouse_accessibility.svg

@@ -26,6 +26,9 @@ IMAGES_LIST:=$(patsubst res/images/%, _build/out/images/%, $(shell find res/imag
 OUTPUT_BUILD_FILES := _build/index.html _build/blog/ _build/main.css _build/main.js _build/dracula.css _build/highlight.js _build/.nojekyll $(BLOG_OUTPUT)
 GP_REPO_PATH:=tanayseven.github.io/
 
+# Dependency directories
+export NPM_PACKAGES:=$$HOME/.npm-packages
+
 .ONESHELL:
 all: ## will run the following targets in sequence clean, build, verify
 	make clean
@@ -134,6 +137,17 @@ deploy: $(GP_REPO_PATH) build verify  ## deploy the website to the github pages 
 	git add . && \
 	git commit -m "$$(git status --porcelain)" || echo "Nothing new in the branch, nothing will be deployed" && \
 	git push
+
+.ONESHELL:
+$(NPM_PACKAGES):
+	mkdir -p $@
+	npm config set prefix $@
+
+.ONESHELL:
+.PHONY: compute-site-performance
+compute-site-performance:  ## run lighthouse performance analysis and create badges for each
+	@lighthouse-badges --version || npm i -g lighthouse-badges
+	lighthouse-badges --urls https://tanayseven.com/ https://tanayseven.com/blog -o test_results
 
 .SILENT: help
 help:   ## print this help
