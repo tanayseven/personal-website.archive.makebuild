@@ -11,6 +11,7 @@ jobs:
   build:
     env:
       SHELL: /bin/bash
+      GH_TOKEN: {{ secrets.GH_TOKEN }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,6 +24,11 @@ jobs:
   
       - name: Build the project
         run: make build -j
+
+      - name: Setup Github config
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
   
       - name: Verify the built files
         run: make verify
