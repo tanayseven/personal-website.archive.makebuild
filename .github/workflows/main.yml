@@ -46,8 +46,8 @@ jobs:
       - name: Run lighthouse performance
         run: make compute-site-performance
 
-      - name: Publish the lighthouse performance badges
-        uses: actions/upload-artifact@v2
-        with:
-          name: lighthouse-accessiblity
-          path: test_results/lighthouse_accessibility.svg
+      - name: Install Netlify CLI
+        run: npm install netlify-cli -g
+
+      - name: Publish the performance badges to Netlify
+        run: netlify deploy --auth=${{ secrets.NETLIFY_TOKEN }} --dir=test_results/ --site=tanayseven-badges-personal-website.netlify.app
