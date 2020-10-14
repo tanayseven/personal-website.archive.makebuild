@@ -37,7 +37,7 @@ Website Performance Report (Lighthouse)
     :target: https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Ftanayseven.com%2F&strategy=mobile&category=accessibility&utm_source=lh-chrome-ext
     :alt: Accessibility
 
-.. image:: https://tanayseven-badges-personal-website.netlify.app/lighthouse_accessibility.svg
+.. image:: https://tanayseven-badges-personal-website.netlify.app/lighthouse_seo.svg
     :target: https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Ftanayseven.com%2F&strategy=mobile&category=seo&utm_source=lh-chrome-ext
     :alt: SEO
 
@@ -66,7 +66,7 @@ Inspired from the following websites:
 
 
 Tanay's Personal Website
-========================
+------------------------
 
 To know how to do different actions using the make file, please use ``make help``
 
