@@ -19,6 +19,26 @@
     :alt: License
 
 
+Website Performance (Lighthouse)
+================================
+
+.. image:: https://tanayseven-badges-personal-website.netlify.app/lighthouse_best-practices.svg
+    :target: https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Ftanayseven.com%2F&strategy=mobile&category=best-practices&utm_source=lh-chrome-ext
+    :alt: Best Practices
+
+.. image:: https://tanayseven-badges-personal-website.netlify.app/lighthouse_performance.svg
+    :target: https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Ftanayseven.com%2F&strategy=mobile&category=performance&utm_source=lh-chrome-ext
+    :alt: Performance
+
+.. image:: https://tanayseven-badges-personal-website.netlify.app/lighthouse_accessibility.svg
+    :target: https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Ftanayseven.com%2F&strategy=mobile&category=accessibility&utm_source=lh-chrome-ext
+    :alt: Accessibility
+
+.. image:: https://tanayseven-badges-personal-website.netlify.app/lighthouse_accessibility.svg
+    :target: https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Ftanayseven.com%2F&strategy=mobile&category=seo&utm_source=lh-chrome-ext
+    :alt: SEO
+
+
 Static Website Generator
 ========================
 
