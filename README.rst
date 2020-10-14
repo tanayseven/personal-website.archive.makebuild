@@ -68,32 +68,35 @@ Inspired from the following websites:
 Tanay's Personal Website
 ========================
 
-To know how to do different actions using the make file, please use ``make help``. Most of all you can do with ``make``
-will be documented there.
+To know how to do different actions using the make file, please use ``make help``
 
-Advantages of using ``make`` and different internal workings
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Advantages of using ``make`` and other design choices in this project
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1.  **Incremental building** make offers incremental building and or compiling of files. This means that if there are
     multiple files, then it will build the necessary files purely based on the changes that have been recently made.
-    Performing a ``make build`` will run this incremental build, it uses ``rsync`` to perform the actual incremental
-    build.
+    Performing a ``make build`` will run this incremental build since it is the property of the GNU-Make tool. It also
+    uses ``rsync`` to perform the incremental build for static assets that do not need compilation/building.
 
 2.  **Serving website locally** has a command called ``make serve`` which expects the ``_build`` directory to exist and
     if it exists then it just starts a server to serve the contents of that directory, else it actually performs a build
     and then serves the files from that directly in that server.
 
-3.  **Deploying the website** has a command to deploy the website to the static website that is hosted on github pages.
+3.  **Watch build** there is a command called ``make watch-build`` which can be used to harness the power of both
+    incremental build and that of serve. This leads to both easy and fast modification to your website on your local
+    machine.
+
+4.  **Deploying the website** has a command to deploy the website to the static website that is hosted on github pages.
     This command performs ``rsync`` of the files to the the actual repository and then does a commit in that repository
     and pushes the newly committed changes to the repository which automatically makes it live on the website.
 
-4.  **Splitting web pages into components** The use of Jinja2 helps me to split the Makefile into components into
+5.  **Splitting web pages into components** The use of Jinja2 helps me to split the Makefile into components into
     multiple directories in ``templates/components/`` directory, this makes the components be reusable across different
     pages in the website.
 
-5.  **Minification of CSS and JS** The JS and CSS is minified before making it available to the website to use.
+6.  **Minification of CSS and JS** The JS and CSS is minified before making it available to the website to use.
 
-6.  **High speed parallel builds** The main advantage of using make is that the project is built very fast simply with
+7.  **High speed parallel builds** The main advantage of using make is that the project is built very fast simply with
     the use of the ``-j`` flag as command argument
 
 
