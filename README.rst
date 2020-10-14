@@ -1,3 +1,6 @@
+Continuous Integration and Deployment
+=====================================
+
 .. image:: https://github.com/tanayseven/personal-website/workflows/CI/badge.svg
     :target: https://github.com/tanayseven/personal-website/actions?query=workflow%3ACI
     :alt: CI
@@ -19,8 +22,8 @@
     :alt: License
 
 
-Website Performance (Lighthouse)
-================================
+Website Performance Report (Lighthouse)
+=======================================
 
 .. image:: https://tanayseven-badges-personal-website.netlify.app/lighthouse_best-practices.svg
     :target: https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Ftanayseven.com%2F&strategy=mobile&category=best-practices&utm_source=lh-chrome-ext
